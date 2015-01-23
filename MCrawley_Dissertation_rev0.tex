@@ -1,0 +1,132 @@
+\documentclass{osudissert96}
+
+% BibTeX from the BiBTeX Documentation
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+%
+% It is better to break up the dissertation into multiple files (e.g.,
+% one file per chapter, as well as separate files for the abstract,
+% acknowledgements, and vita).  These files are brought into the
+% document using \include{} statements.  There will be times, however,
+% when you don't want to print the ENTIRE dissertation.  You can limit
+% what will actually be printed by using the \includeonly{} statment.
+% This contains a list of the files you want printed.  Any file NOT
+% listed will not be printed.  However, all page numbers, references,
+% etc., will be preserved as though all the files were actually
+% printed. For example, the line below would result only in chapters 1
+% and 3 being printed (if it were uncommented).
+%
+
+%\includeonly{ch1.intro,ch3.implem}
+
+% UPDATED TEXT (2010):
+%  In the newest format, titles should be title case everywhere.
+%
+% HISTORICAL TEXT (1996):
+%  In the new format, the titles of each chapter should appear in
+%  uppercase.  In the TOC, however, they should be in lowercase.
+%  The command below automates this behavior.  However, you'll have to be
+%  careful not to include \labels within your \chapter definitions or
+%  there will be problems.  If you don't want this to be automated, comment
+%  out the \typesetChapterTitle definition below and do your chapters in
+%  the form:
+%  \chapter[MY TITLE]{My Title}
+%
+%  \renewcommand\typesetChapterTitle[1]{\uppercase{#1}}
+\renewcommand\typesetChapterTitle[1]{#1}
+
+\begin{document}
+
+%
+% First, declare the parts of your title page 
+%
+
+\author{Michael Crawley}
+\title{Understanding the Aeroacoustic Radiation Sources and Mechanism in High-Speed Jets}
+\authordegrees{B.S.}  % Degrees thus far, not including this one.
+\unit{Department of Mechanical Engineering}
+
+\advisorname{Mo Samimy}
+\member{Datta Gaitonde}
+\member{James Gregory}
+\member{Mei Zhuang}      % Normally you will have advisor + 2 members
+
+
+%
+% The following creates the title page
+%
+
+\maketitle
+\disscopyright
+
+
+%
+% Abstract goes here.
+%
+
+\begin{abstract}
+  \input{abstract}
+\end{abstract}
+
+\dedication{This work is dedicated to Science \ldots}
+
+
+%
+% Bring in Acknowledgement and Vita from separate files named ``ack.tex''
+% and ``vita.tex''.
+%
+
+\include{ack}
+\include{vita}
+
+
+%
+% Make the Table of Contents and other good stuff
+%
+
+\tableofcontents
+\listoftables
+\listoffigures
+
+
+%
+% The following is a list of chapters.  Each is brought in from a
+% separate file using the \include{} command.
+%
+
+\include{ch_introduction}     % tell them what you are going to tell them 
+%\include{ch2.problem}   % describe the problem statement
+%\include{ch3.implem}    % what is your solution
+%\include{ch4.end}       % conclusion stuff
+
+
+%
+% If you have appendices in your dissertation, you will need the
+% following, else keep it commented. The following appendices are in
+% files called ``app1.tex'', and ``app2.tex'', and they
+% look just like any chapter.
+%
+
+\appendix
+%\include{app1}
+%\include{app2}
+
+
+%
+% The all important bibliography file at the end of your document!! Use
+% the bibstyle you (your department) like in the \bibliographystyle{}
+% statement and list the name of your bibliography database file in
+% the \bibliography{} statement.  In this example, ``bibfile.bib'' is
+% the name of the database.  See the LaTeX manual appendix B for details
+% about the bibliography database and BibTeX.
+%
+
+\bibliographystyle{plain}
+\bibliography{master}
+
+\end{document}
+
+
+
+
