@@ -1,3 +1,37 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{Cabana2008}
+Marie Cabana, Véronique Fortuné, and Peter Jordan.
+\newblock Identifying the radiating core of lighthill's source term.
+\newblock {\em Theoretical Computational Fluid Dynamics}, 22:87--106, 2008.
+
+\bibitem{Jordan2008}
+P.~Jordan and Y.~Gervais.
+\newblock Subsonic jet aeroacoustics: associating experiment, modelling and
+  simulations.
+\newblock {\em Experiments in Fluids}, 44:1--21, 2008.
+
+\bibitem{Lighthill1952}
+M.~J. Lighthill.
+\newblock On sound generated aerodynamically. i. general theory.
+\newblock In {\em Proceedings of the Royal Society of London: Series A,
+  Mathematical and Physical Sciences}, volume 211, pages 564--587. The Royal
+  Society, 1952.
+
+\bibitem{Tam1996}
+Christopher K.~W. Tam, Golebiowski, Michel, and J.~M. Seiner.
+\newblock On the two components of turbulent mixing noise from supersonic jets.
+\newblock In {\em 2nd AIAA/CEAS Aeroacoustics Conference}, volume AIAA Paper,
+  1996.
+
+\bibitem{Tam2008}
+Christopher K.~W. Tam, K.~Viswanathan, K.~Ahuja, and J.~Panda.
+\newblock The source of jet noise: Experimental evidence.
+\newblock {\em Journal of Fluid Mechanics}, 615:253--292, 2008.
+
+\bibitem{Viswanathan2006}
+K~Viswanathan.
+\newblock Scaling laws and a method for identifying components of jet noise.
+\newblock {\em AIAA Journal}, 44(10):2274--2285, 2006.
 
 \end{thebibliography}

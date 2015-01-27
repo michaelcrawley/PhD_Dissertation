@@ -5333,17 +5333,6 @@
   Keywords                 = {Shear Layers}
 }
 
-@InProceedings{,
-  Title                    = {On Sound Generated Aerodynamically. I. General Theory},
-  Author                   = {Lighthill, M. J.},
-  Booktitle                = {Proceedings of the Royal Society of London: Series A, Mathematical and Physical Sciences},
-  Pages                    = {564-587},
-  Publisher                = {The Royal Society},
-  Volume                   = {211},
-
-  Keywords                 = {Acoustics}
-}
-
 @Article{,
   Title                    = {Jet Noise},
   Author                   = {Lighthill, M. J.},
@@ -5367,6 +5356,18 @@
   Number                   = {1148},
   Pages                    = {1-32},
   Volume                   = {222}
+}
+
+@InProceedings{Lighthill1952,
+  Title                    = {On Sound Generated Aerodynamically. I. General Theory},
+  Author                   = {Lighthill, M. J.},
+  Booktitle                = {Proceedings of the Royal Society of London: Series A, Mathematical and Physical Sciences},
+  Year                     = {1952},
+  Pages                    = {564-587},
+  Publisher                = {The Royal Society},
+  Volume                   = {211},
+
+  Keywords                 = {Acoustics}
 }
 
 @Article{,
@@ -8898,15 +8899,15 @@
   Keywords                 = {Jets Acoustics}
 }
 
-@Misc{,
+@Conference{Tam1996,
   Title                    = {On the Two Components of Turbulent Mixing Noise from Supersonic Jets},
-
-  Author                   = {Tam, Christopher K. W. and Golebiowski, Michel and Seiner, J. M.},
+  Author                   = {Tam, Christopher K. W. and Golebiowski and Michel and Seiner, J. M.},
+  Booktitle                = {2nd AIAA/CEAS Aeroacoustics Conference},
   Year                     = {1996},
-
-  Keywords                 = {Available Online Jets Acoustics},
   Number                   = {1996-1716},
-  Volume                   = {AIAA Paper}
+  Volume                   = {AIAA Paper},
+
+  Keywords                 = {Available Online Jets Acoustics}
 }
 
 @Article{,
@@ -8980,7 +8981,7 @@
   Keywords                 = {Instability Jets}
 }
 
-@Article{,
+@Article{Tam2008,
   Title                    = {The Source of Jet Noise: Experimental Evidence},
   Author                   = {Tam, Christopher K. W. and Viswanathan, K. and Ahuja, K. and Panda, J.},
   Journal                  = {Journal of Fluid Mechanics},
@@ -9372,6 +9373,19 @@
   Volume                   = {9},
 
   Keywords                 = {Heated Jets Acoustics}
+}
+
+@Article{Viswanathan2006,
+  Title                    = {Scaling Laws and a Method for Identifying Components of Jet Noise},
+  Author                   = {Viswanathan, K},
+  Journal                  = {AIAA Journal},
+  Year                     = {2006},
+  Number                   = {10},
+  Pages                    = {2274-2285},
+  Volume                   = {44},
+
+  Owner                    = {michaelcrawley},
+  Timestamp                = {2015.01.27}
 }
 
 @Article{,

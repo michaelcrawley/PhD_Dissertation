@@ -1,4 +1,5 @@
 \documentclass{osudissert96}
+\usepackage{natbib}
 
 % BibTeX from the BiBTeX Documentation
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -18,7 +19,7 @@
 % and 3 being printed (if it were uncommented).
 %
 
-%\includeonly{ch1.intro,ch3.implem}
+%\includeonly{ch_introduction}
 
 % UPDATED TEXT (2010):
 %  In the newest format, titles should be title case everywhere.
@@ -95,22 +96,12 @@
 % separate file using the \include{} command.
 %
 
-\include{ch_introduction}     % tell them what you are going to tell them 
-%\include{ch2.problem}   % describe the problem statement
-%\include{ch3.implem}    % what is your solution
-%\include{ch4.end}       % conclusion stuff
+\include{ch_introduction}     
+\include{ch_background}   
+\include{ch_methodology}   
 
-
-%
-% If you have appendices in your dissertation, you will need the
-% following, else keep it commented. The following appendices are in
-% files called ``app1.tex'', and ``app2.tex'', and they
-% look just like any chapter.
-%
-
-\appendix
+%\appendix
 %\include{app1}
-%\include{app2}
 
 
 %
@@ -123,7 +114,7 @@
 %
 
 \bibliographystyle{plain}
-\bibliography{master}
+\bibliography{new_master}
 
 \end{document}
 
