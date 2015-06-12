@@ -6,12 +6,14 @@
 \contentsline {front}{{List of Tables}}{viii}
 \contentsline {front}{List of Figures}{ix}
 \contentsline {chapter}{\numberline {1.}Introduction}{1}
-\contentsline {chapter}{\numberline {2.}Background}{3}
-\contentsline {section}{\numberline {2.1}Components of Jet Noise}{3}
-\contentsline {section}{\numberline {2.2}Acoustic Analogy}{3}
-\contentsline {section}{\numberline {2.3}Source Models}{3}
-\contentsline {section}{\numberline {2.4}Flow Control}{3}
-\contentsline {chapter}{\numberline {3.}Experimental Methodology}{4}
-\contentsline {section}{\numberline {3.1}Anechoic Chamber}{4}
-\contentsline {section}{\numberline {3.2}Data Acquisition}{4}
-\contentsline {section}{\numberline {3.3}LAFPAs as Diagnostic Tools}{4}
+\contentsline {section}{\numberline {1.1}Motivation}{1}
+\contentsline {section}{\numberline {1.2}Background}{2}
+\contentsline {subsection}{\numberline {1.2.1}Components of Jet Noise}{2}
+\contentsline {subsection}{\numberline {1.2.2}The Acoustic Analogy}{4}
+\contentsline {subsection}{\numberline {1.2.3}Flow Control}{4}
+\contentsline {chapter}{\numberline {2.}Experimental Methodology}{5}
+\contentsline {section}{\numberline {2.1}Anechoic Chamber}{5}
+\contentsline {section}{\numberline {2.2}Data Acquisition}{5}
+\contentsline {section}{\numberline {2.3}Localized Arc-Filament Plasma Actuators}{5}
+\contentsline {chapter}{\numberline {3.}Near-field Signature of Aeroacoustic Sources}{6}
+\contentsline {chapter}{\numberline {4.}Stochastic Estimation of Time-resolved Velocity Fields}{7}
