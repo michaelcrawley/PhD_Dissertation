@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.21)  12 JUN 2015 12:34
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.21)  13 JUN 2015 21:52
 entering extended mode
 **MCrawley_Dissertation_rev0.tex
 (D:\Papers\PhD_Dissertation\MCrawley_Dissertation_rev0.tex
@@ -53,7 +53,9 @@ LaTeX Info: Redefining \cite on input line 694.
 (D:\Papers\PhD_Dissertation\ch_introduction.aux)
 (D:\Papers\PhD_Dissertation\ch_methodology.aux)
 (D:\Papers\PhD_Dissertation\ch_nearfield.aux)
-(D:\Papers\PhD_Dissertation\ch_velocity_reconstruction.aux))
+(D:\Papers\PhD_Dissertation\ch_velocity_reconstruction.aux)
+(D:\Papers\PhD_Dissertation\ch_acoustic_source.aux)
+(D:\Papers\PhD_Dissertation\ch_conclusion.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
 LaTeX Font Info:    ... okay on input line 40.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
@@ -104,20 +106,20 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 
-]) [6] (D:\Papers\PhD_Dissertation\MCrawley_Dissertation_rev0.toc)
+]) [6] (D:\Papers\PhD_Dissertation\MCrawley_Dissertation_rev0.toc [7
+
+
+])
 \tf@toc=\write3
- [7
 
-
-]
-(D:\Papers\PhD_Dissertation\MCrawley_Dissertation_rev0.lot)
+[8] (D:\Papers\PhD_Dissertation\MCrawley_Dissertation_rev0.lot)
 \tf@lot=\write4
- [8
+ [9
 
 ]
 (D:\Papers\PhD_Dissertation\MCrawley_Dissertation_rev0.lof)
 \tf@lof=\write5
- [9
+ [10
 
 ]
 (D:\Papers\PhD_Dissertation\ch_introduction.tex
@@ -125,21 +127,41 @@ Chapter 1.
 [1
 
 
-] [2] [3]) [4] (D:\Papers\PhD_Dissertation\ch_methodology.tex
+] [2] [3]) [4] [5] (D:\Papers\PhD_Dissertation\ch_methodology.tex
 Chapter 2.
-) [5
+Missing character: There is no Â in font cmr12!
+Missing character: There is no ° in font cmr12!
+Missing character: There is no ã in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no – in font cmr12!
+Missing character: There is no ã in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no — in font cmr12!
+[6
 
 
 
-] (D:\Papers\PhD_Dissertation\ch_nearfield.tex
+]) [7] (D:\Papers\PhD_Dissertation\ch_nearfield.tex
 Chapter 3.
-) [6
+) [8
 
 
 
 ] (D:\Papers\PhD_Dissertation\ch_velocity_reconstruction.tex
 Chapter 4.
-) [7
+) [9
+
+
+
+] (D:\Papers\PhD_Dissertation\ch_acoustic_source.tex
+Chapter 5.
+) [10
+
+
+
+] (D:\Papers\PhD_Dissertation\ch_conclusion.tex
+Chapter 6.
+) [11
 
 
 
@@ -148,7 +170,7 @@ Missing character: There is no Ã in font cmr12!
 Missing character: There is no © in font cmr12!
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no © in font cmr12!
-) [8
+) [12
 
 
 ]
@@ -157,25 +179,29 @@ Missing character: There is no © in font cmr12!
 (D:\Papers\PhD_Dissertation\ch_introduction.aux)
 (D:\Papers\PhD_Dissertation\ch_methodology.aux)
 (D:\Papers\PhD_Dissertation\ch_nearfield.aux)
-(D:\Papers\PhD_Dissertation\ch_velocity_reconstruction.aux)) ) 
+(D:\Papers\PhD_Dissertation\ch_velocity_reconstruction.aux)
+(D:\Papers\PhD_Dissertation\ch_acoustic_source.aux)
+(D:\Papers\PhD_Dissertation\ch_conclusion.aux)) ) 
 Here is how much of TeX's memory you used:
- 843 strings out of 493921
- 11926 string characters out of 3144869
- 62072 words of memory out of 3000000
- 4142 multiletter control sequences out of 15000+200000
+ 859 strings out of 493921
+ 12552 string characters out of 3144869
+ 62630 words of memory out of 3000000
+ 4144 multiletter control sequences out of 15000+200000
  8549 words of font info for 30 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 28i,6n,26p,348b,188s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (
-x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x86
-)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on MCrawley_Dissertation_rev0.pdf (18 pages, 104618 bytes).
+ 28i,6n,26p,475b,188s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmti12.pfb>
+Output written on MCrawley_Dissertation_rev0.pdf (23 pages, 126167 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
+ 108 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
