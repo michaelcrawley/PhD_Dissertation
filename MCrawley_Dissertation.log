@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.21)  2 AUG 2015 12:22
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.21)  2 AUG 2015 14:26
 entering extended mode
 **MCrawley_Dissertation.tex
 (D:\Papers\PhD_Dissertation\MCrawley_Dissertation.tex
@@ -398,7 +398,7 @@ Chapter 1.
 
 ] [2] [3] [4] [5]) [6] [7] (D:\Papers\PhD_Dissertation\ch_methodology.tex
 Chapter 2.
-<Figures/Chamber_Schematic.png, id=210, 306.9066pt x 287.6346pt>
+<Figures/Chamber_Schematic.png, id=211, 306.9066pt x 287.6346pt>
 File: Figures/Chamber_Schematic.png Graphic file (type png)
 
 <use Figures/Chamber_Schematic.png>
@@ -427,28 +427,33 @@ Missing character: There is no Ã in font cmr12!
 Missing character: There is no ¦ in font cmr12!
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no ¼ in font cmr12!
- [9 <D:/Papers/PhD_Dissertation/Figures/Chamber_Schematic.png>]) [10] (D:\Paper
-s\PhD_Dissertation\ch_nearfield.tex
+ [9 <D:/Papers/PhD_Dissertation/Figures/Chamber_Schematic.png>] [10]
+Overfull \hbox (8.29639pt too wide) in paragraph at lines 58--63
+\OT1/cmr/m/n/12 Mul-ti-pass, FFT-based cross-correlations were used, with de-cr
+eas-ing win-dow size (64$\OMS/cmsy/m/n/12 $\OT1/cmr/m/n/12 64
+ []
+
+[11]) [12] (D:\Papers\PhD_Dissertation\ch_nearfield.tex
 Chapter 3.
-) [11
+) [13
 
 
 
 ] (D:\Papers\PhD_Dissertation\ch_velocity_reconstruction.tex
 Chapter 4.
-) [12
+) [14
 
 
 
 ] (D:\Papers\PhD_Dissertation\ch_acoustic_source.tex
 Chapter 5.
-) [13
+) [15
 
 
 
 ] (D:\Papers\PhD_Dissertation\ch_conclusion.tex
 Chapter 6.
-) [14
+) [16
 
 
 
@@ -459,7 +464,7 @@ Missing character: There is no Ã in font cmr12!
 Missing character: There is no © in font cmr12!
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 113.
- [15
+ [17
 
 
 ]
@@ -480,9 +485,9 @@ Package rerunfilecheck Info: File `MCrawley_Dissertation.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 113.
  ) 
 Here is how much of TeX's memory you used:
- 6832 strings out of 493921
- 100270 string characters out of 3144869
- 189677 words of memory out of 3000000
+ 6834 strings out of 493921
+ 100284 string characters out of 3144869
+ 189763 words of memory out of 3000000
  9933 multiletter control sequences out of 15000+200000
  9674 words of font info for 35 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
@@ -495,9 +500,9 @@ ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program
  Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on MCrawley_Dissertation.pdf (26 pages, 276576 bytes).
+Output written on MCrawley_Dissertation.pdf (28 pages, 281877 bytes).
 PDF statistics:
- 291 PDF objects out of 1000 (max. 8388607)
- 58 named destinations out of 1000 (max. 500000)
+ 300 PDF objects out of 1000 (max. 8388607)
+ 60 named destinations out of 1000 (max. 500000)
  182 words of extra memory for PDF output out of 10000 (max. 10000000)
 
