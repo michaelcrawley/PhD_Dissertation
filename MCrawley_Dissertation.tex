@@ -1,40 +1,31 @@
 \documentclass{osudissert96}
-\usepackage{natbib}
 
-% BibTeX from the BiBTeX Documentation
-\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
-    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+%\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
 
-%
-% It is better to break up the dissertation into multiple files (e.g.,
-% one file per chapter, as well as separate files for the abstract,
-% acknowledgements, and vita).  These files are brought into the
-% document using \include{} statements.  There will be times, however,
-% when you don't want to print the ENTIRE dissertation.  You can limit
-% what will actually be printed by using the \includeonly{} statment.
-% This contains a list of the files you want printed.  Any file NOT
-% listed will not be printed.  However, all page numbers, references,
-% etc., will be preserved as though all the files were actually
-% printed. For example, the line below would result only in chapters 1
-% and 3 being printed (if it were uncommented).
-%
+\usepackage{enumitem,setspace,amsmath,graphicx}
 
-%\includeonly{ch_introduction}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{notoccite}
+\bibliographystyle{unsrtnat}
 
-% UPDATED TEXT (2010):
-%  In the newest format, titles should be title case everywhere.
-%
-% HISTORICAL TEXT (1996):
-%  In the new format, the titles of each chapter should appear in
-%  uppercase.  In the TOC, however, they should be in lowercase.
-%  The command below automates this behavior.  However, you'll have to be
-%  careful not to include \labels within your \chapter definitions or
-%  there will be problems.  If you don't want this to be automated, comment
-%  out the \typesetChapterTitle definition below and do your chapters in
-%  the form:
-%  \chapter[MY TITLE]{My Title}
-%
-%  \renewcommand\typesetChapterTitle[1]{\uppercase{#1}}
+\usepackage[hidelinks]{hyperref}
+\usepackage{doi}
+
+% Macros for consistent formatting
+\newcommand*{\fig}[1]{Fig.~\ref{#1}}
+\newcommand*{\tab}[1]{Table~\ref{#1}}
+\newcommand*{\eq}[1]{Eqn.~\ref{#1}}
+\newcommand*{\etal}{\textit{et~al}.\ }
+\newcommand*{\ie}{\textit{i}.\textit{e}.\ }
+\newcommand*{\re}{\mathit{Re}}
+\newcommand*{\st}{\mathit{St}}
+
+% Avoid lonely figures
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+
 \renewcommand\typesetChapterTitle[1]{#1}
 
 \begin{document}
