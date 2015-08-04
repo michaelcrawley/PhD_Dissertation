@@ -6,7 +6,7 @@ All experiments were conducted at the GDTL within the Aerospace Research Center 
 Compressed, dried, and filtered air is supplied to the facility from two cylindrical storage tanks with a total capacity of 43 m$^{3}$ and maximum storage pressure of 16 MPa.
 The air may be routed through a storage heater (not used in this study), which allows the jet to operate with a stagnation temperature up to 500 C, before expanding through a nozzle and exhausting horizontally into an anechoic chamber. 
 Opposite the nozzle, a collector accumulates the jet and entrained air and exhausts to the outdoors. 
-A schematic of the anechoic chamber can be seen in [INSERT FIGURE]. 
+A schematic of the anechoic chamber can be seen in \fig{fig:chamber}. 
 The dimensions of the chamber are 6.20 m wide by 5.59 m long and 3.36 m tall, with internal wedge-tip to wedge-tip dimensions of 5.14 m by 4.48 m and 2.53 m, respectively. 
 The design of the chamber produces a cutoff frequency of 160 Hz, below the frequencies of interest for this study. 
 A more detailed description of the GDTL anechoic chamber properties and validation has been given by [Hahn?].
@@ -23,12 +23,39 @@ The nozzle utilized a thick-lipped design in order to simplify the mounts for th
 For the experiments reported in this paper, the jet was operated at a Mach number ($M_j$) of 0.90, and with a total temperature ratio of approximately unity. 
 The Reynolds number based on the jet exit diameter was $6.2\times〖10〗^5$; previous investigations using hot-wire anemometry have indicated that the initial shear layer is turbulent for this operating condition with momentum thickness ~0.09 mm and boundary layer thickness ~1 mm [Kearney?].
 
+\section{Localized Arc-Filament Plasma Actuators}
+
 \section{Data Acquisition}
 \subsection{Near- and Far-field Pressure}
-Near-field and far-field pressure measurements were acquired simultaneously, using Brüel \& Kjær ¼ inch 4939 microphones. 
+Near-field and far-field pressure measurements were acquired using Brüel \& Kjær ¼ inch 4939 microphones and preamplifiers. 
 The signal from each microphone is band-pass filtered from 20 Hz to 100 kHz using a Brüel \& Kjær Nexus 2690 conditioning amplifier, and recorded using National Instruments PXI-6133 A/D boards and LabVIEW software. 
 The microphones are calibrated using a Brüel \& Kjaer 114 dB, 1 kHz sine wave generator (model \# ???). 
 The frequency response of the microphones is flat up to roughly 80 kHz, with the protective grid covers removed. 
+
+Far-field acoustic pressure is acquired at three polar angles: 30°, 60° and 90°, as measured from the downstream jet axis. 
+The positioning of the far-field microphone array can be seen in \fig{fig:chamber}.
+The microphones were oriented such that they are at normal incidence to the jet downstream axis at the nozzle exit. 
+The radial distance of the microphones ranges from 101D at 30° to 145D at 60°. 
+
+The near-field pressure was acquired  during two separate experimental campaigns; the first focusing purely on the near-field and far-field pressure and the second focusing on the instantaneous velocity field. During the first campaign, the irrotational near-field was acquired using a linear array of sixteen microphones located along the meridional plane of the jet; the spacing varied along the array from 1D to 2D \fig{nearfield1_schematic}. 
+The array was mounted on an x-y linear traverse system the array and was inclined at an angle of 8.6º to the jet axis in order to match the spreading angle of the jet shear layer, as determined via PIV measurements during previous studies [28]. 
+The traverse was controlled using LabView and enabled the acquisition of pressure measurements at various radial positions with respect to the jet axis. 
+Initially, the most upstream microphone is positioned at x/D = 1 and r/D = 1.20, which is just outside the initial shear layer.
+For subsequent cases, the microphone array was incremented radially outward by 0.5D for a total travel distance of 7D, for a total of 15 array locations in the radial direction.
+Voltage signals were collected at 200 kHz with 81920 data points per block; sub-blocks of 8192 data points were used when calculating short-time power spectral densities, resulting in a frequency resolution of 24.4 Hz. 
+Ten blocks were recorded for each case resulting in four seconds of data, which has been found to be sufficient for statistical convergence.
+\begin{figure}
+	\centering
+	\includegraphics{Figures/NearField1_Schematic.png}
+	\caption{Schematic of the microphone positions ???}
+	\label{nearfield1_schematic}
+\end{figure}
+
+In the second experimental campaign, a shorter array consisting of 12 microphones equally space by $1D$ was used. 
+In this case, the array was mounted from the floor and at an angle off the meridional plane of the jet (with microphone tips angled normal to the jet axis).
+This setup was used in conjunction with the particle image velocimetry described in the following section; the microphone array was placed off of the meridional plane so that it did not intersect with the laser sheet. 
+As before, the microphone array was angled 8.6º with respect to the jet axis in order to match the spreading rate of the shear layer, and the axial and radial position was set to match the closest microphone array location used during the first experimental campaign.
+Voltage traces were acquired at 400 kHz, with 24576 points collected per block.
 
 \subsection{Particle Image Velocimetry}
 The instantaneous velocity was acquired using streamwise, two-component particle image velocimetry (PIV). 
@@ -36,13 +63,17 @@ A Spectra Physics, double-pulsed Nd:YAG laser (model PIV-400) was used as the il
 Due to facility requirements, the laser was located on a vibrationally-damped table outside the anechoic chamber and the laser beam was routed into the chamber using an overhead port; this resulted in a beampath of $\sim$10~m. 
 The laser sheet was formed using two cylindrical and one spherical lens; one of the cylindrical lenses was mounted to a rotational stage in order to ensure that the final laser sheet was normal to the jet exit (i.e. the laser sheet was streamwise to the jet).
 Alignment of the separate laser heads was initially performed using burn paper; final alignment was performed by seeding a low-velocity flow and visually checking that the same particles were captured in both frames.
+Per the best practices explained in the LaVision DaVis manual, the timing between the two laser pulses was set so that particles in the jet core translated downstream by roughly half of the minimum correlation window width (16 pixels).
+For the present work, this resulted in a time delay of 3~$\mu$s.
+It was later observed that the actual time delay produced by the laser did not match the delay specified in the control software; this resulted in incorrect velocities being computed by the cross-correlations.
+In order to correct for this, the laser pulses were recorded using a ThorLabs DET210 photoreceiver and a LeCroy Wavejet ???? oscilloscope; the final vector fields were linearly scaled based on the ratio between the specified time delay and the measured time delay.
 
 The jet core was seeded using Di-Ethyl-Hexyl-Sebacat (DEHS); the oil was atomized using a LaVision Aerosol generator and injected upstream of the turbulence screens in the stagnation chamber in order to produce a uniform seed particle density.
 As the jet entrains a significant amount of the surrounding ambient fluid as it evolves downstream, the coflow around the jet must also be seeded in order to accurately measure the outer shear layer velocity.
 For this, a TSI 6-jet atomizer (model 9306A) and olive oil was used; injection occurred into a plenum which surrounded the core stagnation chamber.
+Per the manufacturer's specfications, both atomizers provided nominally sub-micron seed particles.
 To ensure consistent seeding, this coflow was driven using a small blower (Model number???) and a series of high-pressure ejectors. 
 As a result, for the PIV data acquisitions, the jet core was surrounded by a $\sim$5~m/s coflow. 
-Per the manufacturer's specfications, both atomizers provided nominally sub-micron seed particles.
 
 Image groups were acquired using two LaVision Imager Pro SX 5M cameras.
 The cameras had 12-bit resolution and 2560$\times$2180 pixels.
@@ -55,10 +86,15 @@ This setup is generally designated as ``side-to-side'' in order to differentiate
 The cameras were calibrated simultaneously using a LaVision calibration plate (type 31). 
 Hardware background subtraction was used in order to reduce the effect of reflections off of the nozzle extension and near-field microphone array.
 
+The image groups were acquired in two modes: ensemble and phase-locked. 
+When in phase-locked mode, a reference signal from the LAFPA control computer was used as an external trigger for LaVision's DaVis software; various filters were placed inline in order to damp the electromagnetic interference generated by the LAFPAs.
+The reference signal was downsampled to roughly 10 Hz by the LAFPA control computer, and delayed appropriately in time to control the acquired actuation phase. 
+In ensemble mode, image groups were acquired randomly in time at the system's maximum acquisition rate (5 Hz).
+In this case, the PIV computer was set to output a reference signal which was used to trigger the acoustics data acquisition system.
+The timing was set such that the PIV image acquisition would occur roughly in the center of a data block acquired by the acoustics system; the signal from a ThorLabs DET210 photoreceiver was also recorded in order to accurately identify the timing of the image acquisition in relation to the pressure time traces.
+
 Instantaneous velocity vectors were computed using LaVision's DaVis software.
-Multipass, FFT-based cross-correlations were used, with decreasing window size (64$\times$64 for the initial pass, and 32$\times$32 for the final two passes).
-A 75\% overlap was used for all passes.
+Multipass, FFT-based cross-correlations were used, with decreasing window size (64$\times$64 for the initial pass, and 32$\times$32 for the final three passes).
+A 50\% overlap was used for the initial pass, and a 75\% overlap was used for all subsequent passes.
 The velocity fields were post-processed to remove spurious vectors, which were iteratively replaced if secondary correlation peaks were found, before the downstream and upstream images were combined.
 No interpolation, smoothing, or denoising was performed in post-processing.
-
-\section{Localized Arc-Filament Plasma Actuators}
