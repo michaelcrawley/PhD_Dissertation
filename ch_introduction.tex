@@ -43,23 +43,48 @@ GDTL has used these actuators for noise mitigation and flow control in Mach 0.9 
 A review of the development of LAFPAs and their use in flow control and fluid phenomena research in high speed, high Reynolds number jets can be found in Samimy et al. [citation]. 
 More recently, the diagnostic potential of LAFPAs for understanding jet flow phenomena has been explored. Excitation of instabilities in the flow by LAFPAs results in a definitive spatio-temporal origin to which resulting phenomena can be referenced. 
 The absolute temporal reference afforded by LAFPA excitation provides researchers the ability to investigate the growth, saturation, and decay of structures with high fidelity. 
-An example of their diagnostic potential can be found in the work of Kearney-Fischer et al. [citation], which investigated Mach wave radiation from heated, high Mach number jets using schlieren imaging phase-locked to LAFPAs. 
+An example of their diagnostic potential can be found in the work of Kearney-Fischer \etal [citation], which investigated Mach wave radiation from heated, high Mach number jets using schlieren imaging phase-locked to LAFPAs. 
 
-Unlike their passive counterparts (such as tabs or chevrons), or some other potential active flow control technologies (such as fluidic chevrons), LAFPAs control the shear layer development indirectly by exciting naturally occurring instabilities.
-The sharp velocity gradient in the jet shear layer gives rise to the inviscid Kelvin-Helmholtz instability [citation].
+Unlike their passive counterparts (such as tabs or mechanical chevrons), or some other potential active flow control technologies (such as fluidic chevrons), LAFPAs control the shear layer development indirectly by exciting naturally occurring instabilities.
+The sharp velocity gradient in the jet shear layer (or, more precisely the inflection point produced by this sharp gradient) gives rise to the inviscid Kelvin-Helmholtz instability [citation] (sometimes simply referred to as the initial shear layer instability).
+This instability is broadband and scales with the local momentum layer thickness and jet exit velocity ($\theta / U_j$) ; perturbations over a wide range of frequencies can be amplified, though the dominant frequencies are found to be on the order of $St_{\theta} = f \theta /U_j = 0.012$ for very thin boundary layers [Cohen and Wygnasnki?]. 
+The Kelvin-Helmholtz instability then drives the development of the large-scale structures in the shear layer by amplifying fine-scale perturbations, ultimately causing them to roll-up into coherent structures regardless of Reynolds number [Crow and Champaign, Brown and Roschko].
+Owing to the axisymmetry of the jet nozzle (i.e. that the initial shear layer wraps around and connects to itself), various azimuthal Fourier modes are unstable to perturbations (including both axisymmetric and higher order modes) [Cohen?].
 
+The growth of the shear layer as it advects downstream ultimately dictates that the shear layer merges with itself; this location is referred to as the end of the potential core.
+A secondary instability, the jet column instability, manifests in axisymmetric jets and is related to the passage of large-scale structures through the end of the potential core.
+This instability scales with the jet exit diameter and jet exit velocity ($D / U_j$) and is broadband, with a dominant characteristic frequency of $St_{D} = f D /U_j = 0.3$.
+The relation of the jet column instability to the initial shear layer instability is not well understood.  
+Kibens argued that the jet preferred frequency is related to the initial shear layer frequency by the number of pairings of large scale structures that occur before the end of the potential core (i.e. $f_n / f_p = 2^n$), as the frequency of the structures halves after each pairing process [Kibens].  
+Conversely, Petersen claims that the jet preferred mode is simply the initial shear layer instability at the end of the potential core, and that the appearance of a single dominant lengthscale for the axisymmetric mode is due not to a type of `global' instability of the flow field, but to a cutoff at the end of the potential core of the axisymmetric instability [Petersen and Samet 1988].
+Regardless, it is clear that the large-scale oscillations of the jet shear layer and potential core are ultimately the product of small-scale perturbations which are amplified by the initial shear layer instability.
 
+LAFPAs achieve flow control by utilizing this relationship between the initial shear layer instability and the jet column instability.
+The localized plasma arc-filament produces a rapid, localized heating through the Joule effect, and a compression wave is formed [Utkin 2007].
+Though these perturbations are spatially discrete, they quickly amplify into large-scale coherent structures with well-defined characteristic spatial, temporal, and azimuthal frequencies.
+Thus, LAFPAs are able to control the development of the most energetic scales in the jet shear layer; large-scale, azimuthally-coherent structures can be generated when enhanced mixing and jet spreading are desired, or smaller-scale, less azimuthally-coherent structures when noise reduction is necessary. 
+In the present work, the subsonic jet is excited by LAFPAs, though here the goal is diagnostic rather than immediate practical application.
+The well-defined frequencies and phase of the large-scale structures produced by LAFPA actuation serve as an excellent reference for data acquisition and post-processing (e.g. phase-locking and phase-averaging).
 
-TO DO:
-	\begin{itemize}
-		\item shear layer / jet instabilities
-		\item large-scale structures / energy cascade / wavepackets
-	\end{itemize}
 \subsection{Components of Jet Noise}
-A simplified model of the noise generation process in stationary free jets can be found in Fig. [INSERT FIGURE]. 
-This model is based off of the work of Tam et al \citep{Tam1996, Tam2008}, who observed that the far-field spectra could be represented as a combination of two similarity spectra based on polar angle of the observer, regardless of jet Mach number or temperature.
+Early work...(introduce stochastic models briefly, talk about coherent structures?)
+
+Following the identification of coherent structures in turbulent jet shear layers [Mollo-christensen, crow, brown and roshko], source term models based on coherent eddies have frequently been employed, to varying degrees of success. 
+A simplified model of the noise generation process in stationary free jets can be found in \fig{fig:jet_sources_diagram}. 
+This model is based off of the work of Tam \etal \citep{Tam1996, Tam2008}, who observed that the far-field spectra could be represented as a combination of two similarity spectra based on polar angle of the observer, regardless of jet Mach number or temperature.
 At observer angles close to the jet downstream axis, the spectra exhibited a clearly defined spectral peak (\emph{F}-spectrum), whereas at sideline or upstream angles the spectra were broadband (\emph{G}-spectrum).
-From this observation the two-component acoustic source model was born: fine-scale turbulence, dominant in the near-nozzle region, is responsible for the omni-directional acoustic radiation that dominates the sideline and upstream polar angles. On the other hand, the large-scale turbulent structures which exist further downstream produce the superdirective radiation that is readily apparent at aft polar angles. 
+From this observation the two-component acoustic source model was born: the isotropic fine-scale turbulence, dominant in the near-nozzle region, is responsible for the omni-directional acoustic radiation that dominates the sideline and upstream polar angles. 
+On the other hand, the large-scale turbulent structures which exist further downstream produce the superdirective radiation that is readily apparent at aft polar angles. 
+\begin{figure}
+	\centering
+	\includegraphics[width=5in]{Figures/JetNoiseSourceDiagramTMP.jpg}
+	\caption{Simplified diagram of jet noise sources [TEMPORARY PLACEHOLDER].}
+	\label{fig:jet_sources_diagram}
+\end{figure}
+
+This model for ???, the so-called 'mixing noise' generated by both subsonic and supersonic jets ???
+
+[Wavepacket models???]
  
 Additional noise source mechanisms have been identified for supersonic jets. In imperfectly expanded jets, shock cells are produced in the jet. As turbulent structures pass through these waves, the sharp pressure gradients cause them to emit acoustic radiation. 
 This is observed directly in the far-field as a broad-band amplification at high frequencies, referred to simply as broad-band shock-associated noise (BBSAN). 
@@ -69,13 +94,7 @@ Lastly, supersonically-convecting (relative to the ambient) large-scale structur
 This Mach wave radiation can be explained by a wavy-wall analogy (Tam again?).
 In the present work, the jet is unheated and subsonic; as such these noise sources are not present and therefore neglected throughout the rest of this work.
 
-TO DO:
-	\begin{itemize}
-		\item	Create simplified figure of free jet showing high frequency versus low frequency radiation (based off of Tam 2008)
-		\item 	Explain Tam's "two-component" source model, with additional experimental evidence?
-	\end{itemize}
-
-\subsection{Acoustic Source Models}
+\subsection{Acoustic Analogies}
 By rearranging the Navier-Stokes equations, Lighthill \citep{Lighthill1952} was able to transform the governing equations for fluid dynamics into an inhomogeneous convected wave equation. 
 In this acoustic analogy, the source term comprises Reynolds stress, shear stress, and density fluctuation terms (commonly referred to as \emph{Lighthill's stress tensor}).
 As this formulation is exact (aside from the assumption of a constant sound speed), complete knowledge of the source field will yield an exact solution for the acoustic far field.

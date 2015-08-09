@@ -24,6 +24,22 @@ For the experiments reported in this paper, the jet was operated at a Mach numbe
 The Reynolds number based on the jet exit diameter was $6.2\times〖10〗^5$; previous investigations using hot-wire anemometry have indicated that the initial shear layer is turbulent for this operating condition with momentum thickness ~0.09 mm and boundary layer thickness ~1 mm [Kearney?].
 
 \section{Localized Arc-Filament Plasma Actuators}
+The design of the localized arc-filament plasma actuators, as well as the driving circuitry, has undergone a slow evolution since their initial development by the GDTL and NETL.
+In the current work, each LAFPA actuator consists of a pair of 1~mm diameter tungsten pin electrodes.
+The center-to-center spacing between electrode pairs for each actuator is 4 mm.
+Eight actuators were uniformly spaced around the nozzle perimeter 1 mm upstream of the nozzle exit. 
+For electrical and thermal durability, the electrodes were housed in a boron nitride (grade AX05) extension attached to the end of the nozzle. 
+A groove with dimensions of 1 mm wide and 0.5 mm deep is machined in the boron nitride, into which the electrode tips protrude, to provide a region of low momentum flow in order to stabilize the plasma arcs. 
+It has been shown that the existence of this groove does not substantially alter the flow field or the control authority of the LAFPAs [citation]. 
+A detailed description of initial development and LAFPA characteristics can be found in Utkin et al. [citation].
+
+The LAFPAs were energized by a multi-channel, high-voltage plasma power generator ()capable of simultaneously powering up to eight LAFPAs), which was designed and built in-house at the GDTL. 
+In the second-generation power supply, each individual circuit consists of a switchable capacitor in line with a high voltage transformer; the arcing electrodes are connected to the secondary side of the coil. 
+The capacitor is charged by a 100 V DC power supply when the first switch is closed and the second is opened; at the user-specified time the switches flip and it discharges through the coil. 
+The switches are controlled by a 16-channel digital I/O card and National Instruments' Labview software, operated by a dedicated computer. The plasma generator provides independent control of the frequency, duty cycle/pulse width, and phase of each individual actuator (though not the amplitude). 
+The pulse width was held constant at 7 μs, which was found to be the minimum pulse width at which the actuators consistently arced for all frequencies explored in this study [citation]. 
+The circuit is limited to 20 kHz due to thermal concerns.
+However, as the current work is focused on the evolution of large-scale structures (and ultimately their acoustic radiation), this is not an issue.
 
 \section{Data Acquisition}
 \subsection{Near- and Far-field Pressure}
@@ -56,6 +72,14 @@ In this case, the array was mounted from the floor and at an angle off the merid
 This setup was used in conjunction with the particle image velocimetry described in the following section; the microphone array was placed off of the meridional plane so that it did not intersect with the laser sheet. 
 As before, the microphone array was angled 8.6º with respect to the jet axis in order to match the spreading rate of the shear layer, and the axial and radial position was set to match the closest microphone array location used during the first experimental campaign.
 Voltage traces were acquired at 400 kHz, with 24576 points collected per block.
+The voltage traces were collected simultaneously with streamwise particle image velocimetry measurements (described in the following section); 1500 blocks were acquired, corresponding to the 1500 acquired images.
+
+In addition to the microphone voltage traces, the acoustics data acquisition system recorded a reference signal corresponding to the LAFPA excitation. 
+The TTL pulse sequence, which controls the LAFPAs, was supplied to an Agilent 3320A waveform generator. 
+The rising edge of the TTL pulse triggered a sharp drop in the output voltage of the waveform generator, which then ramps back up to the original voltage over a time interval which is shorter than the minimum excitation period. 
+The output from the waveform generator was acquired simultaneously with the near- and far-field pressure signals using the aforementioned National Instruments hardware and software. 
+As the excitation frequency, azimuthal mode, and ramp signal are well defined, this system enables the identification of the zero phase of actuation and hence, the ability to phase-average the pressure signals over the excitation period, akin to the work performed in Sinha et al [citation].
+This ensures that the seeded perturbations can be readily identified in the noisy flow, as well as allowing pressure signals, which were not recorded simultaneously (i.e. different near-field array positions), to be analyzed concurrently. 
 
 \subsection{Particle Image Velocimetry}
 The instantaneous velocity was acquired using streamwise, two-component particle image velocimetry (PIV). 
@@ -88,13 +112,16 @@ Hardware background subtraction was used in order to reduce the effect of reflec
 
 The image groups were acquired in two modes: ensemble and phase-locked. 
 When in phase-locked mode, a reference signal from the LAFPA control computer was used as an external trigger for LaVision's DaVis software; various filters were placed inline in order to damp the electromagnetic interference generated by the LAFPAs.
-The reference signal was downsampled to roughly 10 Hz by the LAFPA control computer, and delayed appropriately in time to control the acquired actuation phase. 
+The reference signal was downsampled to roughly 10 Hz by the LAFPA control computer, and delayed appropriately in time to control the acquired actuation phase.
+For this case, 300 image groups were acquired for an individual phase. 
 In ensemble mode, image groups were acquired randomly in time at the system's maximum acquisition rate (5 Hz).
 In this case, the PIV computer was set to output a reference signal which was used to trigger the acoustics data acquisition system.
 The timing was set such that the PIV image acquisition would occur roughly in the center of a data block acquired by the acoustics system; the signal from a ThorLabs DET210 photoreceiver was also recorded in order to accurately identify the timing of the image acquisition in relation to the pressure time traces.
+For this case, 1500 image groups were acquired for each case.
 
 Instantaneous velocity vectors were computed using LaVision's DaVis software.
 Multipass, FFT-based cross-correlations were used, with decreasing window size (64$\times$64 for the initial pass, and 32$\times$32 for the final three passes).
 A 50\% overlap was used for the initial pass, and a 75\% overlap was used for all subsequent passes.
+An gaussian window (elliptic in the streamwise direction) was applied to the correlation windows.
 The velocity fields were post-processed to remove spurious vectors, which were iteratively replaced if secondary correlation peaks were found, before the downstream and upstream images were combined.
 No interpolation, smoothing, or denoising was performed in post-processing.
