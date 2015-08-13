@@ -40,19 +40,34 @@ Owing to the presence of strong hydrodynamic fluctuations dominating the irrotat
 A decomposition of the pressure field into its constitutive hydrodynamic and acoustic components is therefore required. 
 By identification and prediction of coherence nulls in the near field, Coiffet \etal [cite] showed that the full irrotational near-field consistent primarily as a linear superposition of its hydrodynamic and acoustic components, which lead subsequent researchers to propose linear filters to extract the individual components from the near-field pressure, with varying degrees of success. 
 
-In a subsonic jet (or a transonic jet) in which the large-scale structures are convecting subsonically with respect to the ambient speed of sound, a demarcation of the hydrodynamic and acoustic energy fields can be observed with phase velocity.
+As discussed by Tinney \& Jordan [cite], in a transonic jet in which the large-scale structures are convecting subsonically with respect to the ambient speed of sound, a demarcation of the hydrodynamic and acoustic energy fields can be observed with phase velocity.
+This is because the hydrodynamic pressure fluctuations will be aligned with the jet axis, and travelling subsonically. 
+Acoustic pressure fluctuations will impinge on the linear microphone array at oblique angles, and therefore will appear as having either sonic or supersonic phase velocity, based on the source location. 
+Therefore, a demarcaction between the hydrodynamic and acoustic energy components should be readily identifiable about the sonic wavenumber, $k_a = \omega / a_\infty$.
+
 An illustration of this can be found in \fig{fig:phase_velocity_map}, where the power spectral density of the irrotational near-field pressure for a single microphone array position has been plotted as a function of normalized frequency and (axial) wavenumber.
 The sonic velocity has been identified with a dashed line; energies lying above this line correspond to supersonically traveling waves (and hence, acoustic energy) whereas energies below this line correspond to subsonically convecting waves (hydrodynamic energy).
 Note that at high wavenumber and frequencies, two distinct energy lobes become readily apparent.
 
-This phase-velocity separation is the basis for the decomposition method of Tinney \& Jordan [cite], which used a Fourier-based wavenumber-frequency filter in a cold, subsonic jet to separate the near-field pressure into supersonically- and subsonically-convecting waves. 
+This phase-velocity separation is the basis for the decomposition method of Tinney \& Jordan [cite], which used a Fourier-based wavenumber-frequency filter in a cold, subsonic jet to separate the near-field pressure into supersonically- and subsonically-convecting waves.
+The pressure field is first transformed into Fourier space ($k_x,\omega$), as
+\begin{equation}
+	\hat{p} \left( k_x , \omega \right) = \iint_{\mathbb{R}^2} p(x,t)e^{-i(\omega t - k_x x)}dxdt
+\end{equation}
+From the transformed pressure field, the hydrodynamic and acoustic fields can then be reconstructed separately, from
+\begin{equation}
+	p_c (x,t) = \frac{1}{(2 \pi)^2} \iint_{\mathbb{R}^2} \phi_c (k_x,\omega) \hat{p} (k_x,\omega)e^{i(\omega t - k_x x)}dk_x d\omega .
+	\label{eq:fourier_filter}
+\end{equation}
+The component weight vector, $\phi_c \in [0,1]$, is set based on the measured axial phase velocity, $c = \omega / k_x$ in order to filter out either the supersonic or subsonic portion of the spectra. 
+ 
 Grizzi \& Camussi [cite] took a slightly different approach, which utilized a discrete wavelet transform at individual spatial locations in order to decompose the fields based on an energy cutoff. 
 The energy threshold was set iteratively, using analysis of two-point correlations of the acoustic and hydrodynamic components between two microphones, in order to ensure that realistic phase-velocities for the components were met. 
 The Empirical Mode Decomposition (EMD) based method of Kuo \etal [cite] dispensed with explicit concerns with the phase velocity of the pressure components and instead used the critical frequency, as defined by Arndt \etal [cite], which demarcates the energy dominance of the acoustic and hydrodynamic components in the near-field spectra.
 [Include recent Yonglu paper?]
 \begin{figure}
 	\centering
-	\includegraphics{Figures/Phase_Velocity_Map.png}
+	\includegraphics[width=3.25in]{Figures/Phase_Velocity_Map.png}
 	\caption{Wavenumber-Frequency spectral energy.}
 	\label{fig:phase_velocity_map}
 \end{figure}
@@ -75,6 +90,67 @@ The basis functions (often referred to as the analyzing or daughter wavelets) ar
 Most notable of of these criteria is that of admissibility, which in essence requires that the wavelet must be of finite energy. 
 In practice, it is also helpful to choose a mother wavelet which is well-localized in both the spatio-temporal domain and the frequency domain. 
 For a given mother wavelet, $\psi (\vec{x})$, the daughter wavelets can be constructed as
+\begin{equation}
+	\psi_d \left( \vec{x};s,\vec{\tau},\theta \right) = s^{-n/2} \psi \left( s^{-1} r_{-\theta} \left(\vec{x}-\vec{\tau} \right) \right) \
+	\label{eq:daughter_wavelets}
+\end{equation}
+where $s$ is the scale factor, $\vec{\tau}$ the translation parameter, and in the case of a multidimensional transform, $r_{-\theta}$ is the rotation vector (which can be neglected for an isotropic mother wavelet). 
+The $s^{-n/2}$ factor ensures constant energy across all dilations. 
+For a specific scale, translation, and rotation, the wavelet transform then becomes
+\begin{equation}
+	\tilde{f} \left( s, \vec{\tau}, \theta \right) = \int_{\mathbb{R}^n} f \left( \vec{x} \right) \psi^*_d \left( \vec{x};s,\vec{\tau},\theta \right) d^n \vec{x}.
+\end{equation}
 
+Because the basis functions of the wavelet transform are of finite energy, the locality of information in the original signal is preserved in the wavelet coefficients. 
+This allows the identification, analysis, and reconstruction of localized events in the original signal, something not possible with the Fourier transform, which spreads temporal/spatial information over all transform coefficients. 
+This has enabled previous researchers to perform a range of new analysis techniques to turbulence and acoustic phenomena not possible with the traditional Fourier transform. An excellent review of the development of wavelet analysis as well as applications to turbulence can be found in Farge [cite].
+
+Use of a multidimensional, continuous wavelet transform to extract intermittent events with a specific phase-velocity is not immediately straightforward, due to the global nature of the scale factor. 
+A `speed-tuning' parameter, $c$, was introduced to the wavelet transform (now specifically referred to as a \textit{spatio-temporal} wavelet transform) by Antoine \etal [cite], who used it for use in motion tracking and identification in two-dimensional images. 
+The definition for the daughter wavelets (\ref{eq:daughter_wavelets}) is modified to
+\begin{equation}
+	\psi_d \left( \vec{x}, t;s,\vec{x}', t' \right) = s^{-n/2} \psi \left(s^{-1} c^{-1/n} (\vec{x}-\vec{x}'), s^{-1} c^{(n-1)/n} (t-t') \right)
+\end{equation} 
+where $n$ corresponds to the total number of dimensions (temporal and spatial).
+
+The continuous wavelet transform are isometry [Antoine] and hence is invertible.
+The original signal may therefore be recovered from the wavelet coefficients as 
+\begin{equation}
+	f(\vec{x},t) = \frac{1}{C_\delta} \int_0^\infty \frac{ds}{s^{1 + n/2}} \int_{0}^{\infty} \frac{dc}{c} \tilde{f} (\vec{x},t,s,c).
+	\label{eq:wavelet_filter}
+\end{equation}
+
+The constant factor $C_\delta$ serves as an energy scaling, and appears because we are reconstructing the signal using a different analyzing wavelet (in this case, a delta function) than the mother wavelet used in the forward transform [Torrence,Farge,Antoine]. 
+For a given mother wavelet, this factor can be found from
+\begin{equation}
+	C_\delta = \frac{1}{(2 \pi)^n} \int_0^\infty \frac{ds}{s^{1 + n/2}} \int_{0}^{\infty} \frac{dc}{c} \int_{\mathbb{R}^n} d \vec{k} \int_{-\infty}^{\infty} d\omega \hat{\psi}_d^*
+\end{equation}
+where $\hat{\psi}_d$ are the daughter wavelets in Fourier space. 
+Since we are interested in decomposing the field into the acoustic and hydrodynamic components, a filtered reconstruction can be done quite easily in the wavelet domain by simply modifying the integration limits in \eq{eq:wavelet_filter} to include only speed-tuning parameters corresponding to the subsonic or supersonic portion of the wavelet spectrum.
+
+In this way, this methodology can be thought of as a simple modification of that proposed by Tinney \& Jordan [cite], replacing the Fourier transform in their method with a spatio-temporal wavelet transform. 
+The relationship between the wavelet transform and the Fourier transform can be further elucidated by computing the forward transform in the Fourier domain (with the use of the convolution theorem), inserting this into \eq{eq:wavelet_filter}, and reversing the order of the integration:
+\begin{equation}
+	f_c (\vec{x},t) = \frac{1}{(2 \pi)^n} \int_{\mathbb{R}^{n-1}} d \vec{k} \int_{-\infty}^{\infty} d\omega \hat{f}(\vec{k},\omega) e^{i(\omega t - \vec{k} \cdot \vec{x})} \frac{1}{C_\delta} \int_0^\infty \frac{ds}{s^{1 + n/2}} \int_{0}^{\infty} \frac{dc}{c} \hat{\psi}_d^* (sc^{1/2}k,sc^{-1/2} \omega)
+\end{equation}
+\begin{equation}
+	f_c (\vec{x},t) = \frac{1}{(2 \pi)^n} \int_{\mathbb{R}^{n-1}} d \vec{k} \int_{-\infty}^{\infty} d\omega \hat{f}(\vec{k},\omega) e^{i(\omega t - \vec{k} \cdot \vec{x})} \phi_c (k,\omega)
+	\label{eq:wavelet_filter_simplified}
+\end{equation}
+The appearance of \eq{eq:wavelet_filter_simplified} is identical to that of \eq{eq:fourier_filter}; the difference lies in how filter $\phi_c$ is defined, either explicitly in the Fourier domain in the case of the Fourier filtering or implicitly by the shape of the chosen mother wavelet in the wavelet transform. 
+As numerous other researchers have discussed, this leads to an alternative interpretation of the wavelet transform, that of a series of bandpass filters, the passband envelope, centroid, and width being dictated by the scale, speed, and mother wavelet [Farge, torrence].
+
+In fact, computing the convolutions is much faster in the Fourier domain than in the physical domain, so \eq{eq:wavelet_filter_simplified} is the preferred method for computing the spatio-temporal wavelet filter.
+The decompositions were performed along each radial microphone array position individually, using the (1+1) dimensional (space-time) Morlet wavelet as the mother wavelet:
+\begin{equation}
+	\psi (x,t) = e^{i(k_o x + \omega_0 t)} e^{-(x^2 + t^2)/2}
+\end{equation}
+which the reader will recognize as simply a plane wave modulated by a Gaussian. 
+Though simplicity was a factor in this decision, previous results analyzing phase-averaged waveforms in the far-field found acoustic emissions with a characteristic waveform that share some resemblance to the Morlet wavelet [crawley2014]. 
+The base oscillation frequencies, 〖$(k_0,\omega_0)$ were set to (±5,5) (the dual sign for $k_0$ being necessary to recover both forward and backward traveling waves), and $\hat{\psi}(k,0) = 0$ and $\hat{\psi}(0,\omega) = 0$ so as to ensure that the mother wavelet met the admissibility criterion.
+
+As the microphone array is irregularly spaced in the axial direction, the pressure field was interpolated onto a regular grid of spacing $1D$ before computation of the discrete Fourier transform. 
+In the current work, the local speed of sound was chosen as the phase-velocity demarcation, as opposed to the ambient speed of sound which had been used by previous researchers [Tinney and Jordan]. 
+In our case, the jet under study is subsonic and unheated, meaning that the local speed of sound (~320 m/s) is still greater than the jet velocity (~287 m/s) yet lower than the ambient speed of sound (~346 m/s) and hence is a better choice for this particular application.
 \subsection{Validation}
 \section{Identifying the Acoustic Source Region}

@@ -23,11 +23,11 @@
 \contentsline {section}{\numberline {3.2}Far-field Response}{22}{section.3.2}
 \contentsline {section}{\numberline {3.3}Acoustic/Hydrodynamic Decomposition}{22}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}The Wavelet Transform}{25}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Validation}{26}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Identifying the Acoustic Source Region}{26}{section.3.4}
-\contentsline {chapter}{\numberline {4.}Estimation of Time-resolved Velocity Fields}{27}{chapter.4}
-\contentsline {section}{\numberline {4.1}Stochastic Estimation}{27}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Artificial Neural Networks}{27}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Validation}{27}{subsection.4.1.2}
-\contentsline {chapter}{\numberline {5.}Dilatation as the Aeroacoustic Acoustic Source}{28}{chapter.5}
-\contentsline {chapter}{\numberline {6.}Conclusions}{29}{chapter.6}
+\contentsline {subsection}{\numberline {3.3.2}Validation}{29}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Identifying the Acoustic Source Region}{29}{section.3.4}
+\contentsline {chapter}{\numberline {4.}Estimation of Time-resolved Velocity Fields}{30}{chapter.4}
+\contentsline {section}{\numberline {4.1}Stochastic Estimation}{30}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Artificial Neural Networks}{30}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Validation}{30}{subsection.4.1.2}
+\contentsline {chapter}{\numberline {5.}Dilatation as the Aeroacoustic Acoustic Source}{31}{chapter.5}
+\contentsline {chapter}{\numberline {6.}Conclusions}{32}{chapter.6}

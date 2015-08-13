@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.21)  8 AUG 2015 19:20
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.21)  12 AUG 2015 18:54
 entering extended mode
 **MCrawley_Dissertation.tex
 (D:\Papers\PhD_Dissertation\MCrawley_Dissertation.tex
@@ -74,6 +74,17 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 (C:\Users\Michael\AppData\Roaming\MiKTeX\2.9\tex\latex\setspace\setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks16
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip47
@@ -84,7 +95,7 @@ Package: amstext 2000/06/29 v2.01
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks16
+\@emptytoks=\toks17
 \ex@=\dimen105
 ))
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
@@ -114,21 +125,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \dotsspace@=\muskip10
 \c@parentequation=\count98
 \dspbrk@lvl=\count99
-\tag@help=\toks17
+\tag@help=\toks18
 \row@=\count100
 \column@=\count101
 \maxfields@=\count102
-\andhelp@=\toks18
+\andhelp@=\toks19
 \eqnshift@=\dimen108
 \alignsep@=\dimen109
 \tagshift@=\dimen110
 \tagwidth@=\dimen111
 \totwidth@=\dimen112
 \lineht@=\dimen113
-\@envbody=\toks19
+\@envbody=\toks20
 \multlinegap=\skip48
 \multlinetaggap=\skip49
-\mathdisplay@stack=\toks20
+\mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
@@ -137,7 +148,7 @@ Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks21
+\KV@toks@=\toks22
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
@@ -321,12 +332,12 @@ LaTeX Font Info:    ... okay on input line 31.
 \scratchbox=\box29
 \nofMPsegments=\count116
 \nofMParguments=\count117
-\everyMPshowfont=\toks22
+\everyMPshowfont=\toks23
 \MPscratchCnt=\count118
 \MPscratchDim=\dimen121
 \MPnumerator=\count119
 \makeMPintoPDFobject=\count120
-\everyMPtoPDFconversion=\toks23
+\everyMPtoPDFconversion=\toks24
 )
 \AtBeginShipoutBox=\box30
 Package hyperref Info: Link coloring OFF on input line 31.
@@ -345,7 +356,16 @@ LaTeX Info: Redefining \nameref on input line 31.
 (D:\Papers\PhD_Dissertation\MCrawley_Dissertation.out)
 (D:\Papers\PhD_Dissertation\MCrawley_Dissertation.out)
 \@outlinefile=\write3
- [1
+LaTeX Font Info:    Try loading font information for U+msa on input line 53.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 53.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
 
 
 {C:/Users/Michael/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
@@ -505,30 +525,43 @@ Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
  [22 <D:/Papers/PhD_Dissertation/Figures/NearField_Preprocessing_Filtering.png>
-]
-<Figures/Phase_Velocity_Map.png, id=348, 400.1349pt x 236.082pt>
+] [23]
+<Figures/Phase_Velocity_Map.png, id=353, 400.1349pt x 236.082pt>
 File: Figures/Phase_Velocity_Map.png Graphic file (type png)
 
 <use Figures/Phase_Velocity_Map.png>
-Package pdftex.def Info: Figures/Phase_Velocity_Map.png used on input line 55.
-(pdftex.def)             Requested size: 400.13391pt x 236.0814pt.
- [23] [24 <D:/Papers/PhD_Dissertation/Figures/Phase_Velocity_Map.png>] [25]) [2
-6]
-(D:\Papers\PhD_Dissertation\ch_velocity_reconstruction.tex
+Package pdftex.def Info: Figures/Phase_Velocity_Map.png used on input line 70.
+(pdftex.def)             Requested size: 234.87749pt x 138.5811pt.
+ [24] [25 <D:/Papers/PhD_Dissertation/Figures/Phase_Velocity_Map.png>] [26] [27
+]
+Overfull \hbox (17.79147pt too wide) detected at line 135
+[]\OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 ; t\OT1/cmr/m/n/12 ) 
+= [] [][] \OML/cmm/m/it/12 d[] [][] d![]\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 ; !
+\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 e[][] [][] [] [][] [][]\OT1/cmr/m/n/12 (\OML/
+cmm/m/it/12 sc[]k; sc[]!\OT1/cmr/m/n/12 )
+ []
+
+[28]
+Missing character: There is no ã in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no – in font cmr12!
+Missing character: There is no Â in font cmr12!
+Missing character: There is no ± in font cmr12!
+) [29] (D:\Papers\PhD_Dissertation\ch_velocity_reconstruction.tex
 Chapter 4.
-) [27
+) [30
 
 
 
 ] (D:\Papers\PhD_Dissertation\ch_acoustic_source.tex
 Chapter 5.
-) [28
+) [31
 
 
 
 ] (D:\Papers\PhD_Dissertation\ch_conclusion.tex
 Chapter 6.
-) [29
+) [32
 
 
 
@@ -539,7 +572,7 @@ Missing character: There is no Ã in font cmr12!
 Missing character: There is no © in font cmr12!
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 113.
- [30
+ [33
 
 
 ]
@@ -560,24 +593,30 @@ Package rerunfilecheck Info: File `MCrawley_Dissertation.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 113.
  ) 
 Here is how much of TeX's memory you used:
- 6895 strings out of 493921
- 101622 string characters out of 3144869
- 191164 words of memory out of 3000000
- 9961 multiletter control sequences out of 15000+200000
- 9674 words of font info for 35 fonts, out of 3000000 for 9000
+ 7200 strings out of 493921
+ 105047 string characters out of 3144869
+ 191874 words of memory out of 3000000
+ 10236 multiletter control sequences out of 15000+200000
+ 12144 words of font info for 47 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  29i,6n,30p,521b,447s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C
-:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Prog
-ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program
- Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
-es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on MCrawley_Dissertation.pdf (41 pages, 606355 bytes).
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C
+:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/
+Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on MCrawley_Dissertation.pdf (44 pages, 669673 bytes).
 PDF statistics:
- 433 PDF objects out of 1000 (max. 8388607)
- 87 named destinations out of 1000 (max. 500000)
+ 488 PDF objects out of 1000 (max. 8388607)
+ 100 named destinations out of 1000 (max. 500000)
  279 words of extra memory for PDF output out of 10000 (max. 10000000)
 
