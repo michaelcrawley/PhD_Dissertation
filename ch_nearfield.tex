@@ -67,7 +67,7 @@ The Empirical Mode Decomposition (EMD) based method of Kuo \etal [cite] dispense
 [Include recent Yonglu paper?]
 \begin{figure}
 	\centering
-	\includegraphics[width=3.25in]{Figures/Phase_Velocity_Map.png}
+	\includegraphics[width=4in]{Figures/Phase_Velocity_Map.png}
 	\caption{Wavenumber-Frequency spectral energy.}
 	\label{fig:phase_velocity_map}
 \end{figure}
@@ -130,9 +130,10 @@ Since we are interested in decomposing the field into the acoustic and hydrodyna
 
 In this way, this methodology can be thought of as a simple modification of that proposed by Tinney \& Jordan [cite], replacing the Fourier transform in their method with a spatio-temporal wavelet transform. 
 The relationship between the wavelet transform and the Fourier transform can be further elucidated by computing the forward transform in the Fourier domain (with the use of the convolution theorem), inserting this into \eq{eq:wavelet_filter}, and reversing the order of the integration:
-\begin{equation}
-	f_c (\vec{x},t) = \frac{1}{(2 \pi)^n} \int_{\mathbb{R}^{n-1}} d \vec{k} \int_{-\infty}^{\infty} d\omega \hat{f}(\vec{k},\omega) e^{i(\omega t - \vec{k} \cdot \vec{x})} \frac{1}{C_\delta} \int_0^\infty \frac{ds}{s^{1 + n/2}} \int_{0}^{\infty} \frac{dc}{c} \hat{\psi}_d^* (sc^{1/2}k,sc^{-1/2} \omega)
-\end{equation}
+\begin{multline}
+		f_c (\vec{x},t) = \frac{1}{(2 \pi)^n} \int_{\mathbb{R}^{n-1}} d \vec{k} \int_{-\infty}^{\infty} d\omega \hat{f}(\vec{k},\omega) e^{i(\omega t - \vec{k} \cdot \vec{x})} \\ 
+		\times \frac{1}{C_\delta} \int_0^\infty \frac{ds}{s^{1 + n/2}} \int_{0}^{\infty} \frac{dc}{c} \hat{\psi}_d^* (sc^{1/2}k,sc^{-1/2} \omega)
+\end{multline}
 \begin{equation}
 	f_c (\vec{x},t) = \frac{1}{(2 \pi)^n} \int_{\mathbb{R}^{n-1}} d \vec{k} \int_{-\infty}^{\infty} d\omega \hat{f}(\vec{k},\omega) e^{i(\omega t - \vec{k} \cdot \vec{x})} \phi_c (k,\omega)
 	\label{eq:wavelet_filter_simplified}
@@ -153,4 +154,36 @@ As the microphone array is irregularly spaced in the axial direction, the pressu
 In the current work, the local speed of sound was chosen as the phase-velocity demarcation, as opposed to the ambient speed of sound which had been used by previous researchers [Tinney and Jordan]. 
 In our case, the jet under study is subsonic and unheated, meaning that the local speed of sound (~320 m/s) is still greater than the jet velocity (~287 m/s) yet lower than the ambient speed of sound (~346 m/s) and hence is a better choice for this particular application.
 \subsection{Validation}
+\begin{figure}
+	\centering
+	\includegraphics[width=4in]{Figures/ch3_validation_Pms.png}
+	\caption{Radial decay of the raw signal compared against the theoretically-obtained and experimentally-measured decay rates for the acoustic and hydrodynamic components.}
+	\label{fig:ch3_validation_Pms}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch3_validation_spectra_hydrodynamic}
+		\caption{Hydrodynamic Decomposition}
+		\label{fig:ch3_validation_spectra_hydro}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch3_validation_spectra_acoustic}
+		\caption{Acoustic Decomposition}
+		\label{fig:ch3_validation_spectra_acoustic}
+	\end{subfigure}
+	\caption{???}
+	\label{fig:ch3_validation_spectra}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=4in]{Figures/ch3_validation_phavg.png}
+	\caption{???}
+	\label{fig:ch3_validation_phavg}
+\end{figure}
+
 \section{Identifying the Acoustic Source Region}
