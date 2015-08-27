@@ -4,12 +4,13 @@
 \section{Anechoic Chamber}
 All experiments were conducted at the GDTL within the Aerospace Research Center at the Ohio State University. 
 Compressed, dried, and filtered air is supplied to the facility from two cylindrical storage tanks with a total capacity of 43 m$^{3}$ and maximum storage pressure of 16 MPa.
-The air may be routed through a storage heater (not used in this study), which allows the jet to operate with a stagnation temperature up to 500 C, before expanding through a nozzle and exhausting horizontally into an anechoic chamber. 
+The air may be routed through a storage heater, which allows the jet to operate with a stagnation temperature up to 500~$^\circ$C, before expanding through a nozzle and exhausting horizontally into an anechoic chamber. 
+As the current work was focused on a cold jet, the heater was rarely necessary; in certain circumstances though (namely, long experimental runs) the storage heater and bandheaters were used to slightly preheat the flow, thereby mitigating the temperature drop as the storage tanks were drained of high-pressure air.
 Opposite the nozzle, a collector accumulates the jet and entrained air and exhausts to the outdoors. 
 A schematic of the anechoic chamber can be seen in \fig{fig:chamber}. 
 The dimensions of the chamber are 6.20 m wide by 5.59 m long and 3.36 m tall, with internal wedge-tip to wedge-tip dimensions of 5.14 m by 4.48 m and 2.53 m, respectively. 
 The design of the chamber produces a cutoff frequency of 160 Hz, below the frequencies of interest for this study. 
-A more detailed description of the GDTL anechoic chamber properties and validation has been given by [Hahn?].
+A more detailed description of the GDTL anechoic chamber properties and validation has been given by Hahn [cite].
 \begin{figure}
 	\centering
 	\includegraphics{Figures/Chamber_Schematic.png}
@@ -30,22 +31,22 @@ The center-to-center spacing between electrode pairs for each actuator is 4 mm.
 Eight actuators were uniformly spaced around the nozzle perimeter 1 mm upstream of the nozzle exit. 
 For electrical and thermal durability, the electrodes were housed in a boron nitride (grade AX05) extension attached to the end of the nozzle. 
 A groove with dimensions of 1 mm wide and 0.5 mm deep is machined in the boron nitride, into which the electrode tips protrude, to provide a region of low momentum flow in order to stabilize the plasma arcs. 
-It has been shown that the existence of this groove does not substantially alter the flow field or the control authority of the LAFPAs [citation]. 
-A detailed description of initial development and LAFPA characteristics can be found in Utkin et al. [citation].
+It has been shown that the existence of this groove does not substantially alter the flow field or the control authority of the LAFPAs [Hahn]. 
+A detailed description of initial development and LAFPA characteristics can be found in Utkin \etal [citation].
 
-The LAFPAs were energized by a multi-channel, high-voltage plasma power generator ()capable of simultaneously powering up to eight LAFPAs), which was designed and built in-house at the GDTL. 
-In the second-generation power supply, each individual circuit consists of a switchable capacitor in line with a high voltage transformer; the arcing electrodes are connected to the secondary side of the coil. 
+The LAFPAs were energized by a multi-channel, high-voltage plasma power generator capable of simultaneously powering up to eight LAFPAs, which was designed and built in-house at the GDTL. 
+In this second-generation power supply, each individual circuit consists of a switchable capacitor in line with a high voltage transformer; the arcing electrodes are connected to the secondary side of the coil. 
 The capacitor is charged by a 100 V DC power supply when the first switch is closed and the second is opened; at the user-specified time the switches flip and it discharges through the coil. 
 The switches are controlled by a 16-channel digital I/O card and National Instruments' Labview software, operated by a dedicated computer. The plasma generator provides independent control of the frequency, duty cycle/pulse width, and phase of each individual actuator (though not the amplitude). 
 The pulse width was held constant at 7 μs, which was found to be the minimum pulse width at which the actuators consistently arced for all frequencies explored in this study [citation]. 
 The circuit is limited to 20 kHz due to thermal concerns.
-However, as the current work is focused on the evolution of large-scale structures (and ultimately their acoustic radiation), this is not an issue.
+However, as the current work is focused on the evolution of large-scale structures (and ultimately their acoustic radiation), for which the dominant frequencies are on the order of 3~kHz, this is not an issue.
 
 \section{Data Acquisition}
 \subsection{Near- and Far-field Pressure}
-Near-field and far-field pressure measurements were acquired using Brüel \& Kjær ¼ inch 4939 microphones and preamplifiers. 
-The signal from each microphone is band-pass filtered from 20 Hz to 100 kHz using a Brüel \& Kjær Nexus 2690 conditioning amplifier, and recorded using National Instruments PXI-6133 A/D boards and LabVIEW software. 
-The microphones are calibrated using a Brüel \& Kjaer 114 dB, 1 kHz sine wave generator (model \# ???). 
+Near-field and far-field pressure measurements were acquired using Br\"{u}el \& Kj\ae{}r 0.25-inch 4939 microphones and preamplifiers. 
+The signal from each microphone is band-pass filtered from 20 Hz to 100 kHz using a Br\"{u}el \& Kj\ae{}r Nexus 2690 conditioning amplifier, and recorded using National Instruments PXI-6133 A/D boards and LabVIEW software. 
+The microphones are calibrated using a Br\"{u}el \& Kj\ae{}r 114 dB, 1 kHz sine wave generator (type 4231). 
 The frequency response of the microphones is flat up to roughly 80 kHz, with the protective grid covers removed. 
 
 Far-field acoustic pressure is acquired at three polar angles: 30°, 60° and 90°, as measured from the downstream jet axis. 
@@ -53,8 +54,8 @@ The positioning of the far-field microphone array can be seen in \fig{fig:chambe
 The microphones were oriented such that they are at normal incidence to the jet downstream axis at the nozzle exit. 
 The radial distance of the microphones ranges from 101D at 30° to 145D at 60°. 
 
-The near-field pressure was acquired  during two separate experimental campaigns; the first focusing purely on the near-field and far-field pressure and the second focusing on the instantaneous velocity field. During the first campaign, the irrotational near-field was acquired using a linear array of sixteen microphones located along the meridional plane of the jet; the spacing varied along the array from 1D to 2D \fig{nearfield1_schematic}. 
-The array was mounted on an x-y linear traverse system the array and was inclined at an angle of 8.6º to the jet axis in order to match the spreading angle of the jet shear layer, as determined via PIV measurements during previous studies [28]. 
+The near-field pressure was acquired  during two separate experimental campaigns; the first focusing purely on the near-field and far-field pressure and the second focusing on the instantaneous velocity field. During the first campaign, the irrotational near-field was acquired using a linear array of sixteen microphones located along the meridional plane of the jet; the spacing varied along the array from 1D to 2D (see \fig{fig:ch2_nearfield}). 
+The array was mounted on a two-axis linear traverse system the array and was inclined at an angle of $8.6^\circ$ to the jet axis in order to match the spreading angle of the jet shear layer, as determined via PIV measurements during previous studies [28]. 
 The traverse was controlled using LabView and enabled the acquisition of pressure measurements at various radial positions with respect to the jet axis. 
 Initially, the most upstream microphone is positioned at x/D = 1 and r/D = 1.20, which is just outside the initial shear layer.
 For subsequent cases, the microphone array was incremented radially outward by 0.5D for a total travel distance of 7D, for a total of 15 array locations in the radial direction.
@@ -62,23 +63,30 @@ Voltage signals were collected at 200 kHz with 81920 data points per block; sub-
 Ten blocks were recorded for each case resulting in four seconds of data, which has been found to be sufficient for statistical convergence.
 \begin{figure}
 	\centering
-	\includegraphics{Figures/NearField1_Schematic.png}
-	\caption{Schematic of the microphone positions ???}
-	\label{nearfield1_schematic}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch2_nearfield_separate.png}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/NearField1_Schematic.png}
+	\end{subfigure}
+	\caption{Photograph of anechoic chamber and nozzle, with near-field linear microphone array in foreground (a), schematic of all near-field microphone locations (b).}
+	\label{fig:ch2_nearfield}
 \end{figure}
 
 In the second experimental campaign, a shorter array consisting of 12 microphones equally space by $1D$ was used. 
 In this case, the array was mounted from the floor and at an angle off the meridional plane of the jet (with microphone tips angled normal to the jet axis).
 This setup was used in conjunction with the particle image velocimetry described in the following section; the microphone array was placed off of the meridional plane so that it did not intersect with the laser sheet. 
-As before, the microphone array was angled 8.6º with respect to the jet axis in order to match the spreading rate of the shear layer, and the axial and radial position was set to match the closest microphone array location used during the first experimental campaign.
+As before, the microphone array was angled $8.6^\circ$ with respect to the jet axis in order to match the spreading rate of the shear layer, and the axial and radial position was set to match the closest microphone array location used during the first experimental campaign.
 Voltage traces were acquired at 400 kHz, with 24576 points collected per block.
-The voltage traces were collected simultaneously with streamwise particle image velocimetry measurements (described in the following section); 1500 blocks were acquired, corresponding to the 1500 acquired images.
+The voltage traces were collected simultaneously with streamwise particle image velocimetry measurements; 1500 blocks were acquired, corresponding to the 1500 acquired images.
 
 In addition to the microphone voltage traces, the acoustics data acquisition system recorded a reference signal corresponding to the LAFPA excitation. 
 The TTL pulse sequence, which controls the LAFPAs, was supplied to an Agilent 3320A waveform generator. 
 The rising edge of the TTL pulse triggered a sharp drop in the output voltage of the waveform generator, which then ramps back up to the original voltage over a time interval which is shorter than the minimum excitation period. 
 The output from the waveform generator was acquired simultaneously with the near- and far-field pressure signals using the aforementioned National Instruments hardware and software. 
-As the excitation frequency, azimuthal mode, and ramp signal are well defined, this system enables the identification of the zero phase of actuation and hence, the ability to phase-average the pressure signals over the excitation period, akin to the work performed in Sinha et al [citation].
+As the excitation frequency, azimuthal mode, and ramp signal are well defined, this system enables the identification of the zero phase of actuation and hence, the ability to phase-average the pressure signals over the excitation period, akin to the work performed in Sinha \etal [citation].
 This ensures that the seeded perturbations can be readily identified in the noisy flow, as well as allowing pressure signals, which were not recorded simultaneously (i.e. different near-field array positions), to be analyzed concurrently. 
 
 \subsection{Particle Image Velocimetry}
@@ -90,25 +98,30 @@ Alignment of the separate laser heads was initially performed using burn paper; 
 Per the best practices explained in the LaVision DaVis manual, the timing between the two laser pulses was set so that particles in the jet core translated downstream by roughly half of the minimum correlation window width (16 pixels).
 For the present work, this resulted in a time delay of 3~$\mu$s.
 It was later observed that the actual time delay produced by the laser did not match the delay specified in the control software; this resulted in incorrect velocities being computed by the cross-correlations.
-In order to correct for this, the laser pulses were recorded using a ThorLabs DET210 photodetector and a LeCroy Wavejet ???? oscilloscope; the final vector fields were linearly scaled based on the ratio between the specified time delay and the measured time delay.
+In order to correct for this, the laser pulses were recorded using a ThorLabs DET210 photodetector and a LeCroy Wavejet 324A oscilloscope; the final vector fields were linearly scaled based on the ratio between the specified time delay and the measured time delay.
 
 The jet core was seeded using Di-Ethyl-Hexyl-Sebacat (DEHS); the oil was atomized using a LaVision Aerosol generator and injected upstream of the turbulence screens in the stagnation chamber in order to produce a uniform seed particle density.
 As the jet entrains a significant amount of the surrounding ambient fluid as it evolves downstream, the coflow around the jet must also be seeded in order to accurately measure the outer shear layer velocity.
 For this, a TSI 6-jet atomizer (model 9306A) and olive oil was used; injection occurred into a plenum which surrounded the core stagnation chamber.
 Per the manufacturer's specfications, both atomizers provided nominally sub-micron seed particles.
-To ensure consistent seeding, this coflow was driven using a small blower (Model number???) and a series of high-pressure ejectors. 
+To ensure consistent seeding, this coflow was driven using a small Aerovent blower and a series of high-pressure ejectors. 
 As a result, for the PIV data acquisitions, the jet core was surrounded by a $\sim$5~m/s coflow. 
 
-Image groups were acquired using two LaVision Imager Pro SX 5M cameras.
-The cameras had 12-bit resolution and 2560$\times$2180 pixels.
+Image groups were acquired using two LaVision Imager Pro SX 5M cameras, which had 12-bit resolution and 2560$\times$2180 pixels.
 The combination of the PIV-400 laser and the Imager Pro SX cameras resulted in a maximum acquisition rate for the image groups of 5~Hz.
-Nikon Nikkor 105~mm f/1.8 lenses were used, and 532~nm bandpass filters were mounted on the lenses (what is the maker for the filters?!?!).
+Nikon Nikkor 105~mm f/1.8 lenses were used, and 532~nm bandpass filters were mounted on the lenses.
 The cameras were positioned such that they were nominally normal to the image plane, negating the need for scheimpflug mounts.
 This was done as having high spatial resolution and field of view were deemed to be more important than having full, three-component velocity vectors.
 The cameras were aligned such that there was roughly a 10\% overlap between the two images.
-This setup is generally designated as ``side-to-side'' in order to differentiate it from stereoscopic PIV.
+This setup is generally designated as ``side-to-side'' in order to differentiate it from stereoscopic PIV; a schematic of the setup can be found in \fig{fig:piv_setup}.
 The cameras were calibrated simultaneously using a LaVision calibration plate (type 31). 
 Hardware background subtraction was used in order to reduce the effect of reflections off of the nozzle extension and near-field microphone array.
+\begin{figure}
+	\centering
+	\includegraphics[width=6in]{Figures/ch2_piv_setup.png}
+	\caption{Schematic of syncronized PIV and near-field pressure data acquisition setup.}
+	\label{fig:piv_setup}
+\end{figure}
 
 The image groups were acquired in two modes: ensemble and phase-locked. 
 When in phase-locked mode, a reference signal from the LAFPA control computer was used as an external trigger for LaVision's DaVis software; various filters were placed inline in order to damp the electromagnetic interference generated by the LAFPAs.
@@ -125,3 +138,12 @@ A 50\% overlap was used for the initial pass, and a 75\% overlap was used for al
 An gaussian window (elliptic in the streamwise direction) was applied to the correlation windows.
 The velocity fields were post-processed to remove spurious vectors, which were iteratively replaced if secondary correlation peaks were found, before the downstream and upstream images were combined.
 No interpolation, smoothing, or denoising was performed in post-processing.
+
+Due to the nature of the plasma actuators used in these experiments (pulsed DC), electromagnetic interference (EMI) and radio-frequency interference (RFI) were significant concerns during data acquisition.
+Signal corruption could not only lead to excessively noisy data, but cause a mis-trigger event to occur between the laser, cameras, or microphones which would lead to garbage data.
+Great pains were therefore taken in order to isolate, shield and filter the electrical systems.
+A fiber-optic relay was designed and built in order to electrically isolate the plasma-generating equipment from the control computer (and ultimately the data acquisition systems).
+The plasma-generating equipment was also enclosed in a grounded metal rackmount cart to reduce the emitted RFI.
+Unfortunately, the building electrical grounds were also found to be corrupted by EMI, so additional filters were placed in stages along the trigger signal.
+A BenchMaster 21M Kemo filter, set to low-pass mode with a cutoff frequency of 99 kHz, was used to filter the flashlamp and q-switch trigger signals going into the laser power supply and head.
+Finally, between the LAFPA control computer and the PIV programmable timing unit input trigger a set of custom inductor-capacitor, resister-capacitor, and transient-voltage-suppressor filters were used. 

@@ -123,7 +123,7 @@ The original signal may therefore be recovered from the wavelet coefficients as
 The constant factor $C_\delta$ serves as an energy scaling, and appears because we are reconstructing the signal using a different analyzing wavelet (in this case, a delta function) than the mother wavelet used in the forward transform [Torrence,Farge,Antoine]. 
 For a given mother wavelet, this factor can be found from
 \begin{equation}
-	C_\delta = \frac{1}{(2 \pi)^n} \int_0^\infty \frac{ds}{s^{1 + n/2}} \int_{0}^{\infty} \frac{dc}{c} \int_{\mathbb{R}^n} d \vec{k} \int_{-\infty}^{\infty} d\omega \hat{\psi}_d^*
+	C_\delta = \frac{1}{(2 \pi)^n} \int_0^\infty \frac{ds}{s^{1 + n/2}} \int_{0}^{\infty} \frac{dc}{c} \int_{\mathbb{R}^{n-1}} d \vec{k} \int_{-\infty}^{\infty} d\omega \hat{\psi}_d^*
 \end{equation}
 where $\hat{\psi}_d$ are the daughter wavelets in Fourier space. 
 Since we are interested in decomposing the field into the acoustic and hydrodynamic components, a filtered reconstruction can be done quite easily in the wavelet domain by simply modifying the integration limits in \eq{eq:wavelet_filter} to include only speed-tuning parameters corresponding to the subsonic or supersonic portion of the wavelet spectrum.
@@ -148,12 +148,16 @@ The decompositions were performed along each radial microphone array position in
 \end{equation}
 which the reader will recognize as simply a plane wave modulated by a Gaussian. 
 Though simplicity was a factor in this decision, previous results analyzing phase-averaged waveforms in the far-field found acoustic emissions with a characteristic waveform that share some resemblance to the Morlet wavelet [crawley2014]. 
-The base oscillation frequencies, 〖$(k_0,\omega_0)$ were set to (±5,5) (the dual sign for $k_0$ being necessary to recover both forward and backward traveling waves), and $\hat{\psi}(k,0) = 0$ and $\hat{\psi}(0,\omega) = 0$ so as to ensure that the mother wavelet met the admissibility criterion.
+The base oscillation frequencies, 〖$(k_0,\omega_0)$ were set to $(\pm 5,5)$ (the dual sign for $k_0$ being necessary to recover both forward and backward traveling waves), and $\hat{\psi}(k,0) = 0$ and $\hat{\psi}(0,\omega) = 0$ so as to ensure that the mother wavelet met the admissibility criterion.
 
 As the microphone array is irregularly spaced in the axial direction, the pressure field was interpolated onto a regular grid of spacing $1D$ before computation of the discrete Fourier transform. 
 In the current work, the local speed of sound was chosen as the phase-velocity demarcation, as opposed to the ambient speed of sound which had been used by previous researchers [Tinney and Jordan]. 
 In our case, the jet under study is subsonic and unheated, meaning that the local speed of sound (~320 m/s) is still greater than the jet velocity (~287 m/s) yet lower than the ambient speed of sound (~346 m/s) and hence is a better choice for this particular application.
 \subsection{Validation}
+Though broad in its view, a simple evaluation of the decomposition algorithm can first be made by examination of the radial decay of the pressure fluctuation intensities, as has been done in \fig{fig:ch3_validation_Pms}  at an axial position near the end of the potential core. 
+Theoretical analysis by Ribner [cite] and Arndt \etal [cite] showed that the intensity of the full hydrodynamic field (as opposed to the inertial field alone) decays as $I \sim r^{-6}$. 
+In contrast, the acoustic field has been shown to be well-approximated by the linearized Euler equations, which exhibit $I \sim r^{-2}$ decay rates (that is, the field is dominated by spherically propagating waves). 
+Hence, the individually processed microphone array positions can serve as an initial validation step for the radial decay of the decomposed fields. 
 \begin{figure}
 	\centering
 	\includegraphics[width=4in]{Figures/ch3_validation_Pms.png}
