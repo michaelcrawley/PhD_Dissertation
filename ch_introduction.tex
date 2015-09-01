@@ -22,9 +22,15 @@ However, direct experimental data linking this structure evolution to the acoust
 It is on this vein that the current work is focused.
 Until recently, experimental data acquisition techniques have been unable to capture the flow physics with enough fidelity (lacking in either spatial or temporal resolution) in order to accurately model the large-scale structures and aeroacoustic sources.
 By combining contemporary data acquisition methods (free-field microphones and non-time-resolved particle image velocimetry) with novel post-processing algorithms this work aims to directly link the relevant vortex dynamics of the large-scale structures to the acoustic emission events, and in the process identify a simplified aeroacoustic source mechanism. 
+
+This study can be broken down into three distinct parts. 
+In the first, the irrotational near-field and acoustic far-field of the jet is analyzed in order to identify the dominant acoustic source region.
+In the second, time-resolved velocity fields are estimated using an artificial neural network, which is trained to generate a mapping from time-resolved pressure measurements to instantaneous velocity.
+Lastly, the acoustic source is computed from the time-resolved velocity using Ribner's simplification of Lighthill's acoustic analogy.  
 	
 \section{Background}
 \subsection{Flow Control}
+\label{sec:flow_instabilities}
 Controlling the development of the jet plume, and hence controlling the rate of mixing or intensity and characteristics of the emitted acoustic radiation, is a long running goal of the aeroacoustic community.
 Passive, permanent modifications to the nozzle have been shown to be quite adept at this task; some examples of these include tabs [citations] and chevrons [citations]. 
 These work to generate counter-rotating streamwise vortices in the developing shear layer, which serve to substantially increase mixing between the core and coflow in the near-nozzle region and ultimately retard the growth of large-scale axisymmetric structures [citation].
@@ -83,7 +89,7 @@ $\mathbf{T}$, commonly referred to as \textit{Lighthill's stress tensor}, compri
 \begin{equation}
 \mathbf{T} = \rho \mathbf{u} \otimes \mathbf{u} - \mathbf{\tau} + \mathbf{I} \left[ (p-\bar{p}) - c^2 (\rho - \bar{\rho}) \right].
 \end{equation}
-Here, $c$ refers to the ambient speed of sound, $\mathbf{I}$ is the identity matrix, and an overbar ($\bar{\cdot}$) corresponds to a time-averaged quantity.
+Here, $c$ refers to the ambient speed of sound, $\mathbf{I}$ is the identity matrix, $\mathbf{\tau}$ is the shear stress tensor, and an overbar ($\bar{\cdot}$) corresponds to a time-averaged quantity.
 This transformation has the effect of approximating the real system as a uniform acoustic medium at rest which is being driven by an external fluctuating force field.
 As the wave operator is linear, the solution to this equation can be formulated with the aid of Green's functions,
 \begin{eqnarray}
@@ -117,18 +123,23 @@ The downstream convection of these quadrupoles produces a preferential directivi
 However, researchers have found that stochastic quadrupole source models fail to accurately predict the intensity scaling of jet noise in heated jets or cold jets at low observer angles [Tam 2008].
 As Lighthill's analogy is an exact rearrangement of the governing equations (aside from the relatively minor assumption of a constant speed of sound), the error lies in our understanding of the aeroacoustic source. 
 
-Following the identification of coherent structures in turbulent jet shear layers [Mollo-christensen, crow, brown and roshko], source term models based on coherent eddies have frequently been employed, to varying degrees of success. 
+Mollo-Christensen [cite], and later Crow \& Champagne [cite] and Brown \& Roshko [cite], were the first to identified large-scale, coherent vortical structures underpinning turbulent free shear layers, in addition to the fine-scale, stochastic eddies.
+Later researchers linked the appearance of these large-scale structures to natural flow instabilities (predominantly the Kelvin-Helmholtz instability discussed in \sect{sec:flow_instabilities}) [Michalke, Cohen and Wygnanski].
+Following the identification these coherent structures in turbulent jet shear layers, source term models based on large-scale eddies have frequently been employed, to varying degrees of success. 
+
 A simplified model of the noise generation process in stationary free jets can be found in \fig{fig:jet_sources_diagram}. 
-This model is based off of the work of Tam \etal \citep{Tam1996, Tam2008}, who observed that the far-field spectra could be represented as a combination of two similarity spectra based on polar angle of the observer, regardless of jet Mach number or temperature.
+This model is from the work of Tam \etal \citep{Tam1996, Tam2008}, who observed that the far-field spectra could be represented as a combination of two similarity spectra based on polar angle of the observer, regardless of jet Mach number or temperature.
 At observer angles close to the jet downstream axis, the spectra exhibited a clearly defined spectral peak (\emph{F}-spectrum), whereas at sideline or upstream angles the spectra were broadband (\emph{G}-spectrum).
 From this observation the two-component acoustic source model was born: the isotropic fine-scale turbulence, dominant in the near-nozzle region, is responsible for the omni-directional acoustic radiation that dominates the sideline and upstream polar angles. 
 On the other hand, the large-scale turbulent structures which exist further downstream produce the superdirective radiation that is readily apparent at aft polar angles. 
 \begin{figure}
 	\centering
 	\includegraphics[width=5in]{Figures/JetNoiseSourceDiagramTMP.jpg}
-	\caption{Simplified diagram of jet noise sources [TEMPORARY PLACEHOLDER].}
+	\caption{Simplified diagram of jet noise sources, reprinted from Tam \etal JFM 2008.}
 	\label{fig:jet_sources_diagram}
 \end{figure}
+Numerous experimental studies have lent credibility to this view of aeroacoustic noise generation; see for example, Panda \etal [cite], Viswanathan \etal [cite], Tam \etal [cite], and Bogey \& Bailley [cite 2005].
+There is little disagreement at this point that the large-scale coherent structures in the turbulent shear layer are responsible for the dominant noise emission; however, the exact dynamics of these which leads to acoustic emission are as of yet still not well-understood. 
 
 This model for ???, the so-called 'mixing noise' generated by both subsonic and supersonic jets ???
 
@@ -139,7 +150,7 @@ This is observed directly in the far-field as a broad-band amplification at high
 In stationary or subsonic airframes this radiation can generate a feedback loop, whereby the noise travels upstream to the nozzle exit, excites the initial shear layer, and produces new structures at the same frequency.
 A high-amplitude, narrow-band tone (screech noise) is the end result of this feedback loop.
 Lastly, supersonically-convecting (relative to the ambient) large-scale structures (which exist in supersonic and heated jets) produce high-amplitude, strongly-directional acoustic radiation towards aft angles.
-This Mach wave radiation can be explained by a wavy-wall analogy (Tam again?).
+This Mach wave radiation can be explained by a wavy-wall analogy [Tam].
 In the present work, the jet is unheated and subsonic; as such these noise sources are not present and therefore neglected throughout the rest of this work.
 
  
