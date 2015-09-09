@@ -36,6 +36,35 @@ The linear superposition has been arbitrarily shifted in time in order to match 
 For reference, the impulse response has also been included in the plots. 
 Upstream of the end of the potential core ($z/D = 6$, as determined previously in our facility by PIV [Kearney]), the quasi-linear interaction model produces close predictions of the waveform amplitude and shape, despite the significant difference in both peak amplitude and waveform shape between the impulse and periodic responses. 
 
+This quasi-linear interaction of the jet response to excitation is not limited exclusively to the hydrodynamically-dominated regions of the jet, but in fact holds for the acoustic far-field as well, at aft angles (where the acoustic signal is strongest and is known to correlate well with large-scale structures). 
+This can be observed in \fig{fig:ch3_farfield_phavg}, where the phase-averaged response of the jet has been plotted for the far-field signal at a polar angle of $30^\circ$. 
+For legibility, only a select number of excitation Strouhal numbers have been included. 
+As with the irrotational near field, the acoustic far field exhibits a compact waveform for the lowest excitation Strouhal numbers. 
+Though nearly a direct inverse from the waveform observed in the hydrodynamically-dominated near field, the far-field waveform is quite reminiscent of the phase-averaged waveforms observed by Kambe \& Minota [cite] for the acoustic radiation towards aft angles produced by the head-on collision of vortex rings. 
+At higher $St_{DF}$, a continuous oscillation between sharp expansion and compression waves is again observed, though the amplitude begins to decay above moderate excitation Strouhal numbers. 
+\begin{figure}
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch3_farfield_phavg.png}
+		\caption{}
+		\label{fig:ch3_farfield_phavg}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch3_farfield_linear.png}
+		\caption{}
+		\label{fig:ch3_farfield_linear}
+	\end{subfigure}
+	\caption{Phase-averaged waveforms of the far-field at $30^\circ$ (a) and a linear superposition of the phase-averaged waveform for the impulse excitation ($St_{DF} = 0.05$) compared against periodic excitation ($St_{DF} = 0.25$) (b).}
+	\label{fig:ch3_nearfield}
+\end{figure}
+
+As before, a linear superposition of the impulse response can well predict the waveform shape and amplitude at the higher excitation frequencies (\fig{fig:ch3_farfield_linear}), though in this case only up to $St_{DF}  = 0.25$. 
+From the phase-averaged waveforms alone it is not clear whether this breakdown in the linear superposition model at the highest excitation frequencies is due to nonlinear behavior or uncertainty in the phase-averaging. 
+The phase-averaged waveforms were also investigated at polar angles of $60^\circ$ and $90^\circ$; however a clear waveform was not identifiable over the statistical uncertainty inherent in the phase-averaging process (likely due to the superdirective character of the acoustic radiation [Crighton 1990], which renders the amplitude at sideline angles too low to be detectable).
+Additional details and analysis of the phase-averaged near- and far-field signals can be found in Crawley \etal [cite].
+
 \section{Preprocessing: Filtering the Actuator Self-Noise}
 Analysis of the near-field response of the forced jet is not immediately straightforward due to acoustic contamination from the actuators themselves [Kearney]. 
 LAFPAs operate on a joule heating principle: the breakdown of the air between the electrodes and the ensuing flow of current results in intense heating of the air. This rapid, localized thermal perturbation produces a compression wave, which excites the shear layer. 
@@ -63,7 +92,6 @@ For consistency hereafter, all results examined within this work have been compu
 	\label{fig:preprocessing:wavelet_filter}
 \end{figure} 
 
-\section{Far-field Response}
 \section{Acoustic/Hydrodynamic Decomposition}
 Much of the difficulty in identifying the aeroacoustic source terms revolves around the dissimilar range of scales and fluctuation intensities of the turbulent eddies in the shear layer and the resulting radiated noise. 
 Outside the jet shear layer, in the irrotational near-field of the jet, strong hydrodynamic pressure fluctuations associated directly with the passage of coherent structures in the shear layer and their resultant weak acoustic radiation coexist [Arndt]. 
