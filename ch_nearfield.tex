@@ -280,7 +280,7 @@ Clearly, this intermittent behavior needs to be recovered in the near-field by t
 \begin{figure}
 	\centering
 	\includegraphics[width=4in]{Figures/ch3_wavelet_spectrum.png}
-	\caption{Wavelet power spectrum in the acoustic far-field at $30^\circ$ for the unforced jet.}
+	\caption{Wavelet power spectrum in the acoustic far-field at $30^\circ$ for the natural jet.}
 	\label{fig:ch3_wavelet_spectrum}
 \end{figure}
 
@@ -314,8 +314,164 @@ Based on these results, the author felt confident that the decomposed acoustic f
 \section{Identifying the Acoustic Source Region}
 Correlation analysis has long been used by researchers as a simple tool to quantify the relationship between two or more signals separated either by space or time.
 In its simplest form, two-point correlations measure the similarity and phase delay by a linear convolution of two signals.
-Two-point correlations are ubiquitous in fluid dynamics research; here they will be used to better understand the relationship between the near-field dynamics and the acoustic radiation reaching the far field at aft angles.
+It is perhaps unsurprising then that two-point correlations are ubiquitous in fluid dynamics research.
+In this work, they will be used to better understand the relationship between the near-field dynamics and the acoustic radiation reaching the far field at aft angles.
+Correlations were computed (using the measured signals, as opposed to the phase-averaged waveforms) between each microphone in the near field and the far-field microphone at $30^\circ$. 
+The correlations were then examined in the spatio-temporal domain, which showed distinct regions of positive and negative correlation spanning several jet diameters and flow time scales.
+\begin{figure}
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch3_St000_xcorr_r1D.png}
+		\caption{$r/D = 1.2$}
+		\label{fig:ch3_fullxcorr_r1D}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch3_St000_xcorr_r4D.png}
+		\caption{$r/D = 4.2$}
+		\label{fig:ch3_fullxcorr_r4D}
+	\end{subfigure}
+	\caption{Normalized two-point correlations for the natural jet between the near field and the far field at $30^\circ$ for two microphone array positions.}
+	\label{fig:ch3_fullxcorr}
+\end{figure}
 
+This behavior can be observed in \fig{fig:ch3_fullxcorr}, where the two-point correlations between the near-field and the far-field at $30^\circ$ for two microphone array positions (starting at $z/D = 1, r/D = 1.20$ and $z/D = 1, r/D = 4.20$) have been plotted.
+The time lag, $\tau$, in the figures have been non-dimensionalized by the ambient speed of sound, $a_\infty$, and $R$, the distance from each near-field microphone to the far-field microphone (note that this results in an ordinate that is scaled separately along the abscissa, due to the dependence of the axial position on $R$).
+Therefore, $\tau a_\infty /R = 1$ corresponds to the time delay for an acoustic wave to travel directly from the near-field microphone to the far-field microphone.
 
-\section{Hydrodynamic Wavepackets}
-\label{sect:near_field_source_region}
+Near the jet shear layer (\fig{fig:ch3_fullxcorr_r1D}), four distinct correlation regions can be observed: two positive, two negative; one strong and one weak for each. 
+The first correlation regions, the strong-negative and weak-positive, are noticeable beginning at the most upstream microphone and reach their peak values around $5 < z/D < 10$, decaying significantly beyond that.
+The slopes of these regions indicate propagation velocities noticeably below the sonic velocity; in the upstream region, they roughly match with the measured convective velocity of the large-scale structures ($U_c \simeq 0.7 U_j$ as measured by two-point correlations between subsequent near-field microphones, see Crawley \etal [cite] for additional details) in the upstream region of the jet, and slowly decelerate downstream.
+Similar behavior was observed by Bogey \& Bailley [cite], who noted that two-point correlations between the flow-field and acoustic near-field in a simulated jet produced strong positive correlation regions which peaked at the end of the potential core and which followed the convection of the large-scale structures.
+Conversely, the strong-positive and weak-negative correlation regions exhibit propagation velocities that match well with the ambient speed of sound. 
+These correlation regions start from almost negligible values upstream, strongly amplify near and just beyond the end of the potential core, and decay gradually in the most downstream region.
+
+As the microphone array is moved radially outwards (\fig{fig:ch3_fullxcorr_r4D}), the strong-negative and weak-positive correlation regions quickly decay to negligible values and all observable correlation regions begin to match the expected time-of-arrival for sonically-traveling waves. 
+The distinctly different propagation velocities and axial and radial evolutions of the two pairs of correlation regions indicate that these correspond to different physical phenomena.
+The strong-negative and weak-positive correlation regions observed near the jet shear layer are associated with the large-scale structures themselves, rather than acoustic phenomena. 
+The positive and negative correlation regions are likely associated with the braid and core regions of the large-scale structure as they convect through the shear layer. 
+The low-pressure core region of the vortex produces a positive correlation value with the far-field acoustic due to the phase inversion of the acoustic waveform at low polar angles (\fig{fig:ch3_nearfield}). 
+At this radial location, the dominant energy measured by the microphone array is acoustic, owing to the strong decay of the hydrodynamic field with radial distance from the jet [arndt 1997].
+Though they have not been included here for brevity, the two-point correlations in the excited jet cases show similar behavior, albeit with enhanced correlation levels particularly for the large-scale structure related regions. 
+
+This relationship becomes even more clear when just the acoustic component of the near-field is considered during computation of the two-point correlations, rather than the full irrotational near-field. 
+Gone entirely now are the correlation regions with subsonic propagation velocities, even at the closest microphone array positions, as can be seen in \fig{fig:ch3_St000_acoustic}.
+Instead, a single positive correlation region corresponding to sonically-propagating waves exists over the entire domain with significantly enhanced correlation over the full field results. 
+In fact, the results found here for the acoustic component along the first microphone array position are nearly identical to those for the full field response at the further away array positions (\fig{fig:ch3_fullxcorr_r4D}), which were dominated by acoustic, rather than hydrodynamic, energy.
+\begin{figure}
+	\centering
+	\includegraphics[width=4in]{Figures/ch3_St000_xcorr_acoustic.png}
+	\caption{Normalized two-point correlations for the natural jet between the acoustic component of the near field and the far field at $30^\circ$ for microphone array position starting at $z/D = 1, r/D = 1.2$. }
+	\label{fig:ch3_St000_acoustic}
+\end{figure}
+
+We can now use the correlations of the decomposed near-field in order to identify the acoustic source region, at least in a rough sense, by comparing the time lag at which the greatest correlation is achieved against expected times-of-arrival for different propagation paths.
+A schematic of these propagation paths is provided in \fig{fig:ch3_ToA}.
+The first expected time of arrival, $\tau_a$, corresponds to the expected time lag for an acoustic wave traveling directly from the noise source to the near-field microphone and on to the far-field microphone and hence, the noise source region lies along the axis created by the near-field and far-field microphones.
+Another expected time-of-arrival can be constructed by assuming the source region is stationary in space; from simple geometric considerations of the distance from the assumed source region to the near-field and far-field microphones, the time lag, $\tau_s$, between the arrival of an acoustic wave at both microphones can be computed.
+The stationary source region is of course not known \textit{a priori}, but is set by the author subsequent to the computation of the two-point correlations.
+
+For simplicity, density and convection effects on the acoustic wave as it travels through the jet shear layer have been neglected in this analysis. 
+By necessity, it has been assumed that the acoustic radiation in the jet is dominated by $m = 0$ azimuthal Fourier mode (the near-field and far-field microphone arrays are not at the same azimuthal angle with respect to the nozzle). 
+This assumption is easily justified in the excited jets, where the actuators have been fired in phase. 
+While the near-field pressure and acoustic radiation towards aft polar angles in a natural, high Reynolds number jet is a combination of numerous azimuthal Fourier modes, previous researchers have found these fields to be dominated by the axisymmetric mode [arndt, hall2006,koenig2011,juve1979].
+\begin{figure}
+	\centering
+	\includegraphics[width=4in]{Figures/ToA_tau.png}
+	\caption{Expected times of arrival for on-axis acoustic propagation, $\tau_a$, and off-axis acoustic propagation, $\tau_s$ from a stationary source region centered at $x_s$.}
+	\label{fig:ch3_ToA}
+\end{figure}
+
+Here, the acoustic source region was assumed to be located at $x_s /D = 4$, which is just upstream of the end of the potential core in the unforced jet. 
+(Please note that this analysis is not meant to imply that the source region is located at a specific, fixed point – it is merely a convenient way of understanding the propagation paths.)
+Similar behavior is observed between the natural jet and the excited cases in \fig{fig:ch3_xcorrOA}; note that due to numerical discrepancies at the domain boundaries (see Torrence \& Campo for a discussion of the `cone of influence' of wavelet coefficients and the effect thereof), the correlation values have been truncated at the most upstream and downstream microphones.
+For the impulsively-excited jet, nearly identical correlation regions are observed between the excited and natural jet; in the periodically-excited jet continuous oscillations occur throughout time due to the similarity of continuously-generated large-scale structures and resultant acoustic radiation.
+In the upstream region of the jet, the peaks of the positive correlation region match $\tau_a$ nearly exactly. 
+In the downstream region, $\tau_a$ begins to increasingly over-predict the time lag for the maximum correlation. 
+On the other hand, $\tau_s$ tracks the time lags for the peak correlation consistently over the downstream region, but not the upstream region. 
+The results found here appear to indicate that the dominant acoustic radiation reaching the far-field aft angles is being generated over an extended region of the jet mixing layer, roughly $z/D \leq 4$, which is just upstream of the time-averaged end of the potential core in the natural jet.
+This is not too dissimilar from the findings of other researchers, who have suggested that the acoustic source region lies just \textit{downstream} of the end of the potential core [Hileman].
+That this source region is consistent between the excitation frequencies explored here is suggestive of a consistent dominant source mechanism, akin to the results presented in \fig{fig:ch3_farfield_linear}.
+\begin{figure}
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch3_St000_r120_ff30xcor_oa.png}
+		\caption{}
+		\label{fig:ch3_xcorrOA_St000}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch3_St005_r120_ff30xcor_oa.png}
+		\caption{}
+		\label{fig:ch3_xcorrOA_St005}
+	\end{subfigure}\\
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch3_St025_r120_ff30xcor_oa.png}
+		\caption{}
+		\label{fig:ch3_xcorrOA_St025}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch3_St035_r120_ff30xcor_oa.png}
+		\caption{}
+		\label{fig:ch3_xcorrOA_St035}
+	\end{subfigure}
+	\caption{Normalized two-point correlations between the acoustic component of the near field and the far field at $30^\circ$ for microphone array position starting at $z/D = 1, r/D = 1.2$ for the natural jet (a), $St_{DF} = 0.05$ (b), $St_{DF} = 0.25$ (c) and $St_{DF} = 0.35$ (d).}
+	\label{fig:ch3_xcorrOA}
+\end{figure}
+
+The author would like to make a special note here, concerning the discrepancy between the results presented in \fig{fig:ch3_xcorrOA} and those presented previously in Crawley \etal [cite].
+In that paper, the more simple Fourier filter was used to decompose the irrotational near-field; processing artifacts were noted and a parametric study was attempted to minimize their impact.
+In the resulting two-point correlations of the decomposed acoustic field, a shift in the apparent source region was noted to coincide with the shift of the peak pressure fluctuations measured just outside the shear layer (higher frequency excitation cases saturating further upstream near the nozzle exit).
+Because this behavior was observed across the entire range of filter parameters used, it was assumed to be representative of the true physical behavior and not a numerical artifact.
+Of course, this assumption precludes the possibility that \textit{the entire parameter space produced similar numerical artifacts}. 
+
+As discussed more thoroughly Crawley \& Samimy [cite], the Fourier filter had a tendancy to allow energy leakage from the hydrodynamic field into the acoustic, particularly at low frequencies. 
+Since it has already been observed that the hydrodynamic signature of the large-scale structures can linearly correlate to the acoustic emission, a potential consequence of this leakage is correlation regions which instead point to the region of high hydrodynamic energy - i.e. the saturation point of the near-field pressure fluctuations.
+There are few certainties in life beyond death and taxes, so it is difficult the argue with definitiveness that the results depicted in the present work are entirely free of numerical artifacts.
+However, the analysis found in Crawley \& Samimy [cite] demonstrate that wavelet filter is more robust in this regard, and as such the author is inclined to lend more credence to the results presented herein. [Reference to results in chapter 5?]
+%\section{Hydrodynamic Wavepackets}
+%As mentioned previously, as well as discussed by other researchers [cavalieri2010,kearney-fischer2013], the noise generation process in subsonic jets is a highly intermittent process rather than a continuous phenomena (refer to \fig{fig:ch3_wavelet_spectrum} for an illustration of this).
+%
+%
+%The effect of the near-field decomposition on the spatio-temporal evolution of the hydrodynamic pressure fluctuations 
+%\label{sect:near_field_source_region}
+%\begin{figure}
+%	\centering
+%	\begin{subfigure}{.5\textwidth}
+%		\centering
+%		\includegraphics[width=0.95\linewidth]{Figures/ch3_S000_r1_full_wvpkts.png}
+%		\caption{Original}
+%		\label{fig:ch3_st000_fullwvpkts}
+%	\end{subfigure}%
+%	\begin{subfigure}{.5\textwidth}
+%		\centering
+%		\includegraphics[width=0.95\linewidth]{Figures/ch3_S000_r1_hydro_wvpkts.png}
+%		\caption{Hydrodynamic}
+%		\label{fig:ch3_st000_hydrowvpkts}
+%	\end{subfigure}
+%	\caption{Spatio-temporal pressure contour (units in Pa) in the natural jet for the microphone array starting at $z/D = 1, r/D = 1.2$.}
+%	\label{fig:ch3_st000_wvpkts}
+%\end{figure}
+%
+%
+%\begin{figure}
+%	\centering
+%	\begin{subfigure}{.5\textwidth}
+%		\centering
+%		\includegraphics[width=0.95\linewidth]{Figures/ch3_S005_r1_hydro_wvpkts.png}
+%		\caption{$St_{DF} = 0.05$}
+%		\label{fig:ch3_st005_hydrowvpkts}
+%	\end{subfigure}%
+%	\begin{subfigure}{.5\textwidth}
+%		\centering
+%		\includegraphics[width=0.95\linewidth]{Figures/ch3_S025_r1_hydro_wvpkts.png}
+%		\caption{$St_{DF} = 0.25$}
+%		\label{fig:ch3_st025_hydrowvpkts}
+%	\end{subfigure}
+%	\caption{??}
+%	\label{fig:ch3_excited_wvpkts}
+%\end{figure}

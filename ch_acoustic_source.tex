@@ -1,1 +1,23 @@
 \chapter{Dilatation as the Aeroacoustic Acoustic Source}
+Ribner presented an alternative approach to Lighthill's acoustic analogy which posited fluctuating fluid dilatations as the source of aeroacoustic emission.
+\section{Numerical Method}
+\subsubsection{Helmholtz Decomposition}
+	For a given vector field, $\vec{F}$, Helmholtz's theorem states that any sufficiently smooth vector field can be linearly decomposed into irrotational and solenoidal vector fields, as
+	\begin{equation}
+	\vec{F} = \vec{F}_{potential} + \vec{F}_{rotational} = \nabla \Phi + \nabla \times \Psi
+	\end{equation}
+	where $\Phi$ is a scalar field and $\Psi$ is a vector field.
+	From basic vector calculus properties, we can therefore compute these solenoidal and irrotational components by taking the divergence of this equation, leading to:
+	\begin{equation}
+	\nabla \cdot \vec{F} = \nabla^{2} \Phi
+	\end{equation}
+	which is simply Poisson's equation, where in the context of velocity decomposition the forcing term is simply the divergence of the flow field.
+	Since we are unable to acquire gradients in the azimuthal coordinate, we are going to drop this term, leaving
+	\begin{equation}
+	\frac{\partial U_r}{\partial r} + \frac{\partial U_z}{\partial z} + \frac{U_r}{r} = \frac{1}{r} \frac{\partial \Phi}{\partial r} + \frac{\partial^2 \Phi}{\partial r^2} + \frac{\partial^2 \Phi}{\partial z^2} 
+	\end{equation}
+	
+	The solution procedure is therefore to first compute $\Phi$, then add the gradient of this field to the raw velocity vector field in order to produce the solenoidal velocity field.
+\subsubsection{Pseudo-Pressure Solver}
+\subsubsection{Wavelet Denoising}
+\section{Wavepackets in the Pseudo-Pressure Field}
