@@ -1,12 +1,15 @@
 \chapter{Dilatation as the Aeroacoustic Source}
 Ribner presented an alternative approach to Lighthill's acoustic analogy which posited fluctuating fluid dilatations as the source of aeroacoustic emission [ribner 1962].
 This is a reinterpretation of Lighthill's source, which in subsonic, unheated, turbulent jets consists of fluctuating momentum flux.
-The driving factor behind Ribner's analysis is the conceptual simplification of the aeroacoustic sources: Lighthill's quadrupoles are replaced by the contraction or expansion of fluid elements (identified alternatively as \emph{pseudosound} or \emph{pseudo-pressure}) due to the fluctuating momentum flux, which in turn drive the acoustic field.
+The driving factor behind Ribner's analysis is the conceptual simplification of the aeroacoustic sources: Lighthill's quadrupoles are replaced by the contraction or expansion of fluid elements (confusingly identified alternatively as \emph{pseudosound} or \emph{pseudo-pressure}) due to the fluctuating momentum flux, which in turn drive the acoustic field.
 This conceptual simplicity makes the dilatation-based approach to the acoustic analogy particularly attractive to the experimentalist for high-speed (though subsonic), turbulent flows.
 The analysis, described briefly in the subsequent section, is (relatively) simple to perform computationally, relying exclusively on second-order derivatives (unlike the third-order differential equation derived by Lilley [cite]) which include a natural filtering mechanism.
 More importantly, the pseudosound field (which is the direct precursor to the source field) can be directly compared against the time-resolved hydrodynamic pressure field measured in the irrotational near-field, thus serving as a helpful validation of the computations.
 
 \section{Ribner's Acoustic Analogy}
+To briefly acquaint the reader, an overview of Ribner's analysis will be provided here.
+Further details can be found in Ribner [cite] if the reader is so inclined. 
+Ribner's analysis directly follows from Lighthill's, and as such includes the same restrictions on the applicable class of flows.
 Starting from Lighthill's analogy (\eq{eq:lighthill_analogy}), the source term is first reduced by neglecting viscosity and entropic fluctuations (thereby assuming that the flow is of high Reynolds number and unheated), leaving only the Reynolds stress terms:
 \begin{equation}
 	\frac{1}{c^2}\frac{\partial^2 p}{\partial t^2} - \nabla^2 p = \nabla \cdot \nabla \cdot \rho \mathbf{u} \otimes \mathbf{u}.
@@ -25,6 +28,7 @@ Ribner's analysis then assumes that the full density and velocity fields can be 
 \begin{equation}
 	\frac{1}{c^2}\frac{\partial^2 p_a}{\partial t^2} - \nabla^2 p_a = -\frac{1}{c^2}\frac{\partial^2 p_s}{\partial t^2}.
 \end{equation} 
+
 
 \section{Numerical Method}
 \subsubsection{Helmholtz Decomposition}
