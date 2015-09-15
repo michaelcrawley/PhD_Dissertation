@@ -24,15 +24,33 @@ Therefore,
 \begin{equation}
 	- \nabla^2 p_s = \nabla \cdot \nabla \cdot \rho_0 \mathbf{v} \otimes \mathbf{v}.
 \end{equation}
-Ribner's analysis then assumes that the full density and velocity fields can be approximated as the incompressible (solenoidal) fields, thus producing Ribner's Dilatation Equation [ribner1962]
+Ribner's analysis then assumes that the full density and velocity fields can be approximated as the incompressible (solenoidal) fields (the higher-order terms scaling with the \textit{fluctuating} Mach number [Ristorcelli1997]), thus producing Ribner's Dilatation Equation [ribner1962]
 \begin{equation}
 	\frac{1}{c^2}\frac{\partial^2 p_a}{\partial t^2} - \nabla^2 p_a = -\frac{1}{c^2}\frac{\partial^2 p_s}{\partial t^2}.
 \end{equation} 
 
-
+In this way, acoustic pressure field is ultimately linked to the time rate of change of the dilatation (see Ristorcelli [cite] for a very enlightening perturbation analysis which makes this relationship far more clear).
+This is far from a controversial assertion.
+Numerous other researchers have used the dilatation field to examine the aeroacoustic phenomena (primarily using DNS or LES simulations); see Mitchell \etal [cite 1995], Colonius \etal [cite 1997], or Freund \etal [cite 2000] for examples.
+In fact, this relationship can easily be illustrated, as has been done in \fig{fig:LES_dilatation}. 
+\begin{figure}
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/LES_dilatation1.jpg}
+		\caption{}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/LES_dilatation2.jpg}
+		\caption{}
+	\end{subfigure}
+	\caption{Two phases of actuation taken from the implicit LES database of Speth \& Gaitonde [cite]. Isosurfaces are computed from Q-criterion and colored by axial velocity, and the background corresponds to dilatation.}
+	\label{fig:LES_dilatation}
+\end{figure}
 \section{Numerical Method}
 \subsubsection{Helmholtz Decomposition}
-	For a given vector field, $\vec{F}$, Helmholtz's theorem states that any sufficiently smooth vector field can be linearly decomposed into irrotational and solenoidal vector fields, as
+	For a given vector field, $\mathbf{F}$, Helmholtz's theorem states that any sufficiently smooth vector field can be linearly decomposed into irrotational and solenoidal vector fields, as
 	\begin{equation}
 	\mathbf{F} = \mathbf{F}_{potential} + \mathbf{F}_{rotational} = \nabla \Phi + \nabla \times \Psi
 	\end{equation}
@@ -41,7 +59,7 @@ Ribner's analysis then assumes that the full density and velocity fields can be 
 	\begin{equation}
 	\nabla \cdot \mathbf{F} = \nabla^{2} \Phi
 	\end{equation}
-	which is simply Poisson's equation, where in the context of velocity decomposition the forcing term is simply the divergence of the flow field.
+	which is simply Poisson's equation, where in the context of a velocity decomposition the forcing term is simply the divergence of the flow field.
 	Since we are unable to acquire gradients in the azimuthal coordinate, we are going to drop this term, leaving
 	\begin{equation}
 	\frac{\partial U_r}{\partial r} + \frac{\partial U_z}{\partial z} + \frac{U_r}{r} = \frac{1}{r} \frac{\partial \Phi}{\partial r} + \frac{\partial^2 \Phi}{\partial r^2} + \frac{\partial^2 \Phi}{\partial z^2} 
