@@ -88,9 +88,12 @@ At the lower boundary (jet centerline), a zero-normal-gradient boundary conditio
 At the radial boundary, the solenoidal component was set to zero (as there is no turbulent flow in this region, and the only outgoing waves will be compressible).
 At the inflow and outflow however, the proper boundary conditions are not immediately obvious.
 Other researchers using numerical databases [Mansour, Unni] have argued that the solenoidal component be set to zero here as the turbulent eddies have either not grown to significant values or decay to insignificant values at these locations, respectively.
-For the domain explored in the current work however, this does not appear to be necessarily accurate, and instead the \textit{potential} component is set to zero at both the inlet and outlet.
+For the domain explored in the current work however, this does not appear to be necessarily accurate.
 At the outflow boundary ($z/D \simeq 13$), there is still significant vortical behavior, but the Mach number is relatively low ($M_j \sim 0.5$) and hence compressibility is expected to be negligible.
 At the inflow boundary (which is $\sim1.4$ mm downstream of the nozzle exit), the solenoidal component is clearly not negligible in the shear layer region (since $\partial U_z / \partial r \neq 0$).
+If the inflow is approximated as a plug flow (which the ensemble-averaged PIV indicates is not an unreasonable assumption), $\partial U_z / \partial z = \partial U_r / \partial r = 0$ and hence the potential component is negligible here.
+Therefore, the potential component was set to zero at both the inlet and outlet.
+Second-order accurate centered finite differences were again used to approximate the derivatives in the boundary conditions; a single ghost node was along each boundary to enforce these conditions.
 \subsubsection{Pseudo-Pressure Solver}
 \subsubsection{Wavelet Denoising}
 \section{Wavepackets in the Pseudo-Pressure Field}
