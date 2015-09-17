@@ -153,13 +153,26 @@ Second-order accurate centered finite differences were again used to approximate
 
 \subsubsection{Pseudo-Pressure Solver}
 Once the solenoidal velocity field is known, the fluctuating pseudo-sound field can be computed as the incompressible solution to the momentum and continuity equations (\eq{eq:solenoidal_pressure}).
+The source field is calculated explicitly from the solution of the Helmholtz decomposition (that is, the double divergence of the incompressible velocity stress tensor) using second-order accurate finite differences.
 As with the preceding Poisson equation, the azimuthal terms in this second Poisson equation are assumed negligible in comparison to the radial and axial terms and are thus ignored.
-Again, as done previously, the governing equation is approximated using second-order accurate centered finite differences, and ghost nodes are used at the domain boundaries to enforce the boundary conditions.
-Given that the hydrodynamic pressure field has been observed to strongly decay with radial position [arndt], it is assumed that the pseudo-sound fluctuations have decayed to negligible values by the time they reach the upper domain boundary.
-In accordance with the boundary assumptions made in the preceding section, at the inflow boundary, plug flow has again been assumed, meaning that the pseudo-pressure \textit{fluctuations} are negligible here. 
-The outflow boundary was assumed to be far enough downstream such that the fluctuations were also negligible at the boundary, and the lower boundary enforced the zero-normal-gradient assumed by axisymmetry.
+Again, as done previously for the Helmholtz decomposition, the governing equation is approximated using second-order accurate centered finite differences, and ghost nodes are used at the domain boundaries to enforce the boundary conditions.
+
+The hydrodynamic pressure field has been observed to strongly decay with radial position [arndt]; given the radial extent of the experimental domain, it was therefore assumed that the pseudo-sound fluctuations have decayed to negligible values by the time they reach the upper domain boundary.
+In accordance with the boundary assumptions made in the preceding section, at the inflow boundary plug flow has again been assumed, meaning that the pseudo-pressure \textit{fluctuations} are negligible at the inlet. 
+The outflow boundary was assumed to be far enough downstream such that the fluctuations were also negligible at the boundary.
+Finally, the lower boundary enforced the zero-normal-gradient required by the assumption of axisymmetry.
 
 \subsubsection{Wavelet Denoising}
-Once the pseudo-sound field is known, the source term can be computed explicitly per \eq{eq:ribner_source}.
-However, ...
+The aeroacoustic source term can now be computed explicitly as the second temporal derivative of the pseudo-sound field (\eq{eq:ribner_source}).
+However, 
+
+As discussed by Farge [1992], 
+
+See Donoho \& Johnstone [1994], Farge \etal [1999] and Ruppert-Felsot \etal [2009] for additional details on denoising using orthogonal wavelet transforms, including more advanced algorithms.
+
+For the current work, the fast orthogonal wavelet transforms implemented in Stanford University, Department of Statistics' \texttt{WaveLab 850} software library were utilized.
+The mother wavelet was defined as the $5^{th}$-order Battle-Lemarie wavelet; sample data was also analyzed using other smooth wavelets (high-order Coiflets and Symmlets) to ensure that the final results were not affected by the choice of mother wavelet.
+The orthogonal wavelet transform was performed along the temporal domain separately for each spatial location; the time-series was zero-padded so that it matched a dyadic grid.
+A soft energy threshold was used to separate the coherent, large-scale pressure fluctuations from the incoherent noise.
+The threshold was defined by $\sigma = \sqrt{\text{E}[x^2] - \text{E}^2[x]}$, where $\text{E}[\cdot]$ is the expectation operator, and $N$ is the sample length???
 \section{Wavepackets in the Pseudo-Pressure Field}
