@@ -153,7 +153,8 @@ Second-order accurate centered finite differences were again used to approximate
 
 Sample results for this procedure have been provided in \fig{fig:valid_helmholtz}.
 Here, the axial and radial velocity components for the original (estimated) and decomposed velocity fields are shown for $St_{DF}=0.05$; to ease visual identification, the fields have been phase-averaged over roughly 100 actuation cycles.
-
+From the raw velocity field, a single large-scale structure is readily identifiable at $z/D \simeq 6$ (which is the end of the potential core).
+Due to the very low frequency of the excitation (impulsive forcing) and the phase-averaging, no other structures are visible in the flow-field.
 \begin{figure}
 	\centering
 	\begin{subfigure}{0.5\textwidth}
@@ -219,7 +220,7 @@ For the current work, the fast orthogonal wavelet transforms implemented in Stan
 The mother wavelet was defined as the $5^{th}$-order Battle-Lemarie wavelet; sample data was also analyzed using other smooth wavelets (high-order Coiflets and Symmlets) to ensure that the final results were not affected by the choice of mother wavelet.
 The orthogonal wavelet transform was performed along the temporal domain separately for each spatial location; the time-series was zero-padded so that it matched a dyadic grid.
 A soft energy threshold was used to separate the coherent, large-scale pressure fluctuations from the incoherent noise.
-The threshold was defined by $\sigma = \sqrt{\text{E}[x^2] - \text{E}^2[x]}$, where $\text{E}[\cdot]$ is the expectation operator, and $N$ is the sample length???
+In traditional wavelet-denoising, the threshold is often defined as $\epsilon = \sqrt{2 \sigma^2 \mathrm{log}_e N}$, where $\sigma^2$ is the variance of the noise, and $N$ is the sample length.
 
 \begin{figure}
 	\centering
