@@ -151,6 +151,42 @@ If the inflow is approximated as a plug flow (which the ensemble-averaged PIV in
 Therefore, the potential component was set to zero at both the inlet and outlet.
 Second-order accurate centered finite differences were again used to approximate the derivatives in the boundary conditions; a single ghost node was along each boundary to enforce these conditions.
 
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch5_valid_Inst_Uz.png}
+		\caption{}
+	\end{subfigure}%
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch5_valid_Inst_Ur.png}
+		\caption{}
+	\end{subfigure}\\
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch5_valid_Inst_solUz.png}
+		\caption{}
+	\end{subfigure}%
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch5_valid_Inst_solUr.png}
+		\caption{}
+	\end{subfigure}\\
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch5_valid_Inst_potUz.png}
+		\caption{}
+	\end{subfigure}%
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch5_valid_Inst_potUr.png}
+		\caption{}
+	\end{subfigure}
+	\caption{???}
+	\label{fig:valid_helmholtz}
+\end{figure}
+
 \subsubsection{Pseudo-Pressure Solver}
 Once the solenoidal velocity field is known, the fluctuating pseudo-sound field can be computed as the incompressible solution to the momentum and continuity equations (\eq{eq:solenoidal_pressure}).
 The source field is calculated explicitly from the solution of the Helmholtz decomposition (that is, the double divergence of the incompressible velocity stress tensor) using second-order accurate finite differences.
@@ -162,6 +198,12 @@ In accordance with the boundary assumptions made in the preceding section, at th
 The outflow boundary was assumed to be far enough downstream such that the fluctuations were also negligible at the boundary.
 Finally, the lower boundary enforced the zero-normal-gradient required by the assumption of axisymmetry.
 
+\begin{figure}
+	\centering
+	\includegraphics[width = 3.5in]{Figures/ch5_valid_Inst_ps.png}
+	\caption{???}
+	\label{fig:valid_pseudopressure}
+\end{figure}
 \subsubsection{Wavelet Denoising}
 The aeroacoustic source term can now be computed explicitly as the second temporal derivative of the pseudo-sound field (\eq{eq:ribner_source}).
 However, 
@@ -175,4 +217,11 @@ The mother wavelet was defined as the $5^{th}$-order Battle-Lemarie wavelet; sam
 The orthogonal wavelet transform was performed along the temporal domain separately for each spatial location; the time-series was zero-padded so that it matched a dyadic grid.
 A soft energy threshold was used to separate the coherent, large-scale pressure fluctuations from the incoherent noise.
 The threshold was defined by $\sigma = \sqrt{\text{E}[x^2] - \text{E}^2[x]}$, where $\text{E}[\cdot]$ is the expectation operator, and $N$ is the sample length???
+
+\begin{figure}
+	\centering
+	\includegraphics[width = 3.5in]{Figures/ch5_valid_Inst_source.png}
+	\caption{???}
+	\label{fig:valid_source}
+\end{figure}
 \section{Wavepackets in the Pseudo-Pressure Field}
