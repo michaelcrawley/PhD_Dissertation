@@ -154,7 +154,9 @@ Second-order accurate centered finite differences were again used to approximate
 Sample results for this procedure have been provided in \fig{fig:valid_helmholtz}.
 Here, the axial and radial velocity components for the original (estimated) and decomposed velocity fields are shown for $St_{DF}=0.05$.
 From the raw velocity field, a single large-scale structure is readily identifiable at $z/D \simeq 6$ (which is the end of the potential core).
-Due to the very low frequency of the excitation (impulsive forcing), no other structures are clearly visible in the flow-field.
+Due to the very low frequency of the excitation (impulsive forcing), no other large-scale structures are clearly visible in the flow-field.
+As expected, the Helmholtz decomposition produces a solenoidal velocity that is quite similar to the full velocity field; even at high subsonic Mach numbers, compressibility plays a minor (though definitely non-neglible) role in the overall evolution of the shear layer and potential core.
+The potential (compressible) velocity field does exhibit coherent axial and radial velocity fluctuations which correspond to the large-scale structure; in fact, the potential and solenoidal velocity fluctuations associated with the large-scale structure are of similar magnitude.
 \begin{figure}
 	\centering
 	\begin{subfigure}{0.5\textwidth}
@@ -187,7 +189,7 @@ Due to the very low frequency of the excitation (impulsive forcing), no other st
 		\includegraphics[width=0.95\linewidth]{Figures/ch5_valid_Inst_potUr.png}
 		\caption{}
 	\end{subfigure}
-	\caption{Instantaneous axial (a,c,e) and radial (b,d,f) velocity components for the original (a,b), solenoidal (c,d), and potential (e,f) velocity fields, for $St_{DF} = 0.05.$}
+	\caption{Instantaneous axial (a,c,e) and radial (b,d,f) velocity components for the original (a,b), solenoidal (c,d), and potential (e,f) velocity fields (units in m/s), for $St_{DF} = 0.05.$}
 	\label{fig:valid_helmholtz}
 \end{figure}
 

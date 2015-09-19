@@ -31,32 +31,18 @@
 
 \begin{document}
 
-%
-% First, declare the parts of your title page 
-%
-
 \author{Michael Crawley}
 \title{Understanding the Aeroacoustic Radiation Sources and Mechanism in High-Speed Jets}
 \authordegrees{B.S.}  % Degrees thus far, not including this one.
 \unit{Department of Mechanical Engineering}
 
-\advisorname{Mo Samimy}
-\member{Datta Gaitonde}
-\member{James Gregory}
-\member{Mei Zhuang}      % Normally you will have advisor + 2 members
-
-
-%
-% The following creates the title page
-%
+\advisorname{Dr. Mo Samimy}
+\member{Dr. Datta Gaitonde}
+\member{Dr. James Gregory}
+\member{Dr. Mei Zhuang}     
 
 \maketitle
 \disscopyright
-
-
-%
-% Abstract goes here.
-%
 
 \begin{abstract}
   \input{abstract}
@@ -64,30 +50,11 @@
 
 \dedication{I would like to dedicate this work to Dr. Rachelle Speth, for her tireless efforts to convince me to hurry up and graduate already. Also, my parents.}
 
-
-%
-% Bring in Acknowledgement and Vita from separate files named ``ack.tex''
-% and ``vita.tex''.
-%
-
 \include{ack}
 \include{vita}
-
-
-%
-% Make the Table of Contents and other good stuff
-%
-
 \tableofcontents
-\listoftables
+%\listoftables
 \listoffigures
-
-
-%
-% The following is a list of chapters.  Each is brought in from a
-% separate file using the \include{} command.
-%
-
 \include{ch_introduction}       
 \include{ch_methodology}
 \include{ch_nearfield}  
@@ -95,18 +62,7 @@
 \include{ch_acoustic_source}
 \include{ch_conclusion}
 
-%\appendix
 
-%
-% The all important bibliography file at the end of your document!! Use
-% the bibstyle you (your department) like in the \bibliographystyle{}
-% statement and list the name of your bibliography database file in
-% the \bibliography{} statement.  In this example, ``bibfile.bib'' is
-% the name of the database.  See the LaTeX manual appendix B for details
-% about the bibliography database and BibTeX.
-%
-
-\bibliographystyle{plain}
 \bibliography{new_master}
 
 \end{document}
