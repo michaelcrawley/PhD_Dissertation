@@ -54,7 +54,7 @@ Broadly and qualitatively speaking, the connection between the large-scale struc
 	\caption{Two phases of actuation taken from the implicit LES database of Speth \& Gaitonde \citep{Speth2014}. Isosurfaces are computed from Q-criterion and colored by axial velocity, and the background corresponds to dilatation.}
 	\label{fig:LES_dilatation}
 \end{figure}
-\section{Numerical Method}
+\section{Numerical Methodology}
 Computing the aeroacoustic source per Ribner's dilatation method from the estimated, time-resolved velocity field constitutes a three-step process. 
 First, the solenoidal velocity field is computed via the Helmholtz' decomposition; the double divergence of the resulting stress tensor is then used as the source of Poisson's equation to calculate the pseudo-pressure field. 
 Finally, the pseudo-pressure field is filtered in time using an energy threshold in the wavelet domain, and the second time derivative of the resultant field is computed, producing the source field.
@@ -152,9 +152,9 @@ Therefore, the potential component was set to zero at both the inlet and outlet.
 Second-order accurate centered finite differences were again used to approximate the derivatives in the boundary conditions; a single ghost node was along each boundary to enforce these conditions.
 
 Sample results for this procedure have been provided in \fig{fig:valid_helmholtz}.
-Here, the axial and radial velocity components for the original (estimated) and decomposed velocity fields are shown for $St_{DF}=0.05$; to ease visual identification, the fields have been phase-averaged over roughly 100 actuation cycles.
+Here, the axial and radial velocity components for the original (estimated) and decomposed velocity fields are shown for $St_{DF}=0.05$.
 From the raw velocity field, a single large-scale structure is readily identifiable at $z/D \simeq 6$ (which is the end of the potential core).
-Due to the very low frequency of the excitation (impulsive forcing) and the phase-averaging, no other structures are visible in the flow-field.
+Due to the very low frequency of the excitation (impulsive forcing), no other structures are clearly visible in the flow-field.
 \begin{figure}
 	\centering
 	\begin{subfigure}{0.5\textwidth}
@@ -187,7 +187,7 @@ Due to the very low frequency of the excitation (impulsive forcing) and the phas
 		\includegraphics[width=0.95\linewidth]{Figures/ch5_valid_Inst_potUr.png}
 		\caption{}
 	\end{subfigure}
-	\caption{Phase-averaged axial (a,c,e) and radial (b,d,f) velocity components for the original (a,b), solenoidal (c,d), and potential (e,f) velocity fields, for $St_{DF} = 0.05.$}
+	\caption{Instantaneous axial (a,c,e) and radial (b,d,f) velocity components for the original (a,b), solenoidal (c,d), and potential (e,f) velocity fields, for $St_{DF} = 0.05.$}
 	\label{fig:valid_helmholtz}
 \end{figure}
 
@@ -205,27 +205,48 @@ Finally, the lower boundary enforced the zero-normal-gradient required by the as
 \begin{figure}
 	\centering
 	\includegraphics[width = 3.5in]{Figures/ch5_valid_Inst_ps.png}
-	\caption{Phase-averaged pseudo-pressure field for the same conditions as \fig{fig:valid_helmholtz}.}
+	\caption{Instantaneous pseudo-pressure field for the same conditions as \fig{fig:valid_helmholtz}.}
 	\label{fig:valid_pseudopressure}
 \end{figure}
-\subsubsection{Wavelet Denoising}
+\subsubsection{Wavelet Denoising and Source Computation}
 The aeroacoustic source term can now be computed explicitly as the second temporal derivative of the pseudo-sound field (\eq{eq:ribner_source}).
-However, 
-
-As discussed by Farge \citep{Farge1992}, 
-
-See Donoho \& Johnstone [1994], Farge \etal [1999] and Ruppert-Felsot \etal [2009] for additional details on denoising using orthogonal wavelet transforms, including more advanced algorithms.
+However, filtering of the pseudo-pressure field along the temporal dimension was found to be necessary before computation of the derivative, due to the accumulation of experimental and numerical error.
+As discussed by Farge \citep{Farge1992}, unlike the Fourier transform coefficients which are well-localized in frequency but completely delocalized in time, the wavelet transform coefficients are well-localized in both frequency and time. 
+As a result, a truncated set of the wavelet coefficients will better preserve the temporal characteristics of a given signal than a truncated set of Fourier coefficients.
+Hence, wavelet-based filtering was used to remove the influence of the experimental/numerical errors; more specifically, an energy threshold was applied to the orthogonal wavelet coefficients in order to remove the less-energetic, incoherent events from the pseudo-pressure field.
+Interested readers should see Donoho \& Johnstone [1994], Farge \etal [1999] and Ruppert-Felsot \etal [2009] for additional details on denoising using orthogonal wavelet transforms, including more advanced algorithms.
 
 For the current work, the fast orthogonal wavelet transforms implemented in Stanford University, Department of Statistics' \texttt{WaveLab 850} software library were utilized.
 The mother wavelet was defined as the $5^{th}$-order Battle-Lemarie wavelet; sample data was also analyzed using other smooth wavelets (high-order Coiflets and Symmlets) to ensure that the final results were not affected by the choice of mother wavelet.
 The orthogonal wavelet transform was performed along the temporal domain separately for each spatial location; the time-series was zero-padded so that it matched a dyadic grid.
 A soft energy threshold was used to separate the coherent, large-scale pressure fluctuations from the incoherent noise.
-In traditional wavelet-denoising, the threshold is often defined as $\epsilon = \sqrt{2 \sigma^2 \mathrm{log}_e N}$, where $\sigma^2$ is the variance of the noise, and $N$ is the sample length.
+In traditional wavelet-denoising, the threshold is often defined as $\epsilon = \sqrt{2 \sigma^2_n \mathrm{log}_e N}$, where $\sigma^2_n$ is the variance of the noise, and $N$ is the sample length.
+However, for the current work this threshold was found to be too lax, and so a much more aggressive energy threshold was used.
 
+In the work of Kearney-Fischer \etal [cite], a pseudo-wavelet filter was used on the far-field signal at aft angles in order to extract the dominant, intermittent acoustic events which were believed to be related to the dominant, intermittent large-scale structures in the jet shear layer. 
+In that work, an energy cutoff of $\epsilon = 1.5\sigma$ was used; here $\sigma^2$ corresponds instead to the variance of the \textit{signal} rather than the noise in the signal. 
+Kearney-Fischer \etal found that a signal filtered in such a manner retained the relevant aspects of the far-field acoustic spectrum at shallow angles, in particular the dominant energy peak and strong roll-off at high and low frequencies.
+Based on these results, a threshold of $\epsilon = 2\sigma$ was chosen for the current work (due to the low signal-to-noise ratio); for consistency, $\sigma$ was calculated over the entire field rather than at each individual point; the error (and hence, energy) did not scale with spatial location, resulting much lower signal-to-noise ratios at far radial and axial positions. 
+
+Sample results for the wavelet-denoising are shown in \fig{fig:valid_denoising} for $z/D=1.75$ at the jet lipline (as will be shown later, the sources are centered around the jet lipline upstream of the end of the potential core).
+A high-amplitude, relatively low-frequency compact waveform is observed in the pseudo-pressure field centered around $\tau U_j /D \simeq 2.25$; this is the hydrodynamic wave associated with the passaged of the large-scale structure observed in \fig{fig:valid_helmholtz}.
+While intuitively one would expect the temporal derivative of this compact waveform to dominate the source field, without filtering the source field is completely dominated instead by the high-frequency noise in the pseudo-pressure even though it is of comparably low amplitude.
+The wavelet-denoising eliminates this error however, and recovers the expected behavior for the second temporal derivative.
+\begin{figure}
+	\centering
+	\includegraphics[width = 3.5in]{Figures/ch5_valid_denoising.png}
+	\caption{Effects of filtering of the pseudo-pressure field on the calculated aeroacoustic source at $z/D = 1.75, r/D = 0.5$; amplitudes have been arbitrarily normalized to ease visual comparisons.}
+	\label{fig:valid_denoising}
+\end{figure}
+
+Once the pseudo-pressure field has been properly filtered, the aeroacoustic source is simply calculated using second-order finite differences in time (\fig{fig:valid_denoising}).
+To compute the far-field noise, the source field can be spatially-integrated in retarded time, accounting for the propagation delay from each source location to the observer, per \eq{eq:source_integration}; here, this was performed by trapezoidal integration. 
 \begin{figure}
 	\centering
 	\includegraphics[width = 3.5in]{Figures/ch5_valid_Inst_source.png}
-	\caption{Phase-averaged source field for the same conditions as \fig{fig:valid_helmholtz}.}
+	\caption{Instantaneous source field for the same conditions as \fig{fig:valid_helmholtz}.}
 	\label{fig:valid_source}
 \end{figure}
+
+
 \section{Wavepackets in the Pseudo-Pressure Field}
