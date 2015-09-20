@@ -155,8 +155,15 @@ Sample results for this procedure have been provided in \fig{fig:valid_helmholtz
 Here, the axial and radial velocity components for the original (estimated) and decomposed velocity fields are shown for $St_{DF}=0.05$.
 From the raw velocity field, a single large-scale structure is readily identifiable at $z/D \simeq 6$ (which is the end of the potential core).
 Due to the very low frequency of the excitation (impulsive forcing), no other large-scale structures are clearly visible in the flow-field.
-As expected, the Helmholtz decomposition produces a solenoidal velocity that is quite similar to the full velocity field; even at high subsonic Mach numbers, compressibility plays a minor (though definitely non-neglible) role in the overall evolution of the shear layer and potential core.
-The potential (compressible) velocity field does exhibit coherent axial and radial velocity fluctuations which correspond to the large-scale structure; in fact, the potential and solenoidal velocity fluctuations associated with the large-scale structure are of similar magnitude.
+As expected, the Helmholtz decomposition produces a solenoidal velocity that is quite similar to the full velocity field; even at high subsonic Mach numbers, compressibility plays a minor (though definitely non-negligible) role in the overall evolution of the shear layer and potential core.
+The potential (compressible) velocity field does exhibit coherent axial and radial velocity fluctuations which correspond to the large-scale structure; in fact, the potential and solenoidal velocity fluctuations associated with the large-scale structure are of similar magnitude, suggesting that compressibility is important for the development of the large-scale structure themselves.
+
+The upstream development of the potential field, in which no large-amplitude oscillations are observed, validates the assumption of plug flow made in the boundary conditions.
+In contrast, non-negligible fluctuations are observed near the outflow boundary; unfortunately, the experimental domain does not extend far enough downstream for the compressible component to fully decay.
+However, the potential component is still far weaker than the solenoidal component.
+For validation purposes, the boundary conditions of [Unnikrishnan2015,Mansour] (zero solenoidal component at the inflow and outflow) were also implemented and compared against the current results.
+Though not shown here for brevity, the zero-solenoidal boundary conditions produced similar fields at the interior of the domain, but non-physical oscillations at the inflow and outflow boundaries.
+Based on these results, the zero-potential boundary conditions were retained; though there is a discrepancy between the boundary conditions and the physical system at the outflow boundary, the numerical effects of this are expected to be minor.
 \begin{figure}
 	\centering
 	\begin{subfigure}{0.5\textwidth}
@@ -204,6 +211,13 @@ In accordance with the boundary assumptions made in the preceding section, at th
 The outflow boundary was assumed to be far enough downstream such that the fluctuations were also negligible at the boundary.
 Finally, the lower boundary enforced the zero-normal-gradient required by the assumption of axisymmetry.
 
+Sample results for the pseudo-pressure field are shown in \fig{fig:valid_pseudopressure}, which corresponds to the solenoidal velocity decomposed in \fig{fig:valid_helmholtz}.
+As expected, a spatially-coherent fluctuation is observed coinciding with the location of the large-scale structure as identified in the velocity field.
+Lower-amplitude oscillations are also observed upstream of the end of the potential core, while downstream the fluctuations are fairly incoherent and low-amplitude.
+By the end of the experimental domain, the pseudo-pressure field has decayed to essentially negligible values.
+At the inlet however, a large-amplitude pressure sink resides along the jet lipline and extends for $z/D \lesssim 0.5$.
+The origin of this pressure sink is not clear to the research, however it is entirely numerical in nature; as will be seen in the following section, the consistency of this sink results in no superfluous aeroacoustic source being computed for this location.
+While the presence of this numerical error is unfortunate, given that it was found to not have a major effect on the computed aeroacoustic source field (which is ultimately the goal of this analysis), further inquiry into the cause of this numerical error was deemed unproductive.
 \begin{figure}
 	\centering
 	\includegraphics[width = 3.5in]{Figures/ch5_valid_Inst_ps.png}
