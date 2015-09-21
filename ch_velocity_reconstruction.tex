@@ -1,4 +1,14 @@
 \chapter{Estimation of Time-resolved Velocity Fields}
+Analysis of the evolution and interaction of the large-scale structures, and ultimately the noise generated thereby, is greatly simplified by the acquisition of time-resolved flow-field measurements.
+(In fact, as will be discussed in \sect{sect:source}, computation of the aeroacoustic source field will eventually require a temporal derivative and thus time-resolved data is a necessity for the current work.)
+Unfortunately, directly acquiring time-resolved velocity fields for the jet currently under study is simply not possible due to the combination of a large domain of interest ($0 \leq z/D \lesssim 12, 0 \leq r/D \lesssim 3$) and high characteristic frequencies on the order of several kilohertz.
+Full-field, high-fidelity measurement techniques capable of this repetition rate simply do not exist at present.
+
+Phase-locking of a data acquisition system to actuators (or a naturally occurring resonance tone) is a common experimental technique [Kearney-Fischer2011]; by varying the delay between the trigger and time of data acquisition, multiple phases can be acquired and the coherent component of the phenomena can be analyzed.
+Phase-locking of the PIV system to the LAFPAs was initially considered for the present work, but quickly discarded.
+Sample analysis performed using a numerical database indicated that a very high temporal resolution was required in order to accurately compute fluctuations in the dilatation field (the relevance of which will become more apparent in the following chapter).
+At moderate to high excitation frequencies, this was feasible, though potentially tedious (for example, $\sim$16 phases were estimated as necessary at $St_{DF} =0.25$).
 \section{Stochastic Estimation}
 \subsection{Artificial Neural Networks}
-\subsection{Validation}
+\subsection{Comparison Against Phase-locking}
+\section{Large-Scale Structure Interaction}
