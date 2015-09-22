@@ -9,6 +9,8 @@ set(gcf,'paperpositionmode','auto');
 drawnow;
 set(gcf,'units','inches');
 set(gcf,'position',boxsize);
+set(gca,'layer','top');
+set(gca,'linewidth',1.5);
 
 children = get(gcf,'children');
 
