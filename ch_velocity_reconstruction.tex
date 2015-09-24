@@ -12,33 +12,113 @@ At moderate to high excitation frequencies, this was feasible, though potentiall
 At $St_{DF} =0.05$ however, this would require roughly \textit{forty} phases (the significant dead time between actuations means that it is not necessary to acquire the entire range of phases from $0$ to $2\pi$, but this is small consolation).
 Clearly, a more efficient data acquisition method is in order.
 \section{Stochastic Estimation}
-Stochastic estimation was first proposed by Adrian [cite 1977] in 1977, as an outgrowth from the conditional statistical analyses popular at the time. 
+Stochastic estimation was first proposed by Adrian \citep{Adrian1977} in 1977, as an outgrowth from the conditional statistical analyses popular at the time. 
 Large-scale coherent structures had been educed from anisotropic turbulent flows (such as boundary or shear layers) by conditional sampling techniques.
-Adrian succeeded in identifying detailed flow structures (`conditional eddies') in isotropic turbulence by computing a mean-square estimate of the flow from linear two-point correlations (higher-order, nonlinear correlations were explored in Adrian [cite 1979]). 
-The methodology was extended in Adrian [cite 1994] to estimation of velocity fields using spatial correlations coupled with a reduced set of measurements.
+Adrian succeeded in identifying detailed flow structures (`conditional eddies') in isotropic turbulence by computing a mean-square estimate of the flow from linear two-point correlations (higher-order, nonlinear correlations were explored in Adrian \citep{Adrian1979}). 
+The methodology was extended in Adrian \citep{Adrian1994} to estimation of velocity fields using spatial correlations coupled with a reduced set of measurements.
 
 Stochastic estimation attracted considerable attention from the fluid dynamics community due to its potential to educe meaningful structures and behavior from highly turbulent, incoherent flows as well as its relative simplicity.
 Subsequent researchers refined stochastic estimation in several important aspects.
-Bonnet \etal [Bonnet1994] developed the complementary technique by combining linear stochastic estimation (LSE) with proper orthogonal decomposition (POD), improving the accuracy due to higher correlation levels between low-order modes.
+Bonnet \etal \citep{Bonnet1994} developed the complementary technique by combining linear stochastic estimation (LSE) with proper orthogonal decomposition (POD), improving the accuracy due to higher correlation levels between low-order modes.
 The estimated velocity fields produced by LSE were projected onto the POD eigenfunctions (computed from the random, non-time-resolved velocity fields) to produce an estimate of the time-dependent POD coefficients, which can then be used to reconstruct low-order representations of the estimated random velocity field.
 Picard \& Delville [Picard2000] used LSE and POD to link the longitudinal pressure distribution surrounding a low subsonic jet to vortical motions in the shear layer by simultaneously sampling microphone and hotwire data.
-In Boree [Boree2003] the POD coefficients of the velocity field were estimated directly, using pressure modes.
-Ewing \& Citriniti [Ewing1997] extended the standard form of LSE, in which spatial correlations are computed at a single time lag, by Fourier transforming the reference signal in time prior to computing the two-point cross-correlations (now cross-spectra). 
-The incorporation of phase-delay information over a range of frequencies (and in essence, including information from multiple time lags) was found to significantly improve the accuracy of the reconstructions for many flow regimes [Ewing1997,Tinney2006,Tinney2008].
-Finally, multi-time-delay LSE-POD was performed in the physical domain (as opposed to the Fourier) by Durgesh \& Naugton [Durgesh2010] to study the turbulent structures in a near wake region.
+In Boree \citep{Boree2003} the POD coefficients of the velocity field were estimated directly, using pressure modes.
+Ewing \& Citriniti \citep{Ewing1997} extended the standard form of LSE, in which spatial correlations are computed at a single time lag, by Fourier transforming the reference signal in time prior to computing the two-point cross-correlations (now cross-spectra). 
+The incorporation of phase-delay information over a range of frequencies (and in essence, including information from multiple time lags) was found to significantly improve the accuracy of the reconstructions for many flow regimes \citep{Ewing1997} [Tinney2006,Tinney2008].
+Finally, multi-time-delay LSE-POD was performed in the physical domain (as opposed to the Fourier) by Durgesh \& Naugton \citep{Durgesh2010} to study the turbulent structures in a near wake region.
 
 The current work borrows heavily from the methodology of Tinney \etal [TinneyJFM2008] and Sinha \etal [SinhaIJFC2010] in order to estimate the two-component time-resolved velocity field on a streamwise slice of the jet.
 As explained in \sect{sect:piv_method}, two-component PIV snapshots were acquired at well-defined instants of near-field pressure traces.
-The computational methodology by which the stochastic estimation is performed has been modified extensively, however.
-???  
-\subsection{Stochastic Estimation via Artificial Neural Networks}
-Artificial neural networks (or simply, `neural networks'), are statistical computing models which developed as a branch of machine learning.
-The design of neural networks is based on simplified models of the human brain: they are comprised of a large number of simple, connected computing cells (`neurons') and therefore are massively parallel distributed processors.
-The neurons themselves are based on models of biological neurons, and produce a single output based on the linear summations of inputs (either directly from the user or from other, lower-level neurons) and synaptic weights which is then modulated by a nonlinear activation function.
+The computational methodology by which the stochastic estimation is performed has been modified, however.
+Complementary stochastic estimation is used, due to its significantly lower computational cost as well as theorized improvement in accuracy.
+Thus, the instantaneous velocity fields will be separated into characteristic modes via POD and the time-dependent modal coefficients, rather than the velocity fields themselves, will be estimated using SE.
+Instead of performing the stochastic estimation using either linear or higher-order cross-correlations (or cross-spectra), the conditional mapping between the near-field pressure and the POD modal coefficients will be generated by an artificial neural network with multi-time-delay.
+Artificial neural networks were chosen over the more traditional cross-correlations due to their simplicity compared to high-order methods as well as their demonstrated ability to model nonlinear processes in turbulent flows [Lasagna2015].
 
-\subsection{Phase-averaging versus Phase-locking}
+\subsection{Stochastic Estimation via Artificial Neural Networks}
+Artificial neural networks (ANNs), are statistical computing models which developed as a branch of machine learning.
+The design of neural networks is based on simplified models of the human brain: they are comprised of a large number of simple, interconnected computing cells (`neurons') and therefore are massively parallel distributed processors.
+The neurons themselves are based on models of biological neurons, and produce a single output based on the linear summations of inputs (either directly from the user or from other, lower-level neurons) and synaptic weights which is then modulated by a nonlinear activation function.
+The synaptic weights are modified by a learning algorithm in order to minimize a cost function; this generally takes the form of explicit training (supervised learning).
+The interconnectivity of a massive number of these nonlinear computing cells allows artificial neural networks to approximate unknown, nonlinear functions of an arbitrary number of inputs while retaining a certain, elegant, simplicity.
+It should be unsurprising then, that ANNs have already been applied for the estimation and control of a variety of turbulent flow regimes.
+Interested readers are recommended to refer to Haykin [1994] for an extensive background on artificial neural networks, their developmental history, and many additional network structures not used in this work.
+
+A feedforward network structure was used in the current work, a schematic of which can be found in \fig{fig:ch4_neural_net}.
+The ANN was comprised of an input layer, to which near-field pressure traces were supplied, a single hidden layer, and an output layer which produced estimates of the time-varying POD coefficients. 
+The hidden and output layers were fully connected, and the modified logistic function (hyperbolic tangent) was used as the activation function.
+The pressure traces were centered around the acquisition of a PIV image group, and was downsampled to 100 kHz in order to match the frequency response of the microphones.
+The record time supplied for each training block was $\pm 5.12$ microsecond; this was determined by estimating the time delay for a large-scale structure to convect through the experimental domain (the convective velocity of the large-scale structures was conservatively estimated as $U_c \simeq 0.5 U_j$).
+\begin{figure}
+	\centering
+	\includegraphics[width = 2.5in]{Figures/neural_net.png}
+	\caption{Schematic of a feedforward ANN with a single hidden layer. The activation function is applied only to the hidden and output layers. The number of neurons depicted in each layer is meant to represent the \textit{relative} number used by the actual ANN.}
+	\label{fig:ch4_neural_net}
+\end{figure} 
+
+POD modes and time-varying coefficients were computed from the velocity fields using the method of snapshots [Sirovich1987]; the kernel was defined as the two-component turbulent kinetic energy.
+The instantaneous velocity fields were not preprocessed prior to the decomposition (that is, missing or spurious vectors were not replaced or interpolated).
+As experimental noise in the velocity fields will be completely uncorrelated to the near-field measurements, it will be filtered out by the stochastic estimation and hence preprocessing is unnecessary.
+Unlike many past researchers, the coefficients for every POD mode were estimated, rather than just the most energetic modes, for two reasons.
+First, it is not guaranteed that an individual POD mode corresponds to a physically distinct turbulent flow structure or event - an event may be broken up into multiple POD modes of varying energy levels.
+Secondly, the most energetic POD mode(s) is not necessarily the most relevant mode(s) for the acoustic generation process (see Jordan \etal [2007] for a modification to the standard POD kernel in order to mitigate this issue). 
+
+Even though the network is estimating even the least-energetic modes, the current method is far more computationally efficient than directly estimating the velocity fields themselves.
+By encoding spatial correlations in the POD expansion coefficients, estimation of the $N$ snapshots of $M \times K$ spatial locations has been reduced from a minimization problem of $N$ vectors of $2MK$ to one of $N$ vectors of $N$.
+For the current experimental database, this means the system has been reduced from $290,508 \times 1500$ to $1500 \times 1500$.
+The neural network now only needs to identify the temporal correlations between the pressure field and the individual POD coefficients; it does not need to learn the spatial correlations.
+
+Learning was accomplished via the standard backpropagation method [Haykin1994], which approximates the error surface of the cost function using first-order derivatives; the error `propagates' backwards from the output neurons to the hidden neurons and the synaptic weights at each neuron are updated to identify the (hopefully, global) minimum of the cost function using gradient descent.
+The cost function was defined as the mean-squared-error between the predicted and measured expansion coefficients for a given PIV image group.
+The velocity field, $\mathbf{U}$ at a given instance, $k$, can be recovered from $N$ orthonormal modes, $\phi$, and time-varying expansion coefficients, $a_k$, as $\mathbf{U} = \sum_{n=0}^{N} a_{k}^{n} \phi^n$ [Tinney2008].
+The total energy of each mode is therefore encoded in $a_k^n$, which will serve as a simple energy weighting for the cost function (the importance of relative errors to the cost function will essentially be scaled by the energy in each particular mode).
+Training of the network was performed using the roughly 1500 ensemble pressure-velocity blocks of data (a few PIV images in each set had to be discarded due to laser misfires); synaptic weights were updated base on the average of all blocks (batch processing) using a constant learning rate.
+A well-known issue with the gradient descent optimization method is that it has a tendency to get trapped in local minima and fails to converge to the global minimum.
+Therefore, sample results were also calculated using a much different learning algorithm: adaptive particle swarm optimization.
+Details will not be presented here however, as the results were found to not differ substantially from those produced by the backpropagation algorithm (while requiring significantly higher computational resources).
+
+\subsection{Validation}
+Compare results using the phase-locked PIV data, the SE data, and the POD-SE data.
+[add comparison of pod modes?]
 \section{Large-Scale Structure Interactions}
-\subsection{Time-Averaged Effects}
+\begin{enumerate}
+	\item Merging of excited structures
+	\item Decay of LSS near end of potential core
+	\item Locally supersonic flow?
+\end{enumerate}
+
+\subsection{Global Flow-Field Effects}
+The global effects of excitation on shear layer development, both in general and in particular for LAFPAs, has been well-documented in the literature already (see Samimy \etal [Samimy2012] for a review on LAFPA excitation in jets).
+Therefore, only the features relevant to the current work will be briefly covered here.
+Excitation produces highly-energetic structures which entrain the ambient fluid surrounding the shear layer, thus increasing mixing between the high-momentum core fluid and the ambient fluid.
+As a result, the growth rate of the shear layer can be amplified significantly; this is illustrated in \fig{fig:ch4_shearlayerspreading}.
+Excitation near the jet column mode ($St \simeq 0.35$) produces a rapid spreading of the initial shear layer until $x/D \simeq 5$, after which the spreading rate returns to the natural spreading rate.
+(A quick note about the axial velocity fields shown in \fig{fig:ch4_shearlayerspreading}: the twelve circular regions of low velocity aligned on the outer edge of the lower shear layer are experimental artifacts. Laser reflections off of the microphones saturated the cameras, thus precluding the possibility of computing cross-correlations for these locations. Contrary to how it might appear in this figure, the microphone array is not in the flow-field, but situated behind from the cameras' point of view.)
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.75\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch4_St000_Um.png}
+		\caption{Baseline}
+	\end{subfigure}\\
+	\begin{subfigure}{0.75\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch4_St035_Um.png}
+		\caption{$St_{DF} = 0.35$}
+	\end{subfigure}
+	\caption{Effect of excitation on the shear layer spreading rate, as visualized by the axial component of the velocity field.}
+	\label{fig:ch4_shearlayerspreading}
+\end{figure}
+
+The increased mixing also affects the high-velocity side of the shear layer, resulting in a reduction in the length of the potential core.
+In \fig{fig:ch4_centerlinemach}, the time-averaged centerline Mach number for each excitation case (as well as the natural jet) has been plotted as a function of axial distance.
+A slow progression in the location of the end of the potential core is clearly evident, with it shifting upstream from $x/D \simeq 6$ eventually to $x/D \simeq 5$ as the excitation Strouhal number nears the jet preferred frequency of $St_{DF} \simeq 0.35$ (though not shown here, above this excitation frequency the effect is reduced).
+The location of the end of the potential core is of particular interest for the current work, as previous researchers have indicated that the dominant noise generation mechanism is associated with the violent breakdown of large-scale axisymmetric structures as they pass through the end of the potential core [Hileman2005, reference ch3 here?].
+
+This breakdown occurs because as the shear layers merge, the interface between the interior sides of the ring vortex becomes highly unstable, so any small perturbations quickly grow and destroy the vortex.
+The exact location at which this breakdown occurs is ultimately going to be a function of structure growth rate, as larger structures will self-interact further upstream.
+The location of the end of the potential core is therefore dependent on the passage of the large-scale structures, and hence is not strictly constant in time [who to cite here???].
+Therefore, an axial shift in the time-averaged acoustic source is not necessarily reflective of a changing source mechanism, but may instead simply indicate that the source mechanism is now occurring at a different location.
 \begin{figure}
 	\centering
 	\includegraphics[width = 3.5in]{Figures/ch4_centerlineMach.png}
