@@ -1,4 +1,5 @@
 \chapter{Estimation of Time-resolved Velocity Fields}
+\label{sect:velocity}
 Analysis of the evolution and interaction of the large-scale structures, and ultimately the noise generated thereby, is greatly simplified by the acquisition of time-resolved flow-field measurements.
 (In fact, as will be discussed in \sect{sect:source}, computation of the aeroacoustic source field will eventually require a temporal derivative and thus time-resolved data is a necessity for the current work.)
 Unfortunately, directly acquiring time-resolved velocity fields for the jet currently under study is simply not possible due to the combination of a large domain of interest ($0 \leq z/D \lesssim 12, 0 \leq r/D \lesssim 3$) and high characteristic frequencies on the order of several kilohertz.
@@ -77,9 +78,48 @@ A well-known issue with the gradient descent optimization method is that it has 
 Therefore, sample results were also calculated using a much different learning algorithm: adaptive particle swarm optimization.
 Details will not be presented here however, as the results were found to not differ substantially from those produced by the backpropagation algorithm (while requiring significantly higher computational resources).
 
-\subsection{Validation}
-Compare results using the phase-locked PIV data, the SE data, and the POD-SE data.
-[add comparison of pod modes?]
+\subsection{Reduced-Order Representation of the Flow-Field}
+Ultimately, due to limitations both in the methodology as well as in the ability of the microphones to sense fine-scale turbulent fluctuations, the estimated velocity field is going to represent a reduced-order model of the jet.
+This can be easily observed in \fig{fig:ch4_SEPOD_filtering}, where the measured axial velocity field at an arbitrary instance in time has been plotted against the velocity field produced by the SE-POD estimation from the near-field pressure at the same instance in time.
+For comparison purposes, a reduced-order reconstruction of the measured velocity field from the first 100 POD modes (but without estimating from the near-field pressure using SE) has also been included.
+Note that here the output of the model produced by SE-POD is being compared against a known output that the system is meant to match; this is not an evaluation of the \textit{predictive} power of the model but of the \textit{representative} power.
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.75\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch4_Ux_true.png}
+		\caption{Measured}
+	\end{subfigure}\\
+	\begin{subfigure}{0.75\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch4_Ux_estimated.png}
+		\caption{Estimated}
+	\end{subfigure}
+	\begin{subfigure}{0.75\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch4_Ux_POD100.png}
+		\caption{First 100 POD modes}
+	\end{subfigure}
+	\caption{Comparison of a raw instantaneous axial velocity field $St_{DF} =0.05$ (a) against the same velocity field estimated from the near-field pressure (b) and finally a reduced-order reconstruction of the raw velocity using the first 100 POD modes ; units are in m/s.}
+	\label{fig:ch4_SEPOD_filtering}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{Figures/ch4_St005_POD_Modes.png}
+	\caption{First 10 POD modes for $St_{DF} = 0.05$.}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{Figures/ch4_St025_POD_Modes.png}
+	\caption{First 10 POD modes for $St_{DF} = 0.25$.}
+\end{figure}
+\begin{enumerate}
+	\item Comparison of estimated, phase-averaged estimated, and phase-averaged at $\phi = 0, \pi$
+	\item Comparison of POD modes?
+\end{enumerate}
+
 \section{Large-Scale Structure Interactions}
 \begin{enumerate}
 	\item Merging of excited structures
@@ -88,7 +128,7 @@ Compare results using the phase-locked PIV data, the SE data, and the POD-SE dat
 \end{enumerate}
 
 \subsection{Global Flow-Field Effects}
-The global effects of excitation on shear layer development, both in general and in particular for LAFPAs, has been well-documented in the literature already (see Samimy \etal [Samimy2012] for a review on LAFPA excitation in jets).
+The global effects of excitation on shear layer development, both in general and in particular for LAFPAs, has been well-documented in the literature already (see Samimy \etal \citep{Samimy2012} for a review on LAFPA excitation in jets).
 Therefore, only the features relevant to the current work will be briefly covered here.
 Excitation produces highly-energetic structures which entrain the ambient fluid surrounding the shear layer, thus increasing mixing between the high-momentum core fluid and the ambient fluid.
 As a result, the growth rate of the shear layer can be amplified significantly; this is illustrated in \fig{fig:ch4_shearlayerspreading}.
@@ -113,7 +153,7 @@ Excitation near the jet column mode ($St \simeq 0.35$) produces a rapid spreadin
 The increased mixing also affects the high-velocity side of the shear layer, resulting in a reduction in the length of the potential core.
 In \fig{fig:ch4_centerlinemach}, the time-averaged centerline Mach number for each excitation case (as well as the natural jet) has been plotted as a function of axial distance.
 A slow progression in the location of the end of the potential core is clearly evident, with it shifting upstream from $x/D \simeq 6$ eventually to $x/D \simeq 5$ as the excitation Strouhal number nears the jet preferred frequency of $St_{DF} \simeq 0.35$ (though not shown here, above this excitation frequency the effect is reduced).
-The location of the end of the potential core is of particular interest for the current work, as previous researchers have indicated that the dominant noise generation mechanism is associated with the violent breakdown of large-scale axisymmetric structures as they pass through the end of the potential core [Hileman2005, reference ch3 here?].
+The location of the end of the potential core is of particular interest for the current work, as previous researchers have indicated that the dominant noise generation mechanism is associated with the violent breakdown of large-scale axisymmetric structures as they pass through the end of the potential core \citep{Hileman2005} [reference ch3 here?].
 
 This breakdown occurs because as the shear layers merge, the interface between the interior sides of the ring vortex becomes highly unstable, so any small perturbations quickly grow and destroy the vortex.
 The exact location at which this breakdown occurs is ultimately going to be a function of structure growth rate, as larger structures will self-interact further upstream.
