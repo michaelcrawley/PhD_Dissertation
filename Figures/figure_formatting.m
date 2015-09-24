@@ -1,8 +1,8 @@
 font = 'Times New Roman';
 fontsize = 14;
 % boxsize  = [0 0 5 3.75];
-boxsize  = [0 0 6 3];
-% boxsize  = [0 0 4.75 3.75];
+% boxsize  = [0 0 6 3];
+boxsize  = [0 0 4.75 3.75];
 
 set(gcf,'windowstyle','normal');
 set(gcf,'paperpositionmode','auto');
