@@ -71,7 +71,7 @@ The neural network now only needs to identify the temporal correlations between 
 
 Learning was accomplished via the standard backpropagation method [Haykin1994], which approximates the error surface of the cost function using first-order derivatives; the error `propagates' backwards from the output neurons to the hidden neurons and the synaptic weights at each neuron are updated to identify the (hopefully, global) minimum of the cost function using gradient descent.
 The cost function was defined as the mean-squared-error between the predicted and measured expansion coefficients for a given PIV image group.
-The velocity field, $\mathbf{U}$ at a given instance, $k$, can be recovered from $N$ orthonormal modes, $\phi$, and time-varying expansion coefficients, $a_k$, as $\mathbf{U} = \sum_{n=0}^{N} a_{k}^{n} \phi^n$ [Tinney2008].
+The velocity field, $\mathbf{U}$ at a given instance, $k$, can be recovered from $N$ orthonormal modes, $\phi$, and time-varying expansion coefficients, $a_k$, as $\mathbf{U} = \sum_{n=0}^{N} a_{k}^{n} \phi^n$ \citep{Berkooz1993}.
 The total energy of each mode is therefore encoded in $a_k^n$, which will serve as a simple energy weighting for the cost function (the importance of relative errors to the cost function will essentially be scaled by the energy in each particular mode).
 Training of the network was performed using the roughly 1500 ensemble pressure-velocity blocks of data (a few PIV images in each set had to be discarded due to laser misfires); synaptic weights were updated base on the average of all blocks (batch processing) using a constant learning rate.
 A well-known issue with the gradient descent optimization method is that it has a tendency to get trapped in local minima and fails to converge to the global minimum.
@@ -104,16 +104,46 @@ Note that here the output of the model produced by SE-POD is being compared agai
 	\label{fig:ch4_SEPOD_filtering}
 \end{figure}
 
+As one would hope, the large-scale turbulent fluctuations are correctly identified by the SE-POD algorithm, and a mapping from the near-field pressure to this structures is appropriately generated.
+The accuracy in the feature reproduction degrades considerably however as the scale of the turbulent eddy is reduced.
+Some small-scale behavior is retained though most is filtered out, particularly the downstream region.
+This was entirely expected however, as the reference signal is much more strongly damped with wavenumber than the conditional field being estimated (decay rates of $-20/3$ for the pressure field versus $-5/3$ for the velocity field).
+The pressure field simply does not have the resolution to approximate the velocity field, particularly further downstream where the microphones are further from the jet centerline due to the spreading of the shear layer.
+The estimated velocity fields are specifically referred to in the present work as \textit{reduced}-order rather than \textit{low}-order however.
+Comparison of the estimated velocity against a reconstruction of the measured field using the most energetic 100 POD modes (of a total of 1500 POD modes corresponding to the 1500 uncorrelated velocity fields) indicates that the SE-POD algorithm is retain similar (if not greater) energy levels.
+An example of this is the small-scale structure observed at $x/D \simeq 8$, just outside the high-velocity region of the jet (orange, in the figure in the measured velocity.
+This distinct structure is still visible (though smeared and slightly reduced in amplitude) in the estimated velocity, though it is basically nonexistent in the 100-mode reconstruction which contains $\sim 50$\% of the fluctuating energy (see \fig{fig:ch4_modal_energy}).
+While it is unlikely that this particular structure is notably important to the acoustic emission of the jet, low modal energy modulations of the large-scale structures may be.
+Hence, it is desirable to retain as much of the information as possible when estimating the flow.
+
+As a side note, the measured velocity fields retain some experimental errors from the PIV data processing; for instance, the small pockets of zero axial velocity observed on lower shear layer (particularly for $2 < x/D < 4$) in \fig{fig:ch4_SEPOD_filtering} are non-physical and correspond to missing vectors. 
+As these experimental errors will be completely uncorrelated from the pressure signals, a conditional reconstruction will have great difficulty in reproducing them; in fact they \textit{should not} map from the pressure to the velocity at all.
+
+It is also important to be mindful that an individual POD mode may not in fact correspond to anything physically distinct in the turbulent flow - it is after all, merely a mathematical construct which is based on no \textit{a priori} information of the system under investigation.
+Tinney \etal [Tinney2008b] found that the modes produced by (spectral) POD had a tendency to appear in coupled pairs, and similar behavior is observed here. 
+For reference, the ten most energetic POD modes are shown in \fig{fig:ch4_St005_PODmodes} for $St_{DF} = 0.05$ and \fig{fig:ch4_St025_PODmodes} for $St_{DF} = 0.25$.
+The characteristic scales of the excitation induced structures are smaller than the actual excitation period, as a result a significant amount of dead time occurs between LAFPA pulses during which the flow returns to its unperturbed state.
+Because of this, analysis methods based on ensemble-averages of the velocity field show little difference between the baseline and $St_{DF} = 0.05$ excited jets (for this reason, the POD modes for the baseline jet are not shown).
+
+Such is the case here, where modes 4 and 5 are near mirror images of each other.
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{Figures/ch4_St005_POD_Modes.png}
-	\caption{First 10 POD modes for $St_{DF} = 0.05$.}
+	\caption{First 10 POD modes for $St_{DF} = 0.05$, ordered top-down and then left-right.}
+	\label{fig:ch4_St005_PODmodes}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{Figures/ch4_St025_POD_Modes.png}
+	\caption{First 10 POD modes for $St_{DF} = 0.25$, ordered top-down and then left-right.}
+	\label{fig:ch4_St025_PODmodes}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{Figures/ch4_St025_POD_Modes.png}
-	\caption{First 10 POD modes for $St_{DF} = 0.25$.}
+	\includegraphics[width=3in]{Figures/ch4_POD_energies.png}
+	\caption{POD modal energy convergence.}
+	\label{fig:ch4_modal_energy}
 \end{figure}
 \begin{enumerate}
 	\item Comparison of estimated, phase-averaged estimated, and phase-averaged at $\phi = 0, \pi$
