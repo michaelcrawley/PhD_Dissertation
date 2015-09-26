@@ -120,43 +120,45 @@ As a side note, the measured velocity fields retain some experimental errors fro
 As these experimental errors will be completely uncorrelated from the pressure signals, a conditional reconstruction will have great difficulty in reproducing them; in fact they \textit{should not} map from the pressure to the velocity at all.
 
 It is also important to be mindful that an individual POD mode may not in fact correspond to anything physically distinct in the turbulent flow - it is after all, merely a mathematical construct which is based on no \textit{a priori} information of the system under investigation.
-Tinney \etal [Tinney2008b] found that the modes produced by (spectral) POD had a tendency to appear in coupled pairs, and similar behavior is observed here. 
+Tinney \etal [Tinney2008b] found that the modes produced by (spectral) POD had a tendency to appear in coupled pairs, and similar behavior is observed herein. 
 For reference, the ten most energetic POD modes are shown in \fig{fig:ch4_St005_PODmodes} for $St_{DF} = 0.05$ and \fig{fig:ch4_St025_PODmodes} for $St_{DF} = 0.25$.
 The characteristic scales of the excitation induced structures are smaller than the actual excitation period, as a result a significant amount of dead time occurs between LAFPA pulses during which the flow returns to its unperturbed state.
 Because of this, analysis methods based on ensemble-averages of the velocity field show little difference between the baseline and $St_{DF} = 0.05$ excited jets (for this reason, the POD modes for the baseline jet are not shown).
 
-Such is the case here, where modes 4 and 5 are near mirror images of each other.
+For the impulsively-excited ($St_{DF} = 0.05$) jet, the dominant orthogonal modes are concentrated downstream of the end of the potential core, and it is not until mode 8 that a clear symmetric pattern about the jet centerline emerges. 
+(However, it should be noted at modes 4 and 5 are very nearly mirrors of each other, and as such could produce symmetric features if coupled.)
+Clearly, the excited axisymmetric structures represent only a small portion of the turbulent kinetic energy of the jet, and as such low-order representations of the flow will fail to accurately capture their dynamics.
+As the excitation frequency is increased, the LAFPA-induced structures become high-energy periodic oscillations in the jet shear layer and core, and the POD modes are modified accordingly (\fig{fig:ch4_St025_PODmodes}).
+
+Strong, axisymmetric fluctuations are now observed in the jet core for the first two POD modes, which match the wavelength of the excited structures (assuming $U_c \simeq 0.7 U_j$, per the two-point near-field correlations of Crawley \etal \citep{Crawley2015}) and which peak in amplitude near the end of the potential core.
+The structure of mode 2 is quite similar to that of mode 1, differing only by a phase shift of $\pi/2$. 
+This is a numerical artifact produced by the downstream convection of the large-scale structures (remember that while multiple time-delays have been incorporated into the stochastic estimation algorithm, the POD was computed using a single time-delay out of necessity).
+Interestly, some of the higher modes, particularly mode 10, exhibit core fluctuations at a harmonic of the excitation wavelength.
+As will be seen shortly, LAFPA excitation at this frequency yields higher-frequency structures which undergo a periodic merging to ultimately generate structures at the excitation frequency. 
+These modes are capturing this process which might be highly relevant to the noise generation process. 
+Lastly, even in the periodically-excited jet where the LAFPA-induced structures are the dominant POD modes, the modal energy convergence (\fig{fig:ch4_modal_energy}) of the POD modes is rather slow; as mentioned previously, 100 of the 1500 modes are required in order to capture 50\% of the total energy.
+Again, this speaks to the necessity of accurately estimating not just the low-order modes, but the high-order as well.
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{Figures/ch4_St005_POD_Modes.png}
-	\caption{First 10 POD modes for $St_{DF} = 0.05$, ordered top-down and then left-right.}
+	\caption{First 10 POD modes (axial component only) for $St_{DF} = 0.05$, ordered top-down and then left-right.}
 	\label{fig:ch4_St005_PODmodes}
 \end{figure}
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{Figures/ch4_St025_POD_Modes.png}
-	\caption{First 10 POD modes for $St_{DF} = 0.25$, ordered top-down and then left-right.}
+	\caption{First 10 POD modes (axial component only) for $St_{DF} = 0.25$, ordered top-down and then left-right.}
 	\label{fig:ch4_St025_PODmodes}
 \end{figure}
-
 \begin{figure}
 	\centering
 	\includegraphics[width=3in]{Figures/ch4_POD_energies.png}
 	\caption{POD modal energy convergence.}
 	\label{fig:ch4_modal_energy}
 \end{figure}
-\begin{enumerate}
-	\item Comparison of estimated, phase-averaged estimated, and phase-averaged at $\phi = 0, \pi$
-	\item Comparison of POD modes?
-\end{enumerate}
+
 
 \section{Large-Scale Structure Interactions}
-\begin{enumerate}
-	\item Merging of excited structures
-	\item Decay of LSS near end of potential core
-	\item Locally supersonic flow?
-\end{enumerate}
-
 \subsection{Global Flow-Field Effects}
 The global effects of excitation on shear layer development, both in general and in particular for LAFPAs, has been well-documented in the literature already (see Samimy \etal \citep{Samimy2012} for a review on LAFPA excitation in jets).
 Therefore, only the features relevant to the current work will be briefly covered here.
@@ -183,11 +185,12 @@ Excitation near the jet column mode ($St \simeq 0.35$) produces a rapid spreadin
 The increased mixing also affects the high-velocity side of the shear layer, resulting in a reduction in the length of the potential core.
 In \fig{fig:ch4_centerlinemach}, the time-averaged centerline Mach number for each excitation case (as well as the natural jet) has been plotted as a function of axial distance.
 A slow progression in the location of the end of the potential core is clearly evident, with it shifting upstream from $x/D \simeq 6$ eventually to $x/D \simeq 5$ as the excitation Strouhal number nears the jet preferred frequency of $St_{DF} \simeq 0.35$ (though not shown here, above this excitation frequency the effect is reduced).
-The location of the end of the potential core is of particular interest for the current work, as previous researchers have indicated that the dominant noise generation mechanism is associated with the violent breakdown of large-scale axisymmetric structures as they pass through the end of the potential core \citep{Hileman2005} [reference ch3 here?].
+The end of the potential core is of particular interest for the current work, as previous researchers have indicated that the dominant noise generation mechanism is associated with the violent breakdown of large-scale axisymmetric structures as they pass through this location \citep{Hileman2005}.
+The two-point correlations of \sect{sect:nearfield}, which identified the dominant noise source region as occurring near the end of the potential core, hint at this as well.
 
-This breakdown occurs because as the shear layers merge, the interface between the interior sides of the ring vortex becomes highly unstable, so any small perturbations quickly grow and destroy the vortex.
+The breakdown of the large-scale axisymmetric structures occurs because as the shear layers merge, the interface between the interior sides of the ring vortex becomes highly unstable, so any small perturbations quickly grow and destroy the vortex.
 The exact location at which this breakdown occurs is ultimately going to be a function of structure growth rate, as larger structures will self-interact further upstream.
-The location of the end of the potential core is therefore dependent on the passage of the large-scale structures, and hence is not strictly constant in time [who to cite here???].
+The location of the end of the potential core is therefore dependent on the passage of the large-scale structures, and hence is not strictly constant in time [who to cite here?].
 Therefore, an axial shift in the time-averaged acoustic source is not necessarily reflective of a changing source mechanism, but may instead simply indicate that the source mechanism is now occurring at a different location.
 \begin{figure}
 	\centering
@@ -195,3 +198,9 @@ Therefore, an axial shift in the time-averaged acoustic source is not necessaril
 	\caption{Centerline Mach number for all excitation cases; baseline jet is indicated by `0.00'.}
 	\label{fig:ch4_centerlinemach}
 \end{figure}
+
+\subsection{Coherent Structure Merging}
+In the simulated subsonic shear layer of Mei \& Freund \citep{Mei2005}, optimized control for noise mitigation was implemented using the adjoint perturbation method.
+ 
+
+\subsection{Large-Scale Structure Disintegration}
