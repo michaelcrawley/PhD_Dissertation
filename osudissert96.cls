@@ -62,8 +62,8 @@
 
 %% Switch off remaining `report' options that won't be allowed.
 
-\DeclareOption{10pt}{\OptionNotUsed}
-\DeclareOption{11pt}{\OptionNotUsed}
+%\DeclareOption{10pt}{\OptionNotUsed}
+%\DeclareOption{11pt}{\OptionNotUsed}
 %\DeclareOption{12pt}{\OptionNotUsed}          % default
 %\DeclareOption{letterpaper}{\OptionNotUsed}   % default
 \DeclareOption{legalpaper}{\OptionNotUsed}
@@ -100,7 +100,7 @@
 %% Load the report class in 12pt, letterpaper, titlepage (although we
 %% shall redefine maketitle later), onecolumn
  
-\LoadClass[12pt,letterpaper,titlepage,onecolumn]{report}
+\LoadClass[letterpaper,titlepage,onecolumn]{report}
 
 
 

@@ -1,4 +1,4 @@
-\documentclass{osudissert96}
+\documentclass[english,11pt]{osudissert96}
 
 %\usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -7,10 +7,13 @@
 
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{notoccite}
-\bibliographystyle{unsrtnat}
+%\bibliographystyle{unsrtnat}
 
 \usepackage[hidelinks]{hyperref}
 \usepackage{doi}
+
+\usepackage{nomencl}%   nomenclature generation via makeindex
+\makenomenclature
 
 % Macros for consistent formatting
 \newcommand*{\fig}[1]{Fig.~\ref{#1}}
@@ -27,14 +30,14 @@
 \renewcommand{\textfraction}{0.1}
 \renewcommand{\floatpagefraction}{0.75}
 
-\renewcommand\typesetChapterTitle[1]{#1}
+\renewcommand\typesetChapterTitle[1]{\Huge{\sc{#1}}}
 
 \begin{document}
 
 \author{Michael Crawley}
 \title{Understanding the Aeroacoustic Radiation Sources and Mechanism in High-Speed Jets}
 \authordegrees{B.S.}  % Degrees thus far, not including this one.
-\unit{Department of Mechanical Engineering}
+\unit{Mechanical Engineering}
 
 \advisorname{Dr. Mo Samimy}
 \member{Dr. Datta Gaitonde}
@@ -48,12 +51,13 @@
   \input{abstract}
 \end{abstract}
 
-\dedication{I would like to dedicate this work to Dr. Rachelle Speth, for her tireless efforts to convince me to hurry up and graduate already. Also, my parents.}
+\begin{dedications}
+I would like to dedicate this work to Dr. Rachelle Speth, for her tireless efforts to convince me to hurry up and graduate already. Also, my parents.	
+\end{dedications}
 
 \include{ack}
 \include{vita}
 \tableofcontents
-%\listoftables
 \listoffigures
 \include{ch_introduction}       
 \include{ch_methodology}
@@ -62,7 +66,8 @@
 \include{ch_acoustic_source}
 \include{ch_conclusion}
 
-
+\clearpage  \phantomsection \addcontentsline{toc}{front}{Bibliography}\clearpage 
+\bibliographystyle{plain}
 \bibliography{new_master}
 
 \end{document}

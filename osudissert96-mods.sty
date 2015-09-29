@@ -18,8 +18,6 @@
 % Al Fencl, Manas Mandal, Jim Vaigl and a host of others who have gone
 % through the ordeal of getting the format through the Grad School at OSU.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 2011/02/11. Theodore P. Pavlic - Added \blankpage for omitted
-%                                  \disscopyright
 % 2010/07/22. Theodore P. Pavlic - Changed ``Adviser'' to ``Advisor''
 %                                - Title back in user's case choice
 %                                  (title case preferred)
@@ -130,11 +128,12 @@
 % MDH - Some general purpose typesetting commands.  Included to give the
 % document a consistent and easy-to-change interface.
 \def\boldcmd{\bfseries}
-\def\typesetHeading#1{{\normalfont\large\boldcmd{#1}}}
+\def\typesetHeading#1{{\normalfont\LARGE\boldcmd{#1}}}
 \def\typesetColumnHeading#1{{\boldcmd #1}}
 \def\typesetChapterTitle#1{{#1}}
 
 \newcommand\dedicationname{Dedication}
+\newcommand\dedicationnameLC{Dedication}
 
 
 \newcommand\vitaname{Vita}
@@ -166,6 +165,7 @@
 \newcommand\chapternameLC{Chapter}
 
 % ted - (2010) removed ``Chapters:'' from TOC below
+%% RY 2013 - reversed ted's reversal, because GS said to put it in
 %\newcommand\chaptersname{Chapters}
 
 \renewcommand\appendixname{Appendix}
@@ -245,9 +245,16 @@
         \pagenumbering{arabic}
       \fi
 %      \pagenumbering{arabic}
-%      \addtocontents{toc}{\vskip 1.0em plus 1pt
-%         \hskip -\parindent \chaptersname:%
-%    \vskip 0.25em\rm}
+%%%%%%%% RY 2013 - ADDED "CHAPTER  PAGE" TO TOC PER GS INSTRUCTIONS %%%%%%%%%%%%%%%%%
+    \addtocontents{toc}{
+        \vskip 1.0em plus 1pt
+%      	\hskip -\parindent \chaptersname:%
+%   	\typesetColumnHeading{\chaptername}\hfill\typesetColumnHeading{\pagename}
+	\hskip -\parindent\chaptername\hfill\pagename
+    	\vskip 0.1em
+    	\rm
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \fi
   \fi
   \pagestyle{headings}
@@ -281,11 +288,12 @@
   \vspace*{39\p@}%
   {\parindent \z@ \raggedright \reset@font%
    \ifnum \c@secnumdepth >\m@ne%
-       \center\typesetHeading{\@chapapp{} \thechapter: \typesetChapterTitle{#1}}%
+       %\center\typesetHeading{\@chapapp{} \thechapter: \typesetChapterTitle{#1}}%
+       \center\typesetHeading{\@chapapp{} \thechapter}%
        \par%
        \vskip 0.55in%
     \fi%
-    %\begin{center}\large\boldcmd\typesetChapterTitle{#1}\par\end{center}%
+    \begin{center}\large\boldcmd\typesetChapterTitle{#1}\par\end{center}%
     \nobreak%
    \vskip 24\p@%
   }%
@@ -358,8 +366,11 @@
 % MDH - GS wants doublespacing above captions for tables and figures.  In
 % the past, I believe, table captions appeared above the tables, though.
 
-\setlength\abovecaptionskip{27\p@}
-\setlength\belowcaptionskip{0\p@}
+%\setlength\abovecaptionskip{27\p@}
+%\setlength\belowcaptionskip{0\p@}
+%%%%%%%%%%%%%%%%%%%% RY 2013 - Modified to be in line with GS demands
+\setlength\abovecaptionskip{4\p@}
+\setlength\belowcaptionskip{10\p@}
 
 % MDH - this is currently nearly identical to \@makecaption in report.cls
 \long\def\@makecaption#1#2{%
@@ -714,7 +725,7 @@
 \def\@committee{Dissertation}
 \def\@thesis{Dissertation}
 \def\unit#1{\def\@unit{#1}}
-\def\@unit{Department of Electrical Engineering}
+\def\@unit{Aeronautical and Astronautical Engineering}
 \def\graduationyear#1{\def\@graduationyear{#1}}
 \def\@graduationyear{\year}
 
@@ -773,9 +784,11 @@
       \vskip 40pt
       {\large {\@thesis}}
       \vskip 30pt
-      {\large Presented in Partial Fulfillment of the Requirements for
-        the Degree \@degree{} in the
-        Graduate School of The Ohio State University}
+      {\large Presented in Partial Fulfillment of the Requirements for}
+      \vskip 5pt
+      {\large the Degree \@degree{} in the}
+      \vskip 5pt
+      {\large Graduate School of The Ohio State University}
       \vskip 20pt
       {\large By}
       \vskip 20pt
@@ -802,8 +815,9 @@
       {\large \@committee{} Committee:}\centering
       \vskip 3pt
 %% MM. 1995/02/18. Taking care of co-advisors.
-\ifcoadvisor\@coadvisorname\else\@advisorname, \@adviser\fi
-      \@member
+%\ifcoadvisor\@coadvisorname\else\@advisorname, \@adviser\fi
+ \ifcoadvisor \@advisorname, \@adviser \@coadvisorname\else\@advisorname, \@adviser\fi
+     \@member
     \end{minipage}}
     \vfil
     \null
@@ -884,29 +898,34 @@
   \vspace*{\fill}
 }
 
-%% ted - provides blank page when \disscopyright is omitted
-\newcommand\blankpage{
-  \thispagestyle{empty}
-  \mbox{}
-  \cleardoublepage
-}
-
 %% MM. 1994/08/17. Redefining dedications using new standards.
-\newcommand\dedication[1]{
-  \if@openright\cleardoublepage\else\clearpage\fi
-  \thispagestyle{plain}
-  \pagestyle{plain}
-  % ted - add a phantomsection if we can (for pdf bookmarks)
-  % (this command is a fancy way of saying ``if phantomsection defined,
-  % execute it'')
-  \@ifundefined{phantomsection}{}{\phantomsection}
-  \addcontentsline{toc}{front}{{\dedicationname}}
-  \vspace*{\fill}
-  \begin{center} #1 \end{center}
+%\newcommand\dedication[1]{
+%  \if@openright\cleardoublepage\else\clearpage\fi
+%  \thispagestyle{plain}
+%  \pagestyle{plain}
+%  % ted - add a phantomsection if we can (for pdf bookmarks)
+%  % (this command is a fancy way of saying ``if phantomsection defined,
+%  % execute it'')
+%  \@ifundefined{phantomsection}{}{\phantomsection}
+%  \addcontentsline{toc}{front}{{\dedicationname}}
+%  \vspace*{\fill}
+%  \begin{center} #1 \end{center}
 %% MM. 1994/08/17. See little point for this.
 %  \vspace{50pt}
-  \vspace*{\fill}
-}
+%  \vspace*{\fill}
+%}
+
+%% RY 2013
+%% This is my attempt at a dedication section, because the above wasn't working for some reason.
+\newenvironment{dedications}{
+  \chapter*{\typesetHeading{\dedicationname}
+        \@mkboth{\uppercase{\dedicationname}}{\uppercase{\dedicationname}}}%
+  \addcontentsline{toc}{front}{{\dedicationnameLC}}
+  \thispagestyle{plain}
+  \pagestyle{plain}}
+{\par\startdoublespace}
+
+\let\dedications\dedications
 
 \newenvironment{acknowledgments}{
   \chapter*{\typesetHeading{\acknowledgmentname}
@@ -1001,7 +1020,7 @@
 %%
 
 \def\researchpubs{\noindent {\bf Research Publications}\par~~\par}
-\def\instructpubs{\noindent {\bf Instructional Publications}\par~~\par}
+\def\instructpubs{\noindent {\bf Conference Publications}\par~~\par}
 
 %%
 %%  \pubitem{reference}

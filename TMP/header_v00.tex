@@ -1,0 +1,471 @@
+\newcommand{\eqn}[1]{eqn~(\ref{eqn:#1})}
+\newcommand{\twoeqn}[2]{eqns~(\ref{eqn:#1}) and (\ref{eqn:#2})}
+\newcommand{\manyeqn}[2]{eqns~(\ref{eqn:#1}--\ref{eqn:#2})}
+
+\newcommand{\fig}[1]{Figure~\ref{fig:#1}}
+\newcommand{\twofig}[2]{Figures~\ref{fig:#1} and \ref{fig:#2}}
+\newcommand{\manyfig}[2]{Figures~\ref{fig:#1}--\ref{fig:#2}}
+
+\newcommand{\sect}[1]{Section~\ref{sec:#1}}
+\newcommand{\twosect}[2]{Sections~\ref{sec:#1} and \ref{sec:#2}}
+\newcommand{\manysect}[2]{Sections~\ref{sec:#1}--\ref{sec:#2}}
+
+\newcommand{\chapt}[1]{Chapter~\ref{ch:#1}}
+\newcommand{\twochapt}[2]{Chapters~\ref{ch:#1} and \ref{ch:#2}}
+
+\newcommand{\appsect}[1]{\ref{app:#1}}
+
+\newcommand{\tbl}[1]{Table~\ref{tbl:#1}}
+\newcommand{\twotbl}[2]{Tables~\ref{tbl:#1} and \ref{tbl:#2}}
+\newcommand{\manytbl}[2]{Tables~\ref{tbl:#1}--\ref{tbl:#2}}
+
+\newcommand{\prp}[1]{Prop.~\ref{prp:#1}}
+\newcommand{\twoprps}[2]{Props.~\ref{prp:#1} and \ref{prp:#2}}
+\newcommand{\tab}[1]{Tab.~\ref{tab:#1}}
+
+\newcommand{\remark}[1]{Remark~\ref{rem:#1}}
+\newcommand{\tworemark}[2]{Remarks~\ref{rem:#1} and \ref{rem:#2}}
+\newcommand{\manyremark}[2]{Remarks~\ref{rem:#1}--\ref{rem:#2}}
+
+\newenvironment{Proof}
+  {\renewcommand{\baselinestretch}{1}\begin{proof}}
+  {\renewcommand{\baselinestretch}{1}\end{proof}}
+
+\newtheorem{rem}{\bf Remark}
+\newtheorem{theorem}{\bf Theorem}
+
+\newcommand{\CmntText}[1]{{\textbf{ \color{magenta}#1}}}
+
+\newcommand{\fracd}[2]{{\frac{ \displaystyle {#1} }{ \displaystyle {#2} } }}
+
+\newcommand{\argmin}{\operatornamewithlimits{arg\,min}}
+\newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
+\newcommand{\assign}{{\leftarrow}}
+\newcommand{\fncarg}{{\bullet}}
+
+\newcommand{\Real}[1] { {{\mathbb{R}}^{#1}} }
+\newcommand{\Realplus}[1] {{{\mathbb{R}}^{#1}_{\geq 0}} }
+\newcommand{\Complex}[1] { {{\mathbb{C}}^{#1}} }
+\newcommand{\CrclGrp}[1] { {\mathbb{T}^{#1}} }
+\newcommand{\NaturalNmbr} { {\mathbb{N}} }
+\newcommand{\ElSpace}[1] { {\mathcal{L}}^{#1} }
+\newcommand{\SobolevSpace}[1] { {\mathcal{H}}^{#1} }
+\newcommand{\Hilbert} { {\mathbb{H}} }
+\newcommand{\LTwo} { {\mathcal{L}_{2}} }
+\newcommand{\IdentityTensor}{\mathbb{I}}
+\newcommand{\IndexSet} { {\mathcal{I}} }
+\newcommand{\vect}[1]{\bm{\mathbf{ #1 }}}
+\newcommand{\tens}[1]{\underline{ \underline{\bm{\mathbf{#1}}}}}
+\newcommand{\tpose}{{\rm T}}
+\newcommand{\degrees}{{^\circ}}
+\newcommand{\inv}{{^{-1}}}
+\newcommand{\ComplexI}{{\rm i}}
+\newcommand{\expo}{{\rm e}}
+\newcommand{\diag}{{\rm diag}}
+\newcommand{\sign}{{\rm sign}}
+\newcommand{\Kronecker}[2]{{\delta_{ {#1}, {#2} }}}
+\newcommand{\DotProdDbl}{{:}}
+
+\newcommand{\derivd}{{\rm d}}
+\newcommand{\deriv}[2]{\frac{d{#1}}{d{#2}}}
+\newcommand{\derivn}[3]{\frac{d^{#1}{#2}}{d{#3}^{#1}}}
+\newcommand{\pderiv}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\pderivn}[3]{\frac{\partial^{#1}{#2}}{\partial{#3}^{#1}}}
+\newcommand{\pderivj}[3]{\frac{\partial^2{#1}}{\partial{#2}\partial{#3}}}
+\newcommand{\pdinline}[2]{{\partial{#1}}/{\partial{#2}}}
+\newcommand{\pdinlinen}[3]{{\partial^{#1}{#2}}/{\partial{#3}^{#1}}}
+\newcommand{\sgn}{{\rm sgn}}
+
+\newcommand{\norm}[1]{{\left|\left| {#1} \right|\right|}}
+\newcommand{\abs}[1]{{\left| {#1} \right|}}
+\newcommand{\innerprod}[2]{{\left< {#1}\ ,\ {#2} \right>}}
+
+
+\newcommand{\expect}{{E}}
+
+\newcommand{\Fourier}{{\mathcal {F}}}
+\newcommand{\FourierAz}{{\Fourier}_{m}}
+\newcommand{\FourierInvAz}{{\Fourier}_{\theta}}
+\newcommand{\FourierTemp}{{\mathcal {F}}_{f}}
+\newcommand{\FourierInvTemp}{{\mathcal {F}}_{t}}
+
+
+\newcommand{\TWindowRMS}{{T_{\rm{rms}}}}
+
+
+\newcommand{\uniti}{\hat{\vect{i}}}
+\newcommand{\unitj}{\hat{\vect{j}}}
+\newcommand{\unitk}{\hat{\vect{k}}}
+\newcommand{\unitx}{\hat{\vect{\epsilon}}_{x}}
+\newcommand{\unitr}{\hat{\vect{\epsilon}}_{r}}
+\newcommand{\unitt}{\hat{\vect{\epsilon}}_{\theta}}
+
+\newcommand{\EnergySymb}{{\zeta}}
+\newcommand{\EnergyRatio}{{\varrho}}
+\newcommand{\energyRatioSymb}{{\varsigma}}
+\newcommand{\energySymb}{{\varepsilon}}
+\newcommand{\AlignmentSymb}{{\mathcal{A}}}
+
+\newcommand{\Projection}{{\mathcal {P}}}
+
+
+
+\newcommand{\VelThreeD}{{U}}
+\newcommand{\velThreeD}{{u}}
+
+\newcommand{\pressure}{{p}}
+\newcommand{\Pressure}{{P}}
+
+
+
+
+\newcommand{\CorrTens}{{\Pi}}
+\newcommand{\CorrTensATF}{{S}}
+
+\newcommand{\NSnaps}{{N_{s}}}
+\newcommand{\NGrid}{{N_{g}}}
+\newcommand{\TSmpl}{{T_{s}}}
+
+\newcommand{\NAzMode}{{M}}
+
+\newcommand{\BaseFlow}{b}
+
+
+\newcommand{\AzModeIdx}{{m}}
+\newcommand{\PODModeIdx}{{n}}
+\newcommand{\TimeIdx}{{k}}
+\newcommand{\OutputLocIdx}{{s}}
+\newcommand{\TempFreqIdx}{{k}}
+
+
+\newcommand{\PODGenEigVecVctr}{{\Phi}}
+\newcommand{\PODGenEigValVctr}{{\Lambda}}
+\newcommand{\PODGenEigCoeffVctr}{{\alpha}}
+
+\newcommand{\PODGenEigVecSclr}{{\phi}}
+\newcommand{\PODGenEigValSclr}{{\lambda}}
+\newcommand{\PODGenEigCoeffSclr}{{\beta}}
+\newcommand{\NPODGen}{{N}}
+
+
+
+\newcommand{\PODOneDEigVecVctr}{{\phi}}
+\newcommand{\PODOneDEigValVctr}{{\Xi}}
+\newcommand{\PODOneDEigCoeffVctr}{{\beta}}
+\newcommand{\NPODOneD}{{N^{1}}}
+
+
+\newcommand{\PODOneDEigVecSclr}{{\varphi}}
+\newcommand{\PODOneDEigValSclr}{{\xi}}
+\newcommand{\PODOneDEigCoeffSclr}{{\gamma}}
+
+\newcommand{\PODTwoDEigVecVctr}{{\Phi}}
+\newcommand{\PODTwoDEigValVctr}{{\Lambda}}
+\newcommand{\PODTwoDEigCoeffVctr}{{\alpha}}
+\newcommand{\PODTwoDModeCoeffVecE}{{\beta}}
+\newcommand{\NPODTwoD}{N}
+
+
+\newcommand{\ErrorSymb}{{\mathcal{E}}}
+\newcommand{\errorSymb}{{e}}
+\newcommand{\simulated}{{\rm sim}}
+\newcommand{\reconstructed}{{\rm recon}}
+
+\newcommand{\ErrorSolenoidal}{{\hat{\ErrorSymb}_{sol}}}
+\newcommand{\ErrorSim}{{\ErrorSymb_{\simulated}}}
+\newcommand{\errorSim}{{\errorSymb_{\simulated}}}
+\newcommand{\energyRatioSim}{{\energyRatioSymb_{\simulated}}}
+\newcommand{\THorizonSim}{{T_{\simulated}}}
+\newcommand{\ErrorRecon}{{\ErrorSymb_{\reconstructed}}}
+\newcommand{\ErrorReconMX}{{\AzTform{ \ErrorSymb }_{\reconstructed}}}
+\newcommand{\EnergyRatioRecon}{{\AzTform{ \EnergyRatio }_{\reconstructed}}}
+
+
+
+
+
+\newcommand{\SLSECoeff}{{\mathcal{L}}}
+
+
+
+
+\newcommand{\NConvLead}{{N_{c}}}
+\newcommand{\PrArrayIdx}{{s}}
+
+\newcommand{\EstimateGivenOne}{{\backslash}}
+\newcommand{\EstimateGivenAll}{{/}}
+
+\newcommand{\ErrorGen}{{e}}
+
+\newcommand{\AllModes}[1]{{\breve{#1}}}
+
+\newcommand{\PODTwoDEigCoeffVctrAll}{{\AllModes{ \PODTwoDEigCoeffVctr }}}
+\newcommand{\pressureAll}{{\AllModes{ \pressure }}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Governing dynamics for incompressible flow
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\GDSubscript}{{\rm G}}
+\newcommand{\GDDissSupscript}{{\rm d}}
+\newcommand{\GDProdSupscript}{{\rm c}}
+\newcommand{\GDContSupscript}{{\rm C}}
+
+
+\newcommand{\GDLinSymb}{{L}}
+\newcommand{\GDQuadSymb}{{Q}}
+\newcommand{\GDGradSymb}{{G}}
+
+\newcommand{\GDROMConstSymb}{{c}}
+\newcommand{\GDROMLinSymb}{{l}}
+\newcommand{\GDROMQuadSymb}{{q}}
+\newcommand{\GDROMFrcSymb}{{d}}
+
+\newcommand{\GDROMConstMtxSymb}{{C}}
+\newcommand{\GDROMLinMtxSymb}{{L}}
+\newcommand{\GDROMQuadMtxSymb}{{Q}}
+
+\newcommand{\GDLin}{{\GDLinSymb}_{\GDSubscript}}
+\newcommand{\GDQuad}{{\GDQuadSymb}_{\GDSubscript}}
+\newcommand{\GDGrad}{{\GDGradSymb}_{\GDSubscript}}
+
+\newcommand{\GDLinAFT}{{\AzTform{\GDLinSymb}_{\GDSubscript}}}
+\newcommand{\GDQuadAFT}{{\AzTform{\GDQuadSymb}_{\GDSubscript}}}
+\newcommand{\GDGradAFT}{{\AzTform{\GDGradSymb}_{\GDSubscript}}}
+
+\newcommand{\GDROMConst}{{\GDROMConstSymb}_{\GDSubscript}}
+\newcommand{\GDROMLin}{{\GDROMLinSymb}_{\GDSubscript}}
+\newcommand{\GDROMLinDiss}{{\GDROMLinSymb}_{\GDSubscript}^{\GDDissSupscript}}
+\newcommand{\GDROMLinProd}{{\GDROMLinSymb}_{\GDSubscript}^{\GDProdSupscript}}
+\newcommand{\GDROMQuad}{{\GDROMQuadSymb}_{\GDSubscript}}
+\newcommand{\GDROMFrc}{{\GDROMFrcSymb}_{\GDSubscript}}
+
+
+\newcommand{\GDROMLinContMtx}{{\vect{\GDROMLinMtxSymb}_{\GDSubscript}^{ \GDContSupscript }}}
+\newcommand{\GDROMLinDiscMtx}{{\vect{\GDROMLinMtxSymb}_{\GDSubscript}}}
+
+\newcommand{\GDROMLinDiscVec}{{\vect{\GDROMLinSymb}_{\GDSubscript}}}
+\newcommand{\GDROMLinDiscMtxAll}{{\vect{ \AllModes{\GDROMLinMtxSymb}}_{\GDSubscript}}}
+
+\newcommand{\GDROMQuadDiscMtx}{{\vect{\GDROMQuadMtxSymb}_{\GDSubscript}}}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Governing dynamics for compressible flow
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\CmprsVarGen}{W}
+\newcommand{\cmprsVarGen}{w}
+\newcommand{\cmprsVarGenDummy}{q}
+
+\newcommand{\SpVol}{{\Xi}}
+\newcommand{\spVol}{{\xi}}
+
+\newcommand{\DilatationFn}{{L^{D}}}
+\newcommand{\LaplacianFn}{{L^{L}}}
+\newcommand{\GradOfVecFn}{{L^{G}}}
+\newcommand{\ConvAccFn}{{Q^{C}}}
+
+\newcommand{\DilatationFnAz}{{\AzTform{ L }^{d}}}
+\newcommand{\LaplacianFnAz}{{\AzTform{ L }^{l}}}
+\newcommand{\GradOfVecFnAz}{{\AzTform{ L }^{g}}}
+\newcommand{\ConvAccFnAz}{{\AzTform{ Q }^{c}}}
+
+\newcommand{\CmprsQuadTerm}[1]{Q^{#1}}
+\newcommand{\CmprsQuadTermAz}[1]{\AzTform{ Q }^{\{#1\}}}
+
+\newcommand{\CmprsPODTwoDEigCoeffVctr}{{\alpha}}
+\newcommand{\CmprsPODTwoDEigVecVctr}{{\Phi}}
+\newcommand{\CmprsNPOD}{{N}}
+
+
+\newcommand{\CmprsGPConstTerm}[1]{\tilde{ C }^{[#1]}}
+\newcommand{\CmprsGPLinTerm}[1]{\tilde{ L }^{[#1]}}
+\newcommand{\CmprsGPQuadTerm}[1]{\tilde{ Q }^{[#1]}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Real-time State Estimation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\LSESubscript}{{\rm LSE}}
+\newcommand{\LSECoeffLin}{L_{ \LSESubscript }}
+\newcommand{\LSECoeffLinMtx}{\vect{ L }_{ \LSESubscript }}
+\newcommand{\QSESubscript}{{\rm QSE}}
+\newcommand{\QSECoeffConst}{c_{ \QSESubscript }}
+\newcommand{\QSECoeffLin}{l_{\QSESubscript}}
+\newcommand{\QSECoeffQuad}{q_{\QSESubscript}}
+\newcommand{\QSECoeffLinRed}{\overrightarrow{ l }_{\QSESubscript}}
+\newcommand{\QSECoeffQuadRed}{\overrightarrow{ q }_{\QSESubscript}}
+\newcommand{\QSECoeffLinVect}{\vect{ l }_{ \QSESubscript }}
+\newcommand{\QSECoeffQuadMtx}{\vect{ Q }_{ \QSESubscript }}
+
+
+
+
+\newcommand{\IIRDynNoise}{{\psi}}
+\newcommand{\IIRDynCov}{{\Psi}}
+\newcommand{\IIRMeasNoise}{{\xi}}
+\newcommand{\IIRMeasCov}{{\Xi}}
+\newcommand{\IIRDynCovMtx}{{\vect{ \IIRDynCov }}}
+\newcommand{\IIRMeasCovMtx}{{\vect{ \IIRMeasCov }}}
+\newcommand{\IIRDynNoiseAll}{{\AllModes{ \IIRDynNoise }}}
+\newcommand{\IIRMeasNoiseAll}{{\AllModes{ \IIRMeasNoise }}}
+\newcommand{\IIRDynCovMtxAll}{{\vect{ \AllModes{ \IIRDynCov } }}}
+\newcommand{\IIRMeasCovMtxAll}{{\vect{ \AllModes{ \IIRMeasCov }}}}
+\newcommand{\IIRGain}{{K}}
+\newcommand{\IIRErrCov}{{\Theta }}
+\newcommand{\IIRErrCovMtx}{{\vect{ \IIRErrCov }}}
+\newcommand{\IIROutCoeffMtxLin}{\vect{ L }}
+\newcommand{\IIROutCoeffMtxLinAll}{\vect{ \AllModes{ L } }}
+
+\newcommand{\KFSubscript}{{\rm KF}}
+
+\newcommand{\LTIFSubscript}{{\rm LTIF}}
+
+\newcommand{\EKFSubscript}{{\rm EKF}}
+\newcommand{\EKFOutCoeffConst}{c_{ \EKFSubscript }}
+\newcommand{\EKFOutCoeffLin}{l_{ \EKFSubscript }}
+\newcommand{\EKFOutCoeffQuad}{q_{ \EKFSubscript }}
+
+
+\newcommand{\ErrEstModal}{{\eta}}
+\newcommand{\ErrEstAll}{{\AllModes{ \ErrEstModal }}}
+\newcommand{\CorrCoeff}{{\mathcal{C}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Actuation Effects
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newcommand{\AzModeIdxF}{{m_{F}}}
+\newcommand{\FreqF}{{f_{F}}}
+\newcommand{\StDF}{{St_{DF}}}
+\newcommand{\StD}{{St_{D}}}
+\newcommand{\MomThkInit}{{\theta_{ 0 }}}
+\newcommand{\StTheta}{{St_{\theta}}}
+\newcommand{\StThetaF}{{St_{\theta F}}}
+
+
+
+\newcommand{\FinFTPrd}{{T}}
+
+\newcommand{\XDomainStart}{{X_{1}}}
+\newcommand{\XDomainEnd}{{X_{2}}}
+\newcommand{\XSliceSetV}{{\mathcal{X}_{\velThreeD}}}
+\newcommand{\RDomainEnd}{{R}}
+
+\newcommand{\MeasConfAz}{{a}}
+\newcommand{\MeasConfLn}{{l}}
+\newcommand{\XSetPr}{{\mathcal{X}_{p}}}
+\newcommand{\RSetPr}{{\mathcal{R}_{p}}}
+\newcommand{\XSetPrA}{{\mathcal{X}_{p}^{a}}}
+\newcommand{\XSetPrL}{{\mathcal{X}_{p}^{l}}}
+\newcommand{\RSetPrA}{{\mathcal{R}_{p}^{a}}}
+\newcommand{\RSetPrL}{{\mathcal{R}_{p}^{l}}}
+\newcommand{\NPrA}{{N_{p}^{a}}}
+\newcommand{\NPrL}{{N_{p}^{l}}}
+
+
+
+\newcommand{\ReynoldsNumD}{{Re}}
+\newcommand{\ReynoldsNumM}{{Re_{T}}}
+
+
+
+\newcommand{\KinVisc}{{\mu}}
+\newcommand{\DynVisc}{{\nu}}
+\newcommand{\ThermalConductivity}{{k}}
+\newcommand{\SpHeat}{{\gamma}}
+\newcommand{\GasConst}{{\mathcal{R}}}
+\newcommand{\SpHeatP}{{c_{p}}}
+\newcommand{\SpHeatV}{{c_{v}}}
+\newcommand{\Prandtl}{{\mathcal{P}}}
+
+\newcommand{\MeanAz}[1]{{\overrightarrow{#1}}}
+\newcommand{\MeanTimeAz}[1]{{\overline{#1}}}
+\newcommand{\MeanPhsAz}[1]{{\overleftarrow{#1}}}
+
+\newcommand{\JetDia}{{D}}
+\newcommand{\JetExitVel}{{U_{j}}}
+\newcommand{\DensExit}{{\rho_{j}}}
+\newcommand{\nuExit}{{\nu_{j}}}
+\newcommand{\SoundSpdAmb}{{a_{\infty}}}
+\newcommand{\DensityAmb}{{\density_{\infty}}}
+\newcommand{\MomThkShr}{{\delta_{\theta}}}
+\newcommand{\HWHM}{{r_{1/2}}}
+\newcommand{\rSimVar}{{\eta}}
+
+
+
+\newcommand{\MachJetAmb}{{\mathcal{M}}}
+\newcommand{\MachJetLocal}{{\mathcal{M}_{j}}}
+\newcommand{\JetExitSoundSpd}{{a_{j}}}
+
+\newcommand{\AzTform}[1]{{\hat{#1}}}
+\newcommand{\TempTform}[1]{{\check{#1}}}
+\newcommand{\Estimated}[1]{{\tilde{#1}}}
+\newcommand{\CoFld}[1]{{\underline{#1}}}
+
+
+\newcommand{\RePart}{{r}}
+\newcommand{\ImPart}{{i}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Nomenclature
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%   For ordering the appearance of the symbols, the names are encoded
+
+%AAN: Numerical Roman
+%A: Roman
+%G: Greek
+%Z: Parentheses
+%ZA: Accent
+%S: Small letters
+%C: Capital letters
+%Sb: Subscript
+%Sp: Superscript
+%O: Operator
+
+
+\newcommand{\NmnclACLAFPA}{\rm LAFPA}
+\newcommand{\NmnclACPIV}{\rm PIV}
+\newcommand{\NmnclAANCCThreeCPIV}{\rm 3C-PIV}
+\newcommand{\NmnclAANBBTwoCPIV}{\rm 2C-PIV}
+\newcommand{\NmnclACPSD}{\rm PSD}
+\newcommand{\NmnclACDNS}{\rm DNS}
+\newcommand{\NmnclACILES}{\rm ILES}
+\newcommand{\NmnclACRMS}{\rm RMS}
+\newcommand{\NmnclACNMA}{\rm NMA}
+\newcommand{\NmnclACKWA}{\rm KWA}
+\newcommand{\NmnclASmNMA}{\rm mNMA}
+\newcommand{\NmnclASmKWA}{\rm mKWA}
+\newcommand{\NmnclACSPL}{\rm SPL}
+
+\newcommand{\NmnclACODE}{\rm ODE}
+\newcommand{\NmnclACROM}{\rm ROM}
+\newcommand{\NmnclACGP}{\rm GP}
+\newcommand{\NmnclACPOD}{\rm POD}
+\newcommand{\NmnclACSLSE}{\rm SLSE}
+
+\newcommand{\NmnclACSE}{\rm SE}
+\newcommand{\NmnclACIIR}{\rm IIR}
+\newcommand{\NmnclACKF}{\rm KF}
+\newcommand{\NmnclACLTIF}{\rm LTIF}
+\newcommand{\NmnclACLSE}{\rm LSE}
+\newcommand{\NmnclACQSE}{\rm QSE}
+\newcommand{\NmnclACEKF}{\rm EKF}
+
