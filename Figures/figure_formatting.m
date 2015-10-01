@@ -1,8 +1,9 @@
 font = 'Times New Roman';
 fontsize = 14;
-boxsize  = [0 0 5 3.75];
+% boxsize  = [0 0 5 3.75];
 % boxsize  = [0 0 6 3];
 % boxsize  = [0 0 4.75 3.75];
+boxsize = [0 0 6.5 4];
 
 set(gcf,'windowstyle','normal');
 set(gcf,'paperpositionmode','auto');
@@ -10,7 +11,7 @@ drawnow;
 set(gcf,'units','inches');
 set(gcf,'position',boxsize);
 set(gca,'layer','top');
-set(gca,'linewidth',1.5);
+set(gca,'linewidth',1);
 
 children = get(gcf,'children');
 
