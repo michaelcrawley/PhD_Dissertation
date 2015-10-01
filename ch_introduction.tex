@@ -12,6 +12,7 @@ While progress has been made in the field of aeroacoustics, both experimentally 
 This is due to the large number of interrelated parameters (e.g. Reynolds number, temperature ratio, acoustic Mach number, nozzle geometry, et cetera) as well as the large disparity in the associated length and time scales of the turbulent phenomena and the radiated noise.
 Simulations of controlled free shear layers have suggested that there is significant potential for noise reduction, on the order of 11 dB in some cases \citep{Wei2006}.
 However, these simulations relied on non-physically defined actuation (that is, forcing was applied over a defined region by arbitrary energy, momentum, and body force terms), and a physical interpretation of the optimum forcing parameters was not immediately clear to the researchers.
+Additionally, the simulations were conducted on a two-dimensional grid, so extrapolation of the results to axisymmetric jets is not straightforward. 
 Current noise-mitigation technologies for free jets have largely been applied in an adhoc fashion, due to our incomplete understanding of the aeroacoustic sources.
 Fully realizing this maximum noise reduction potential will require a much more detailed understanding of the mechanism (or mechanisms) by which free jets radiate to the far-field.
 
@@ -20,11 +21,12 @@ What remains to be determined is what aspects of the large-scale structure evolu
 Theoretical models of spatially- and temporally-modulated coherent structures have shown great promise in replicating the observed characteristics of the dominant far-field noise \citep{Cavalieri2010}. 
 However, direct experimental data linking this structure evolution to the acoustic emission is still lacking. 
 It is on this vein that the current work is focused.
-Until recently, experimental data acquisition techniques have been unable to capture the flow physics with enough fidelity (lacking in either spatial or temporal resolution) in order to accurately model the large-scale structures and aeroacoustic sources.
+Until recently, experimental data acquisition techniques have been unable to capture the flow physics with enough fidelity (lacking in either spatial and/or temporal resolution) in order to accurately model the large-scale structures and aeroacoustic sources.
 By combining contemporary data acquisition methods (free-field microphones and non-time-resolved particle image velocimetry) with novel post-processing algorithms this work aims to directly link the relevant vortex dynamics of the large-scale structures to the acoustic emission events, and in the process identify a simplified aeroacoustic source mechanism. 
 
 This study can be broken down into three distinct parts. 
 In the first, the irrotational near-field and acoustic far-field of the jet is analyzed in order to identify the dominant acoustic source region.
+A linear filtering algorithm using a spatio-temporal wavelet transform was developed for this purpose.
 In the second, time-resolved velocity fields are estimated using an artificial neural network, which is trained to generate a mapping from time-resolved pressure measurements to instantaneous velocity.
 Lastly, the acoustic source is computed from the time-resolved velocity using Ribner's simplification of Lighthill's acoustic analogy.  
 	
@@ -35,7 +37,7 @@ Controlling the development of the jet plume, and hence controlling the rate of 
 Passive, permanent modifications to the nozzle have been shown to be quite adept at this task; some examples of these include tabs or chevrons \citep{Bridges2004}. 
 These work to generate counter-rotating streamwise vortices in the developing shear layer, which serve to substantially increase mixing between the core and coflow in the near-nozzle region and ultimately retard the growth of large-scale axisymmetric structures \citep{Samimy1993}.
 
-Unfortunately, these passive modifications have associated penalties to the engine performance, in terms of added weight or reduced thrust.
+Unfortunately, these passive modifications have associated penalties to the engine performance, generally in terms of reduced thrust for chevrons.
 Due to the passive nature of the flow modification, these performance penalties are in effect over the entire duration of the flight regardless of whether or not the noise reduction is needed. 
 To improve engine efficiency, active control techniques are desired, since they can be activated when needed, such as during takeoff and landing, and deactivated when unneeded, such as after a commercial airliner reaches cruising altitude. 
 Active control techniques, which seek to manipulate instabilities in the jet shear layer, have been extensively studied in low-speed, low-Reynolds number jets, the most common of which is acoustic drivers. 
@@ -54,16 +56,16 @@ An example of their diagnostic potential can be found in the work of Kearney-Fis
 
 Unlike their passive counterparts (such as tabs or mechanical chevrons), or some other potential active flow control technologies (such as fluidic chevrons), LAFPAs control the shear layer development indirectly by exciting naturally occurring instabilities.
 The sharp velocity gradient in the jet shear layer (or, more precisely the inflection point produced by this sharp gradient) gives rise to the inviscid Kelvin-Helmholtz instability \citep{Michalke1984} (sometimes simply referred to as the initial shear layer instability).
-This instability is broadband and scales with the local momentum layer thickness and jet exit velocity ($\theta / U_j$) ; perturbations over a wide range of frequencies can be amplified, though the dominant frequencies are found to be on the order of $St_{\theta} = f \theta /U_j = 0.012$ for very thin boundary layers \citep{Cohen1987}. 
+This instability is broadband and scales with the local momentum layer thickness and jet exit velocity ($\theta / U_j$) ; perturbations over a wide range of frequencies can be amplified, though the dominant frequencies are found to be on the order of $St_{\theta} = f \theta /U_j = 0.012$ for very thin boundary layers \citep{Zaman1980,Cohen1987}. 
 The Kelvin-Helmholtz instability then drives the development of the large-scale structures in the shear layer by amplifying fine-scale perturbations, ultimately causing them to roll-up into coherent structures regardless of Reynolds number \citep{Crow1971,Brown1974}.
 Owing to the axisymmetry of the jet nozzle (i.e. that the initial shear layer wraps around and connects to itself), various azimuthal Fourier modes are unstable to perturbations (including both axisymmetric and higher order modes) \citep{Cohen1987}.
 
-The growth of the shear layer as it advects downstream ultimately dictates that the shear layer merges with itself; this location is referred to as the end of the potential core.
+The growth of the shear layer with downstream distance dictates that the shear layer merges with itself; this location is referred to as the end of the potential core.
 A secondary instability, the jet column instability, manifests in axisymmetric jets and is related to the passage of large-scale structures through the end of the potential core.
 This instability scales with the jet exit diameter and jet exit velocity ($D / U_j$) and is broadband, with a dominant characteristic frequency of $St_{D} = f D /U_j = 0.3$.
 The relation of the jet column instability to the initial shear layer instability is not well understood.  
 Kibens argued that the jet preferred frequency is related to the initial shear layer frequency by the number of pairings of large scale structures that occur before the end of the potential core (i.e. $f_n / f_p = 2^n$), as the frequency of the structures halves after each pairing process \citep{Kibens1980}.  
-Conversely, Petersen claims that the jet preferred mode is simply the initial shear layer instability at the end of the potential core, and that the appearance of a single dominant lengthscale for the axisymmetric mode is due not to a type of `global' instability of the flow field, but to a cutoff at the end of the potential core of the axisymmetric instability \citep{Petersen1988}.
+Conversely, Petersen \& Samet argue that the jet preferred mode is simply the initial shear layer instability at the end of the potential core, and that the appearance of a single dominant length-scale for the axisymmetric mode is due not to a type of `global' instability of the flow field, but to a cutoff at the end of the potential core of the axisymmetric instability \citep{Petersen1988}.
 Regardless, it is clear that the large-scale oscillations of the jet shear layer and potential core are ultimately the product of small-scale perturbations which are amplified by the initial shear layer instability.
 
 LAFPAs achieve flow control by utilizing this relationship between the initial shear layer instability and the jet column instability.
