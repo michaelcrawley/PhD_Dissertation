@@ -264,23 +264,10 @@ To compute the far-field noise, the source field can be spatially-integrated in 
 \end{figure}
 
 \section{Wavepackets in the Pseudo-Pressure Field}
-
-\begin{figure}
-	\centering
-	\begin{subfigure}{.5\textwidth}
-		\centering
-		\includegraphics[width=0.95\linewidth]{Figures/ch3_S000_r1_full_wvpkts.png}
-		\caption{Full Near-Field Pressure}
-	\end{subfigure}%
-	\begin{subfigure}{.5\textwidth}
-		\centering
-		\includegraphics[width=0.95\linewidth]{Figures/ch3_S000_r1_hydro_wvpkts.png}
-		\caption{Hydrodynamic Near-Field}
-	\end{subfigure}
-	\caption{Effect of filtering on the wavepackets as identified in the irrotational near-field.}
-	\label{fig:nearfield_wvpkts_filtering}
-\end{figure}
-
+The signature of the large-scale structures in the irrotational near-field pressure has been well-known for some time.
+As discussed in \sect{sect:nearfield}, the near-field pressure response to a large-scale structure takes the form of a compact wave which is modulated in amplitude and spatial extent as it convects through the jet shear layer; the near-field response to excitation-induced large-scale structures is discussed in more detail by Sinha \etal \citep{Sinha2012}.
+Similar results have also been found by Tinney \& Jordan \citep{Tinney2008} in a natural, subsonic jet.
+Per Ribner's analysis, these near-field pressure signatures are related to the noise sources and hence can serve as a useful validation of the computed pseudo-pressure fields since they are close physical analogues (though the hydrodynamic component of the irrotational near-field pressure isn't strictly incompressible, compressibility effects are minor). 
 \begin{figure}
 	\centering
 	\begin{subfigure}{.5\textwidth}
@@ -303,7 +290,24 @@ To compute the far-field noise, the source field can be spatially-integrated in 
 		\includegraphics[width=0.95\linewidth]{Figures/ch5_st025_FlowField_wvpkts.png}
 		\caption{}
 	\end{subfigure}
-	\caption{Comparison of wavepackets measured from the hydrodynamic component of the irrotational near-field (a,c) against those in the computed pseudo-pressure field (b,d) for $St_{DF} = 0.05$ (a,b) and $St_{DF} = 0.25$ (c,d).}
+	\caption{Comparison of wavepackets measured from the hydrodynamic component of the irrotational near-field (a,c) against those in the computed pseudo-pressure field (b,d) for $St_{DF} = 0.05$ (a,b) and $St_{DF} = 0.25$ (c,d). A constant intensity map of $\pm 500$ Pa was used for all plots, and the experimentally measured near-field pressure was acquired \textbf{separately} from the velocity fields used to compute the pseudo-pressure.}
 	\label{fig:flowfield_wvpkts}
 \end{figure}
 
+In \fig{fig:flowfield_wvpkts} the hydrodynamic component of the irrotational near-field pressure as measured directly by the linear microphone array is compared against the pseudo-pressure field computed from the estimated time-resolved velocity fields for two excitation frequencies. 
+The `probe' locations in the pseudo-pressure field were chosen to mimic those of the near-field microphone array (just outside the shear layer and inclined $8.6^\circ$ with respect to the jet axis), just at a much higher spatial resolution.
+Note that the irrotational pressure fields shown were acquired separately, \ie near-field pressure measurements from the first experimental setup in \sect{sect:NF_methodology} are being compared against pseudo-pressure estimated using pressure measurements from the second experimental setup. 
+
+As hoped, a clear wavepacket response is observed in the pseudo-pressure fields at the excitation frequency, similar to the behavior found in the hydrodynamic near-field pressure (note that the poor spatial resolution of the near-field microphones is producing an aliasing error for $St_{DF}=0.25$).
+For both fields and excitation frequencies, the wavepackets are the strongest and most coherent upstream of the end of the potential core.
+Downstream of the potential core, the flow is far more disorderly, as some of the LAFPA-induced structures have broken down completely while others have not - this is most readily observed for $St_{DF}=0.05$ where more than a few LAFPA-induced structures persist weakly far downstream.
+Shockingly, the amplitude of the pseudo-pressure response is quite similar to that of the measured near-field pressure response (though by no means identical).
+
+The pseudo-pressure field does unfortunately exhibit a poor match against the measured near-field pressure in the far-downstream region; the cause for this is two-fold.
+First, since the pressure field is highly damped with radial distance and wavenumber \citep{Arndt1997}, estimating turbulent fluctuations near the jet centerline becomes increasingly difficult as the microphones move further away due to the spreading of the shear layer; the velocity information just simply isn't present in the near-field pressure fluctuations.
+Second, as the structures begin to breakdown near the end of the potential core, they lose their axisymmetry.
+This presents additional difficulties for the stochastic estimation, since the near-field microphones are offset azimuthally from the PIV laser sheet a vortex captured in the streamwise slice of the flow-field is not
+necessarily azimuthally-coherent (note the many asymmetric POD modes found in \fig{fig:ch4_St005_PODmodes} and \fig{fig:ch4_St025_PODmodes}) and hence may not be captured by the microphones (or vice versa).
+Given the results of \sect{sect:nearfield} as well as Hileman \etal \citep{Hileman2005}, which found the dominant source region to be located near the end of the potential core, rather than two potential core lengths downstream, this discrepancy between the measured and computed pressure fields, though unfortunate, is not expected to effect the final results or interpretation thereof.  
+
+\section{Hmm...}

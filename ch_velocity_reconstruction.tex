@@ -46,9 +46,9 @@ It should be unsurprising then, that ANNs have already been applied for the esti
 Interested readers are recommended to refer to Haykin \citep{Haykin1994} for an extensive background on artificial neural networks, their developmental history, and many additional network structures not used in this work.
 
 A feedforward network structure was used in the current work, a schematic of which can be found in \fig{fig:ch4_neural_net}.
-The ANN was comprised of an input layer, to which near-field pressure traces were supplied, a single hidden layer, and an output layer which produced estimates of the time-varying POD coefficients. 
+The ANN was comprised of an input layer, to which near-field pressure traces were supplied, a single hidden layer containing 32 neurons, and an output layer which produced estimates of the time-varying POD coefficients. 
 The hidden and output layers were fully connected, and the modified logistic function (hyperbolic tangent) was used as the activation function.
-The pressure traces were centered around the acquisition of a PIV image group, and was downsampled to 100 kHz in order to match the frequency response of the microphones.
+The pressure traces were centered around the acquisition of a PIV image group, and was downsampled to 200 kHz in order to approximate the frequency response of the microphones.
 The record time supplied for each training block was $\pm 5.12$ microsecond; this was determined by estimating the time delay for a large-scale structure to convect through the experimental domain (the convective velocity of the large-scale structures was conservatively estimated as $U_c \simeq 0.5 U_j$).
 \begin{figure}
 	\centering
