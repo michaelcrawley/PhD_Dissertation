@@ -236,12 +236,13 @@ The mother wavelet was defined as the $5^{th}$-order Battle-Lemarie wavelet; sam
 The orthogonal wavelet transform was performed along the temporal domain separately for each spatial location; the time-series was zero-padded so that it matched a dyadic grid.
 A soft energy threshold was used to separate the coherent, large-scale pressure fluctuations from the incoherent noise.
 In traditional wavelet-denoising, the threshold is often defined as $\epsilon = \sqrt{2 \sigma^2_n \mathrm{log}_e N}$, where $\sigma^2_n$ is the variance of the noise, and $N$ is the sample length.
-However, for the current work this threshold was found to be too lax, and so a much more aggressive energy threshold was used.
+However, for the current work this threshold was found to be too lax, and so a much more aggressive energy threshold of $\epsilon = 8 \sigma_n \sqrt{ \mathrm{log}_e N}$ was used.
+The variance of the noise was estimated by median filtering, as provided by \texttt{WaveLab 850}.
 
-In the work of Kearney-Fischer \etal \cite{Kearney-Fischer2013}, a pseudo-wavelet filter was used on the far-field signal at aft angles in order to extract the dominant, intermittent acoustic events which were believed to be related to the dominant, intermittent large-scale structures in the jet shear layer. 
-In that work, an energy cutoff of $\epsilon = 1.5\sigma$ was used; here $\sigma^2$ corresponds instead to the variance of the \textit{signal} rather than the noise in the signal. 
-Kearney-Fischer \etal found that a signal filtered in such a manner retained the relevant aspects of the far-field acoustic spectrum at shallow angles, in particular the dominant energy peak and strong roll-off at high and low frequencies.
-Based on these results, a threshold of $\epsilon = 2\sigma$ was chosen for the current work (due to the low signal-to-noise ratio); for consistency, $\sigma$ was calculated over the entire field rather than at each individual point; the error (and hence, energy) did not scale with spatial location, resulting much lower signal-to-noise ratios at far radial and axial positions. 
+%In the work of Kearney-Fischer \etal \cite{Kearney-Fischer2013}, a pseudo-wavelet filter was used on the far-field signal at aft angles in order to extract the dominant, intermittent acoustic events which were believed to be related to the dominant, intermittent large-scale structures in the jet shear layer. 
+%In that work, an energy cutoff of $\epsilon = 1.5\sigma$ was used; here $\sigma^2$ corresponds instead to the variance of the \textit{signal} rather than the noise in the signal. 
+%Kearney-Fischer \etal found that a signal filtered in such a manner retained the relevant aspects of the far-field acoustic spectrum at shallow angles, in particular the dominant energy peak and strong roll-off at high and low frequencies.
+%Based on these results, a threshold of $\epsilon = 2\sigma$ was chosen for the current work (due to the low signal-to-noise ratio); for consistency, $\sigma$ was calculated over the entire field rather than at each individual point; the error (and hence, energy) did not scale with spatial location, resulting much lower signal-to-noise ratios at far radial and axial positions. 
 
 Sample results for the wavelet-denoising are shown in \fig{fig:valid_denoising} for $z/D=1.75$ at the jet lipline (as will be shown later, the sources are centered around the jet lipline upstream of the end of the potential core).
 A high-amplitude, relatively low-frequency compact waveform is observed in the pseudo-pressure field centered around $\tau U_j /D \simeq 2.25$; this is the hydrodynamic wave associated with the passaged of the large-scale structure observed in \fig{fig:valid_helmholtz}.
@@ -310,7 +311,37 @@ This presents additional difficulties for the stochastic estimation, since the n
 necessarily azimuthally-coherent (note the many asymmetric POD modes found in \fig{fig:ch4_St005_PODmodes} and \fig{fig:ch4_St025_PODmodes}) and hence may not be captured by the microphones (or vice versa).
 Given the results of \sect{sect:nearfield} as well as Hileman \etal \citep{Hileman2005}, which found the dominant source region to be located near the end of the potential core, rather than two potential core lengths downstream, this discrepancy between the measured and computed pressure fields, though unfortunate, is not expected to effect the final results or interpretation thereof.  
 
-\section{Aeroacoustic Behavior of an Individual Structure}
+\section{Accuracy of the Acoustic Far-field}
+As will be shown in the following section, the energy of the hydrodynamic field (pseudo-pressure) is orders of magnitude greater than the acoustic field.
+Hence, even slight experimental errors in the source field can overwhelm the computations for the acoustic field, rendering them next to meaningless for far-field predictions.
+This problem is not unique to Ribner's or Lighthill's approaches to the acoustic analogy; it plagues vortex sound theories as well \citep{Bridges1992}.
+In Ribner's dilatation acoustic analogy the source field takes the form of quadrupoles \citep{Ristorcelli1997}; the delicate interplay of these sources and sinks determining the acoustic far-field at a given spatial and temporal position.
+
+For reference, the computed acoustic signal at a far-field observer position matching the experimental far-field array ($R = 2.57$~m from the nozzle exit, at $\phi = 30^\circ$) has been plotted against the measured signal in \fig{fig:ch5_farfield}.
+For simplicity, the signals have been phase-averaged and only a single excitation period is shown.
+A coherent fluctuation could conceivably be observed in the acoustic field of the impulsively-excited jet (\fig{fig:ch5_farfield_imp}) centered around $\tau \simeq 0.8$, however given the lack of quiet time expected in the signal this could just as easily be wishful thinking.
+An offset in the time-of-arrival for the coherent wave between the calculated and measured signals could be due simply to an error in the positioning of the microphone relative to the nozzle exit, though given the poor match regardless of time-of-arrival, investigating this was deemed nonessential.
+Similarly, the computed acoustic signal for the periodic excitation bears only the vaguest similarities in shape to the measured signal.
+Perhaps the most sympathetic observations of these plots is that the error between the measured and computed signals is at most $\sim 4$~Pa, or $\sim 0.1$\% of the peak amplitude of the pseudo-pressure field!
+Ultimately this means of course, that the computed source field should be viewed with some level of reservation.
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch5_St005_FFacoustic.png}
+		\caption{$St_{DF} = 0.05$}
+		\label{fig:ch5_farfield_imp}
+	\end{subfigure}% %
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{Figures/ch5_St025_FFacoustic.png}
+		\caption{$St_{DF} = 0.25$}
+	\end{subfigure}
+	\caption{Comparison of the phase-averaged far-field signal at $30^\circ$ computed from the source field against the signal measured by the far-field microphone array.}
+	\label{fig:ch5_farfield}
+\end{figure}
+
+\section{Aeroacoustic Behavior of Coherent Structures}
 The pseudo-pressure field induced by the coherent vortex takes the form of a spatially-modulated traveling wave; this can be observed in \fig{fig:PSL_St005}.
 A strong expansion wave is found to be centered on the vortex, and preceding this is an equally strong compression wave.
 
@@ -326,8 +357,6 @@ A strong expansion wave is found to be centered on the vortex, and preceding thi
 		\includegraphics[width=0.95\linewidth]{Figures/ch5_St005_PSL_161.png}
 		\caption{$\phi = 7 \pi /8$}
 	\end{subfigure}
-	\caption{Pseudo-pressure field induced by the large-scale structure at two excitation instances, with swirling strength overlain in black contours. A consistent color map and contour level are used for the two plots; regions of red indicate negative fluctuations.}
+	\caption{Pseudo-pressure field induced by the large-scale structure at two excitation instances, with swirling strength overlain in black contours. A consistent color map (of $\pm 4000$~Pa) and contour level are used for the two plots; regions of red indicate negative fluctuations.}
 	\label{fig:PSL_St005}
 \end{figure}
-
-\section{Aeroacoustic Behavior of Interacting Structures}
