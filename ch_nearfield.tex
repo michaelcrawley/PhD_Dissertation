@@ -31,7 +31,7 @@ This behavior can be observed in \fig{fig:ch3_nearfield_phavg}.
 
 For a certain range of excitation frequencies ($St_{DF} \leq 0.50$ at $z/D = 2$, for example), the structures interact in a quasi-linear manner, insofar as their near-field pressure signatures are concerned. 
 To be precise, the response of the jet in the irrotational near-field could be well-predicted by a linear summation of the impulse response of the jet, repeated at the periodic excitation frequency. 
-This concept has been illustrated in \fig{fig:ch3_nearfield_linear}, where the periodic response of the jet to excitation with $St_{DF} = 0.50$ has been reproduced at $z/D = 3$ 8. 
+This concept has been illustrated in \fig{fig:ch3_nearfield_linear}, where the periodic response of the jet to excitation with $St_{DF} = 0.50$ has been reproduced at $z/D = 3$. 
 Additionally, a linear superposition of the impulse response for $St_{DF} = 0.05$, repeated to match the excitation frequency of $St_{DF} = 0.50$, has been overlaid. 
 The linear superposition has been arbitrarily shifted in time in order to match the phase of the periodic response; this phase difference is likely due to the dependence of convection velocities on structure frequency \citep{Veltin2011} (or more accurately, structure size). 
 For reference, the impulse response has also been included in the plots. 
@@ -98,7 +98,7 @@ For consistency hereafter, all results examined within this work have been compu
 Much of the difficulty in identifying the aeroacoustic source terms revolves around the dissimilar range of scales and fluctuation intensities of the turbulent eddies in the shear layer and the resulting radiated noise. 
 Outside the jet shear layer, in the irrotational near-field of the jet, strong hydrodynamic pressure fluctuations associated directly with the passage of coherent structures in the shear layer and their resultant weak acoustic radiation coexist \citep{Arndt1997}. 
 Beyond this, in the acoustic far-field, the hydrodynamic signature of the coherent structures is nonexistent owing to their strong exponential decay with radial distance.
-It is in the irrotational near-field that much work has focused, in order to improve the aeroacoustic community's understanding of the link between shear layer turbulence and far-field acoustic radiation. 
+Much work has focused in the irrotational near-field, in order to improve the aeroacoustic community's understanding of the link between shear layer turbulence and far-field acoustic radiation. 
 
 Owing to the presence of strong hydrodynamic fluctuations dominating the irrotational pressure field near the noise source regions, identification of pure acoustic waves and their corresponding source events is problematic.
 A decomposition of the pressure field into its constitutive hydrodynamic and acoustic components is therefore required. 
@@ -123,7 +123,7 @@ From the transformed pressure field, the hydrodynamic and acoustic fields can th
 	p_c (x,t) = \frac{1}{(2 \pi)^2} \iint_{\mathbb{R}^2} \phi_c (k_x,\omega) \hat{p} (k_x,\omega)e^{i(\omega t - k_x x)}dk_x d\omega .
 	\label{eq:fourier_filter}
 \end{equation}
-The component weight vector, $\phi_c \in [0,1]$, is set based on the measured axial phase velocity, $c = \omega / k_x$ in order to filter out either the supersonic or subsonic portion of the spectra. 
+The component weight vector, $\phi_c \in [0,1]$, is set based on the measured axial phase velocity, $c = \omega / k_x$, in order to filter out either the supersonic or subsonic portion of the spectra. 
  
 Grizzi \& Camussi \citep{Grizzi2012} took a slightly different approach, which utilized a discrete wavelet transform at individual spatial locations in order to decompose the fields based on an energy cutoff. 
 The energy threshold was set iteratively, using analysis of two-point correlations of the acoustic and hydrodynamic components between two microphones, in order to ensure that realistic phase-velocities for the components were met. 
@@ -227,13 +227,13 @@ Overall, good agreement is found between the decomposed fields and the expected 
 However, it is observed that the decomposition produces an acoustic field which decays at a rate which is slightly slower than that dictated by spherically-spreading sound waves. 
 \begin{figure}
 	\centering
-	\includegraphics[width=4in]{Figures/ch3_validation_Pms.png}
+	\includegraphics[width=4in]{Figures/ch3_validation_Pms_v2.png}
 	\caption{Radial decay of the experimental signal compared against the theoretically-obtained and experimentally-measured decay rates for the acoustic and hydrodynamic components.}
 	\label{fig:ch3_validation_Pms}
 \end{figure}
 
 Further insight into the veracity of the recovered acoustic and hydrodynamic fields may be obtained through analysis of the energy spectrum.
-Like the radial decay rate of the pressure fluctuation intensities, Fourier analysis is inherently suited for random processes and hence has been shown to miss certain important aspects of the jet noise process (e.g.,  intermittency). 
+Like the radial decay rate of the pressure fluctuation intensities, Fourier analysis is inherently ill-suited for random processes and hence has been shown to miss certain important aspects of the jet noise process (e.g.,  intermittency). 
 However, it has been used extensively throughout the aeroacoustic community for understanding the composition of both near-field pressure fluctuations as well as the acoustic far-field, to great success. 
 Fundamental models in jet turbulence and aeroacoustics (e.g. the spectral decomposition of the irrotational near-field by Arndt \etal \citep{Arndt1997} and Tam’s similarity spectra for the acoustic far-field \citep{Tam1996}) analyze their respective phenomena in the Fourier domain.
 
