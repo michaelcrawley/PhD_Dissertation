@@ -129,6 +129,7 @@ For the impulsively-excited ($St_{DF} = 0.05$) jet, the dominant orthogonal mode
 (However, it should be noted that modes 4 and 5 are very nearly mirrors of each other, and as such could produce symmetric features if coupled.)
 Clearly, the excited axisymmetric structures represent only a small portion of the turbulent kinetic energy of the jet, and as such low-order representations of the flow will fail to accurately capture their dynamics.
 As the excitation frequency is increased, the LAFPA-induced structures become high-energy periodic oscillations in the jet shear layer and core, and the POD modes are modified accordingly (\fig{fig:ch4_St025_PODmodes}).
+Similar behaviors were found for the other periodic excitation frequencies explored in this work ($St_{DF} = 0.15, 0.35$), so for brevity only the $St_{DF} = 0.25$ will be explicitly analyzed in this section.
 
 Strong, axisymmetric fluctuations are now observed in the jet core for the first two POD modes, which match the wavelength of the excited structures (assuming $U_c \simeq 0.7 U_j$, per the two-point near-field correlations of Crawley \etal \citep{Crawley2015}) and which peak in amplitude near the end of the potential core.
 The structure of mode 2 is quite similar to that of mode 1, differing only by a phase shift of $\pi/2$. 
@@ -280,8 +281,28 @@ Here however, a secondary interaction between structures appears to be occurring
 As the vortex at $z/D \simeq 4.5$ is breaking down, the trailing vortex does as well, in fact much more abruptly than the leading vortex.
 As the cycle is repeated (beginning again at frame 1), these two vortices (or more accurately, the less coherent, higher-order remnants of them) are no longer individually distinguishable.
 
-Clearly (and unsurprisingly), the vortex interactions in the periodically excited jet are far more complex than the impulsively excited jet.
+On the other hand, the far-field response of the jet to periodic excitation at $St_{DF}=0.35$ could not be reproduced accurately using a linear superposition of the impulse response.
+The vortex dynamics that this excitation frequency produces may thus serve as an insightful contrast for understanding the noise generation phenomena.
+A complete excitation cycle for $St_{DF}=0.35$ has been visualized in \fig{fig:ch4_St035_structure_disintegration}.
+In this case, two pairing processes are now clearly evident.
+The first begins just downstream of the nozzle exit, and completes by $x/D \simeq 1.5$; the second begins at $x/D \simeq 2$ and completes relatively quickly, at $x/D \simeq 3$.
+It is after this second pairing process that the structure spacing now matches the expected wavelength for this excitation frequency ($\lambda \simeq 1.75D$).
+As with the lower frequency excitation cases just examined, the dominant vortex (which matches the excitation frequency) undergoes a disintegration beginning around $x/D \simeq 4$.
+What is particularly noteworthy here though, is that the disintegration is more rapid for the $St_{DF}=0.05$ and $0.25$ cases than the $St_{DF}=0.35$ case.
+In this case, the coherent structure, though severely weakened, is distinguishable over the background noise even downstream of $x/D = 6$.
+As with the other excitation frequencies, the core fluid accelerates to supersonic velocities as the large-scale structures pass through the end of the potential core.
+\begin{figure}
+	\centering
+	\includegraphics[width=5in]{Figures/ch4_St035_lambda_evolution.png}
+	\caption{Evolution of the periodic vortex ring ($St_{DF}=0.35$), as visualized using swirling strength. One complete actuation period is shown.}
+	\label{fig:ch4_St035_structure_disintegration}
+\end{figure}
+
+Clearly (and unsurprisingly), the vortex interactions in the periodically-excited jets are far more complex than the impulsively excited jet.
 However, as was seen both in terms of the far-field response (\fig{fig:ch3_farfield}) as well as the acoustic source region estimated from the decomposed near-field (\fig{fig:ch3_xcorrOA}), the acoustic fields for $St_{DF}=0.05$ and $St_{DF}=0.25$ show remarkable similarity, at least at angles close to the jet axis.
-Therefore, this implies that the added complexity of the periodic excitation (harmonic structures, vortex pairing) are not the primary drivers for noise emission (though they may still play a role).
+Therefore, this implies that for this excitation range, the added complexity of the periodic excitation (harmonic structures, vortex pairing) are not the primary drivers for noise emission (though they may still play a role).
 The consistent, rapid breakdown of the LAFPA-induced structures near $z/D \simeq 4$ and accompanying fluid acceleration in both excited jets appears to be the dominant noise source. 
+In contrast, the far-field acoustic response to excitation at $St_{DF}=0.35$ is not accurately reproduced by a linear superposition of the impulse response of the jet.
+Analysis of the vortex dynamics demonstrates multiple pairing processes occurring for this excitation frequency, and though the dominant vortex breaks down at $z/D \simeq 4$, this process is far less dramatic than in the lower-frequency excitation cases.
+In this case, the pairing process may in fact be a significant factor in the noise generation process.
 In order to more conclusively link this behavior to the noise emission directly, in \sect{sect:source} the aeroacoustic source term will be calculated from the estimated time-resolved velocity fields using a simplified form of Lighthill's acoustic analogy.
