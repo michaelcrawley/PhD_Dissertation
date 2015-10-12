@@ -322,9 +322,9 @@ For reference, the computed acoustic signal at a far-field observer position mat
 For simplicity, the signals have been phase-averaged and only a single excitation period is shown.
 A coherent fluctuation could conceivably be observed in the acoustic field of the impulsively-excited jet (\fig{fig:ch5_farfield_imp}) centered around $\tau \simeq 0.8$, however given the lack of quiet time expected in the signal this could just as easily be wishful thinking.
 An offset in the time-of-arrival for the coherent wave between the calculated and measured signals could be due simply to an error in the positioning of the microphone relative to the nozzle exit, though given the poor match regardless of time-of-arrival, investigating this was deemed nonessential.
-Similarly, the computed acoustic signal for the periodic excitation bears only the vaguest similarities in shape to the measured signal.
+Similarly, the computed acoustic signal for the periodic excitation cases ($St_{DF} = 0.25 \text{ and } 0.35$) bears only the vaguest similarities in shape and amplitude to the measured signal.
 Perhaps the most sympathetic observation of these plots is that the error between the measured and computed signals is at most $\sim 4$~Pa, or $\sim 0.1$\% of the peak amplitude of the pseudo-pressure field!
-Ultimately this means of course, that the computed source field should be viewed with some level of reservation.
+Ultimately this means of course, that the computed source field should be viewed with some level of reservation, and hence will only be analyzed in the broadest of terms.
 \begin{figure}
 	\centering
 	\begin{subfigure}{1\textwidth}
@@ -350,9 +350,11 @@ Ultimately this means of course, that the computed source field should be viewed
 \section{Aeroacoustic Behavior of Coherent Structures}
 The pseudo-pressure field induced by the coherent vortex takes the form of a spatially-modulated traveling wave; this can be observed in \fig{fig:PSL_St005}.
 A strong expansion wave is found to be centered on the vortex, preceded by an equally strong compression wave.
+As the vortex convects downstream and amplifies, the radial extent of the pressure fluctuation amplifies as well; initially the pressure fluctuation is concentrated only around the jet lipline but by $x/D \simeq 2$ the pressure fluctuations reach all the way to the jet centerline.
 These pressure fluctuations induce secondary, weaker fluctuations both precede and follow the dominant pair as they convect downstream.
-The strength of this traveling wave is directly proportional to the strength of the vortex, as the vortices begin to break down near $z/D = 4$, the pseudo-pressure fluctuations decay rapidly as well. 
-A similar behavior is observed for the periodically-excited jet (\fig{fig:PSL_St025}), though the pseudo-pressure field now of course takes the form of a periodic train of convecting vortices and modulating waves.
+The strength of this traveling wave is directly proportional to the strength of the vortex, as the vortices begin to break down near $x/D = 4$, the pseudo-pressure fluctuations decay rapidly as well. 
+A similar behavior is observed for the periodically-excited jets ($St_{DF} = 0.25$ is shown in \fig{fig:PSL_St025}), though the pseudo-pressure field now of course takes the form of a periodic train of convecting vortices and modulating waves.
+Compared to the impulse-excitation case, the radial extent of the pressure fluctuations in the periodic-excitation cases grows much more rapidly.
 \begin{figure}
 	\centering
 	\begin{subfigure}{0.75\textwidth}
@@ -377,8 +379,10 @@ A similar behavior is observed for the periodically-excited jet (\fig{fig:PSL_St
 
 It should come as no surprise then that the aeroacoustic source would take the form of a wavepacket, centered around the coherent vortex.
 This is shown in \fig{fig:SL} for both the impulsively- and periodically-excited structures.
-Owing to the rapid growth and pairing process, the source field for the periodically-excited structures quickly amplifies and saturates by $z/D \simeq 2$.
+Owing to the rapid growth and pairing process, the source field for the periodically-excited structures quickly amplifies and saturates by $x/D \simeq 2$.
 In contrast, a slow amplification is observed for the impulsive structure, which reaches its maximum amplitude just before the vortex begins to decay. 
+Based on the temporal extent of the acoustic response in the far-field, the acoustic wavelength of the emission produced by the individual ring vortex is $\sim 11D$, which would mean that the sources are non-compact per the results of \fig{fig:SL_St005}.
+This is in general agreement with the analysis of Michalke \citep{Michalke1972}, which showed that the experimentally observed far-field spectral directivity could be reproduced using an axially-coherent, noncompact source model.
 Of course, the amplitude of the source term alone does not determine acoustic emission; the acoustic emission is essentially the linear summation of the source/sink pairs (evaluated at retarded time) generated by the evolution of the vortices - a high amplitude source field coexisting with zero acoustic emission at a particular instant in time is therefore possible.
 A rapid truncation of the source term therefore has the potential to significantly amplify the acoustic emission.
 \begin{figure}
@@ -387,6 +391,7 @@ A rapid truncation of the source term therefore has the potential to significant
 		\centering
 		\includegraphics[width=0.95\linewidth]{Figures/ch5_St005_SL_131.png}
 		\caption{$St_{DF} = 0.05$}
+		\label{fig:SL_St005}
 	\end{subfigure}\\
 	\begin{subfigure}{0.75\textwidth}
 		\centering
