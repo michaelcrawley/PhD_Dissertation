@@ -15,27 +15,27 @@ This behavior can be observed in \fig{fig:ch3_nearfield_phavg}.
 	\centering
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[width=0.95\linewidth]{Figures/ch3_nearfield_phavg.png}
+		\includegraphics[width=0.95\linewidth]{Figures/ch3_nearfield_phavg_v2.png}
 		\caption{}
 		\label{fig:ch3_nearfield_phavg}
 	\end{subfigure}%
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[width=0.95\linewidth]{Figures/ch3_nearfield_linear.png}
+		\includegraphics[width=0.95\linewidth]{Figures/ch3_nearfield_linear_v2.png}
 		\caption{}
 		\label{fig:ch3_nearfield_linear}
 	\end{subfigure}
-	\caption{Phase-averaged waveforms along the first array position at $z/D = 3, r/D = 1.35$ (a) and a linear superposition of the phase-averaged waveform for the impulse excitation ($St_{DF} = 0.05$) compared against periodic excitation ($St_{DF} = 0.50$) (b).}
+	\caption{Phase-averaged waveforms along the first array position at $x/D = 3, r/D = 1.35$ (a) and a linear superposition of the phase-averaged waveform for the impulse excitation ($St_{DF} = 0.05$) compared against periodic excitation ($St_{DF} = 0.50$) (b).}
 	\label{fig:ch3_nearfield}
 \end{figure}
 
-For a certain range of excitation frequencies ($St_{DF} \leq 0.50$ at $z/D = 2$, for example), the structures interact in a quasi-linear manner, insofar as their near-field pressure signatures are concerned. 
+For a certain range of excitation frequencies ($St_{DF} \leq 0.50$ at $x/D = 2$, for example), the structures interact in a quasi-linear manner, insofar as their near-field pressure signatures are concerned. 
 To be precise, the response of the jet in the irrotational near-field could be well-predicted by a linear summation of the impulse response of the jet, repeated at the periodic excitation frequency. 
-This concept has been illustrated in \fig{fig:ch3_nearfield_linear}, where the periodic response of the jet to excitation with $St_{DF} = 0.50$ has been reproduced at $z/D = 3$. 
+This concept has been illustrated in \fig{fig:ch3_nearfield_linear}, where the periodic response of the jet to excitation with $St_{DF} = 0.50$ has been reproduced at $x/D = 3$. 
 Additionally, a linear superposition of the impulse response for $St_{DF} = 0.05$, repeated to match the excitation frequency of $St_{DF} = 0.50$, has been overlaid. 
 The linear superposition has been arbitrarily shifted in time in order to match the phase of the periodic response; this phase difference is likely due to the dependence of convection velocities on structure frequency \citep{Veltin2011} (or more accurately, structure size). 
 For reference, the impulse response has also been included in the plots. 
-Upstream of the end of the potential core ($z/D \simeq 6$, as will be found in \sect{sect:velocity}), the quasi-linear interaction model produces close predictions of the waveform amplitude and shape, despite the significant difference in both peak amplitude and waveform shape between the impulse and periodic responses. 
+Upstream of the end of the potential core ($x/D \simeq 6$, as will be found in \sect{sect:velocity}), the quasi-linear interaction model produces close predictions of the waveform amplitude and shape, despite the significant difference in both peak amplitude and waveform shape between the impulse and periodic responses. 
 
 This quasi-linear interaction of the jet response to excitation is not limited exclusively to the hydrodynamically-dominated regions of the jet, but in fact holds for the acoustic far-field as well, at aft angles (where the acoustic signal is strongest and is known to correlate well with large-scale structures). 
 This can be observed in \fig{fig:ch3_farfield_phavg}, where the phase-averaged response of the jet has been plotted for the far-field signal at a polar angle of $30^\circ$. 
@@ -47,13 +47,13 @@ At higher $St_{DF}$, a continuous oscillation between sharp expansion and compre
 	\centering
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[width=0.95\linewidth]{Figures/ch3_farfield_phavg.png}
+		\includegraphics[width=0.95\linewidth]{Figures/ch3_farfield_phavg_v2.png}
 		\caption{}
 		\label{fig:ch3_farfield_phavg}
 	\end{subfigure}%
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[width=0.95\linewidth]{Figures/ch3_farfield_linear.png}
+		\includegraphics[width=0.95\linewidth]{Figures/ch3_farfield_linear_v2.png}
 		\caption{}
 		\label{fig:ch3_farfield_linear}
 	\end{subfigure}
@@ -70,7 +70,7 @@ The phase-averaged waveforms were also investigated at polar angles of $60^\circ
 Additional details and analysis of the phase-averaged near- and far-field signals can be found in Crawley \etal \citep{Crawley2015}.
 \begin{figure}
 	\centering
-	\includegraphics[width=3.5in]{Figures/ch3_farfield_linearsuperposition_st035.png}
+	\includegraphics[width=3.5in]{Figures/ch3_farfield_linearsuperposition_st035_v2.png}
 	\caption{Linear superposition of the phase-averaged impulse response to excitation against the measured periodic response for $St_{DF} = 0.25$ at the  $30^\circ$ far-field microphone.}
 	\label{fig:ch3_farfield_nonlinear}
 \end{figure}
@@ -88,7 +88,7 @@ Multiple compression waves can clearly be seen in \fig{fig:self-noise}, in which
 
 Obviously, this is an undesirable effect, as this actuator self-noise may in some cases obscure the hydrodynamic and acoustic response of the jet.
 So, in the present work the near-field pressure signals have been preprocessed using a continuous-wavelet-based filtering algorithm, which has been specifically designed to remove the actuator self-noise while leaving the signature of the jet response unaltered. 
-An example of this filtering can be found in \fig{fig:preprocessing:wavelet_filter}, where the raw and preprocessed signals have been plotted for $St_{DF} = 0.02$ at $z/D = 1$, $r/D = 1.20$. 
+An example of this filtering can be found in \fig{fig:preprocessing:wavelet_filter}, where the raw and preprocessed signals have been plotted for $St_{DF} = 0.02$ at $x/D = 1$, $r/D = 1.20$. 
 To aid in visualization, the results for multiple excitation periods has been phase-averaged to produce these waveforms. 
 As the actuator self-noise is localized in both time and frequency and can be well predicted, a smoothing algorithm in the wavelet domain was found to be the most effective method for removing the undesirable noise while leaving the response of the jet intact. 
 A fourth-order Paul wavelet is employed, due to the similarity of its imaginary component to the phase-averaged response of the jet. 
@@ -246,7 +246,7 @@ Like the radial decay rate of the pressure fluctuation intensities, Fourier anal
 However, it has been used extensively throughout the aeroacoustic community for understanding the composition of both near-field pressure fluctuations as well as the acoustic far-field, to great success. 
 Fundamental models in jet turbulence and aeroacoustics (e.g. the spectral decomposition of the irrotational near-field by Arndt \etal \citep{Arndt1997} and Tam’s similarity spectra for the acoustic far-field \citep{Tam1996}) analyze their respective phenomena in the Fourier domain.
 
-Sample spectra taken at $z/D = 8, r/D = 2.2$ for the decomposed fields are shown in \fig{fig:ch3_validation_spectra}.
+Sample spectra taken at $x/D = 8, r/D = 2.2$ for the decomposed fields are shown in \fig{fig:ch3_validation_spectra}.
 In the case of the hydrodynamic field (\fig{fig:ch3_validation_spectra_hydro}), the decomposed signal has been plotted against the raw near-field pressure spectrum as well as the $I \sim k^{-6.67}$ spectral decay rate in log space (with frequency/wavenumber) that was identified by Arndt \etal \citep{Arndt1997} as the decay rate for the inertial subrange of the irrotational near-field.
 As one would expect for positions just outside the jet shear layer, the decomposition has identified the dominant spectral energy of the near-field as being hydrodynamic; the decomposed hydrodynamic field accounts for nearly the entire energy of the raw signal at low frequencies.
 Beginning at moderate frequencies ($St_D \simeq 0.15$) a divergence between the raw irrotational near-field and the decomposed hydrodynamic field is observed, due to the increasing relative intensity of the acoustic field.
@@ -255,8 +255,8 @@ At frequencies above this threshold, the decomposed hydrodynamic field exhibits 
 The decomposed acoustic spectrum acquired at this same near-field position is compared against the far-field acoustic signal simultaneously acquired at a polar angle of $30^\circ$ in \fig{fig:ch3_validation_spectra_acoustic}.
 The acoustic spectrum has been scaled in amplitude in order to account for spherical propagation of the waves; calculating the propagation distances requires an assumption on the acoustic source region, which is not initially known with certainty.
 As will be discussed in more detail in \sect{sect:near_field_source_region}, by measuring the time delay in two-point correlations between the near-field microphones and the far-field microphone at $30^\circ$ the location of the dominant acoustic source region can be identified. 
-In brief, the region just upstream of the end of the potential core ($z/D =4$) will be identified as the source region for the coherent large-scale structures in the jet; the current validation uses this location as the source region to scale the spectral amplitudes.
-The signal at $z/D = 8, r/D = 2.2$ was chosen for this task as it lies roughly along a $30^\circ$ path from this assumed source region.
+In brief, the region just upstream of the end of the potential core ($x/D =4$) will be identified as the source region for the coherent large-scale structures in the jet; the current validation uses this location as the source region to scale the spectral amplitudes.
+The signal at $x/D = 8, r/D = 2.2$ was chosen for this task as it lies roughly along a $30^\circ$ path from this assumed source region.
 Additionally, the spectra were adjusted per ANSI S1.26 \citep{ANS1995} in order to account for atmospheric absorption of the (primarily high-frequency) acoustic waves due to propagation through a humid medium; the spectra shown here correspond to lossless propagation.
 Lastly, the spectral peaks have been denoted by triangular markers at the top of the figure. 
 
@@ -278,7 +278,7 @@ The one major inaccuracy of the wavelet-based method is the failure to accuratel
 		\caption{Acoustic Decomposition}
 		\label{fig:ch3_validation_spectra_acoustic}
 	\end{subfigure}
-	\caption{Spectral comparison of decomposed hydrodynamic field compared against the raw near-field signal (a) and decomposed acoustic field compared against the far-field acoustic signal at $30^\circ$. In both cases, the near-field signal was acquired at $z/D = 8, r/D = 2.2$}
+	\caption{Spectral comparison of decomposed hydrodynamic field compared against the raw near-field signal (a) and decomposed acoustic field compared against the far-field acoustic signal at $30^\circ$. In both cases, the near-field signal was acquired at $x/D = 8, r/D = 2.2$}
 	\label{fig:ch3_validation_spectra}
 \end{figure}
 
@@ -295,7 +295,7 @@ Clearly, this intermittent behavior needs to be recovered in the near-field by t
 	\label{fig:ch3_wavelet_spectrum}
 \end{figure}
 
-As before, the decomposed acoustic signal at $z/D = 8, r/D = 2.2$ was propagated to the far-field at $30^\circ$ by scaling the amplitude according to $I \sim r^{-2}$; the phase-averaged signal was also shifted in time based on the ambient speed of sound in order to account for the propagation delay. 
+As before, the decomposed acoustic signal at $x/D = 8, r/D = 2.2$ was propagated to the far-field at $30^\circ$ by scaling the amplitude according to $I \sim r^{-2}$; the phase-averaged signal was also shifted in time based on the ambient speed of sound in order to account for the propagation delay. 
 Results of this procedure can be found in \fig{fig:ch3_validation_phavg} for the jet excited at $St_{DF} = 0.05$. 
 For illustrative purposes, results computed using the more standard Fourier-based decomposition method have also been included here.
 Both the Fourier and wavelet methods identify a distinct waveform which matches quite well with the waveform observed in the far-field, though with some discrepancies. 
@@ -305,7 +305,7 @@ This phenomena persists even when the events are now highly periodic, (not shown
 \begin{figure}
 	\centering
 	\includegraphics[width=4in]{Figures/ch3_validation_phavg.png}
-	\caption{Comparison of phase-averaged waveforms produced by excitation at $St_{DF} = 0.05$. As before, the near-field signal was acquired at $z/D = 8, r/D = 2.2$}
+	\caption{Comparison of phase-averaged waveforms produced by excitation at $St_{DF} = 0.05$. As before, the near-field signal was acquired at $x/D = 8, r/D = 2.2$}
 	\label{fig:ch3_validation_phavg}
 \end{figure}
 
@@ -348,12 +348,12 @@ The correlations were then examined in the spatio-temporal domain, which showed 
 	\label{fig:ch3_fullxcorr}
 \end{figure}
 
-This behavior can be observed in \fig{fig:ch3_fullxcorr}, where the two-point correlations between the near-field and the far-field at $30^\circ$ for two microphone array positions (starting at $z/D = 1, r/D = 1.20$ and $z/D = 1, r/D = 4.20$) have been plotted.
+This behavior can be observed in \fig{fig:ch3_fullxcorr}, where the two-point correlations between the near-field and the far-field at $30^\circ$ for two microphone array positions (starting at $x/D = 1, r/D = 1.20$ and $x/D = 1, r/D = 4.20$) have been plotted.
 The time lag, $\tau$, in the figures have been non-dimensionalized by the ambient speed of sound, $a_\infty$, and $R$, the distance from each near-field microphone to the far-field microphone (note that this results in an ordinate that is scaled separately along the abscissa, due to the dependence of the axial position on $R$).
 Therefore, $\tau a_\infty /R = 1$ corresponds to the time delay for an acoustic wave to travel directly from the near-field microphone to the far-field microphone.
 
 Near the jet shear layer (\fig{fig:ch3_fullxcorr_r1D}), four distinct correlation regions can be observed: two positive, two negative; one strong and one weak for each. 
-The first correlation regions, the strong-negative and weak-positive, are noticeable beginning at the most upstream microphone and reach their peak values around $5 < z/D < 10$, decaying significantly beyond that.
+The first correlation regions, the strong-negative and weak-positive, are noticeable beginning at the most upstream microphone and reach their peak values around $5 < x/D < 10$, decaying significantly beyond that.
 The slopes of these regions indicate propagation velocities noticeably below the sonic velocity; in the upstream region, they roughly match with the measured convective velocity of the large-scale structures ($U_c \simeq 0.7 U_j$ as measured by two-point correlations between subsequent near-field microphones, see Crawley \etal \citep{Crawley2015} for additional details) in the upstream region of the jet, and slowly decelerate downstream.
 Similar behavior was observed by Bogey \& Bailley \citep{Bogey2007}, who noted that two-point correlations between the flow-field and acoustic near-field in a simulated jet produced strong positive correlation regions which peaked at the end of the potential core and which followed the convection of the large-scale structures.
 Conversely, the strong-positive and weak-negative correlation regions exhibit propagation velocities that match well with the ambient speed of sound. 
@@ -374,7 +374,7 @@ In fact, the results found here for the acoustic component along the first micro
 \begin{figure}
 	\centering
 	\includegraphics[width=4in]{Figures/ch3_St000_xcorr_acoustic.png}
-	\caption{Normalized two-point correlations for the natural jet between the acoustic component of the near field and the far field at $30^\circ$ for microphone array position starting at $z/D = 1, r/D = 1.2$. }
+	\caption{Normalized two-point correlations for the natural jet between the acoustic component of the near field and the far field at $30^\circ$ for microphone array position starting at $x/D = 1, r/D = 1.2$. }
 	\label{fig:ch3_St000_acoustic}
 \end{figure}
 
@@ -391,18 +391,18 @@ While the near-field pressure and acoustic radiation towards aft polar angles in
 \begin{figure}
 	\centering
 	\includegraphics[width=4in]{Figures/ToA_tau.png}
-	\caption{Expected times of arrival for on-axis acoustic propagation, $\tau_a$, and off-axis acoustic propagation, $\tau_s$ from a stationary source region centered at $z_s$.}
+	\caption{Expected times of arrival for on-axis acoustic propagation, $\tau_a$, and off-axis acoustic propagation, $\tau_s$ from a stationary source region centered at $x_s$.}
 	\label{fig:ch3_ToA}
 \end{figure}
 
-Here, the acoustic source region was assumed to be located at $z_s /D = 4$, which is just upstream of the end of the potential core in the unforced jet. 
+Here, the acoustic source region was assumed to be located at $x_s /D = 4$, which is just upstream of the end of the potential core in the unforced jet. 
 (Please note that this analysis is not meant to imply that the source region is located at a specific, fixed point – it is merely a convenient way of understanding the propagation paths.)
 Similar behavior is observed between the natural jet and the excited cases in \fig{fig:ch3_xcorrOA}; note that due to numerical discrepancies at the domain boundaries (see Torrence \& Campo \citep{Torrence1998} for a discussion of the `cone of influence' of wavelet coefficients and the effect thereof), the correlation values have been truncated at the most upstream and downstream microphones.
 For the impulsively-excited jet, nearly identical correlation regions are observed between the excited and natural jet; in the periodically-excited jet continuous oscillations occur throughout time due to the similarity of continuously-generated large-scale structures and resultant acoustic radiation.
 In the upstream region of the jet, the peaks of the positive correlation region match $\tau_a$ nearly exactly. 
 In the downstream region, $\tau_a$ begins to increasingly over-predict the time lag for the maximum correlation. 
 On the other hand, $\tau_s$ tracks the time lags for the peak correlation consistently over the downstream region, but not the upstream region. 
-The results found here appear to indicate that the dominant acoustic radiation reaching the far-field aft angles is being generated over an extended region of the jet mixing layer, roughly $z/D \leq 4$, which is just upstream of the time-averaged end of the potential core in the natural jet.
+The results found here appear to indicate that the dominant acoustic radiation reaching the far-field aft angles is being generated over an extended region of the jet mixing layer, roughly $x/D \leq 4$, which is just upstream of the time-averaged end of the potential core in the natural jet.
 This is not too dissimilar from the findings of other researchers, who have suggested that the acoustic source region lies just \textit{downstream} of the end of the potential core \citep{Hileman2005}.
 \begin{figure}
 	\centering
@@ -430,7 +430,7 @@ This is not too dissimilar from the findings of other researchers, who have sugg
 		\caption{}
 		\label{fig:ch3_xcorrOA_St035}
 	\end{subfigure}
-	\caption{Normalized two-point correlations between the acoustic component of the near field and the far field at $30^\circ$ for microphone array position starting at $z/D = 1, r/D = 1.2$ for the natural jet (a), $St_{DF} = 0.05$ (b), $St_{DF} = 0.25$ (c) and $St_{DF} = 0.35$ (d).}
+	\caption{Normalized two-point correlations between the acoustic component of the near field and the far field at $30^\circ$ for microphone array position starting at $x/D = 1, r/D = 1.2$ for the natural jet (a), $St_{DF} = 0.05$ (b), $St_{DF} = 0.25$ (c) and $St_{DF} = 0.35$ (d).}
 	\label{fig:ch3_xcorrOA}
 \end{figure}
 
