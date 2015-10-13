@@ -246,6 +246,7 @@ The variance of the noise was estimated by median filtering, as provided by \tex
 %Based on these results, a threshold of $\epsilon = 2\sigma$ was chosen for the current work (due to the low signal-to-noise ratio); for consistency, $\sigma$ was calculated over the entire field rather than at each individual point; the error (and hence, energy) did not scale with spatial location, resulting much lower signal-to-noise ratios at far radial and axial positions. 
 
 Sample results for the wavelet-denoising are shown in \fig{fig:valid_denoising} for $z/D=1.75$ at the jet lipline (as will be shown later, the sources are centered around the jet lipline upstream of the end of the potential core).
+Here, the source computed from the raw pseudo-pressure field has been plotted against the source computed from the pseudo-pressure field which has undergone the wavelet-denoising.
 A high-amplitude, relatively low-frequency compact waveform is observed in the pseudo-pressure field centered around $\tau U_j /D \simeq 2.25$; this is the hydrodynamic wave associated with the passaged of the large-scale structure observed in \fig{fig:valid_helmholtz}.
 While intuitively one would expect the temporal derivative of this compact waveform to dominate the source field, without filtering the source field is completely dominated instead by the high-frequency noise in the pseudo-pressure even though it is of comparably low amplitude.
 The wavelet-denoising eliminates this error however, and recovers the expected behavior for the second temporal derivative.
@@ -405,12 +406,13 @@ A rapid truncation of the source term therefore has the potential to significant
 This issue was explored in depth by Cavalieri \etal \citep{Cavalieri2010} using analytic models for subsonic wavepackets.
 By allowing the wavepacket amplitude and spatial extent to vary in time (termed `jittering' by the researchers), the superdirective, intermittent acoustic emission pattern observed in high-speed jets was recovered and the predicted amplitude was within 1.5 dB of the measured.
 A similar modulation of the spatial extent and amplitude of the source wavepackets can be observed here, depicted in \fig{fig:jittering}.
-Though the overall amplitude of the $St_{DF} = 0.25$ excitation case is much higher than the $St_{DF} = 0.05$ excitation case (reflecting the much higher energy contained in the train of convecting vortices as compared to the singular vortex), a similar modulation of the amplitude and spatial extent is observed between the two cases for $ 2 \lesssim z/D \lesssim 6$, which as discussed previously, corresponds to the disintegration of the large-scale coherent vortices as they begin to self-interact near the end of the potential core.
-The periodically-excited jet has, in addition to this, a high-intensity source region  for $z/D \lesssim 2$, corresponding to the pairing of the multiple harmonic structures generated per excitation pulse.
-That the significant amplification of the fluctuating Reynolds' stress produced by the vortex pairing is amplifying the source field, is unsurprising.
-However, the results of \sect{sect:nearfield} indicate that this is ultimately failing to significantly affect the far-field acoustic emission, at least at low polar angles.
-A potential explanation for this lies in the comparison of the amplitude/spatial modulation of the vortex breakdown versus the vortex pairing.
-The source amplitude is (relatively) slowly-varying in spatial extent, and the amplitude is nearly constant over $1 < z/D < 2$ where the pairing occurs.
+For the impulsively-excited jet, a single dominant acoustic source region is observed, modulated in space and time per the passage of the large-scale structures, and located at $ 2 \lesssim x/D \lesssim 6$.
+As discussed previously, corresponds to the disintegration of the large-scale coherent vortices as they begin to self-interact near the end of the potential core.
+For the $St_{DF} = 0.25$ excitation case, the overall amplitude of the acoustic source field is much higher than for the impulsively-excited case.
+However, a similar modulation of the amplitude and spatial extent is observed here.
+Unlike the impulsively-excited case however, the periodically-excited jet has, in addition to the downstream acoustic source, a high-intensity source region  for $z/D \lesssim 2$, corresponding to the pairing of the multiple harmonic structures generated per excitation pulse.
+That the significant amplification of the fluctuating Reynolds' stress produced by the vortex merging is amplifying the source field, is unsurprising.
+For this excitation frequency, the results of \sect{sect:nearfield} indicate that this is ultimately failing to significantly affect the far-field acoustic emission, at least at low polar angles.
 \begin{figure}
 	\centering
 	\begin{subfigure}{0.33\textwidth}
@@ -431,3 +433,8 @@ The source amplitude is (relatively) slowly-varying in spatial extent, and the a
 	\caption{Spatio-temporal modulation of the aeroacoustic source as measured along the lipline of the jet.}
 	\label{fig:jittering}
 \end{figure}
+
+As the excitation frequency is further increased to $St_{DF} = 0.35$ however, the relative importance of the aeroacoustic source associated with the vortex merging is significantly increased.
+The source field in the $St_{DF} = 0.35$ exhibits two highly distinctive regions in which the waveform undergoes a rapid modulation; this is in contrast to the results for $St_{DF} = 0.25$, where the source associated with the vortex merging and the source associated with the structure disintegration appear combined.
+Vortex merging has been experimentally identified as acoustically important in low-speed, low-Reynolds number jets \citep{Kibens1980}.
+The results of this section indicate that, under the right circumstances, vortex merging might also play a non-negligible role in the noise generation process in high-speed turbulent jets.

@@ -3,7 +3,7 @@
 Analysis of the evolution, interaction, and disintegration of the large-scale structures, and ultimately the noise generated thereby, is greatly simplified by the acquisition of time-resolved flow-field measurements.
 Furthermore, as will be explained in \sect{sect:source}, computation of the aeroacoustic source field from a simplified acoustic analogy will require time-resolved flow-field data.
 Unfortunately, directly acquiring time-resolved velocity fields for the jet currently under study is simply not possible due to the combination of a large domain of interest ($0 \leq z/D \lesssim 12, 0 \leq r/D \lesssim 3$) and high characteristic frequencies on the order of several kHz.
-Full-field, high-fidelity measurement techniques capable of this repetition rate simply do not exist at present.
+Full-field, high-fidelity measurement techniques capable of this required repetition rate simply do not exist at present.
 An indirect method is therefore required in order to estimate the evolution of the large-scale structures, in a reduced-order sense.
 
 Phase-locking of a data acquisition system to a reference signal (such as an actuator or a naturally occurring resonance tone) is a common experimental technique; by varying the delay between the trigger and time of data acquisition, multiple phases can be acquired and the coherent component of the phenomena can be analyzed.
@@ -11,9 +11,9 @@ Phase-locking of the PIV system to the LAFPAs was initially considered for the p
 Sample analysis performed using a numerical database indicated that a very high temporal resolution was required in order to accurately compute fluctuation rates in the dilatation field (the relevance of which will become more apparent in the following chapter).
 At moderate to high excitation frequencies, this was feasible, though potentially tedious (for example, $\sim$16 phases were estimated as necessary at $St_{DF} =0.25$).
 At $St_{DF} =0.05$ however, this would require roughly \textit{forty} phases (the significant dead time between actuations means that it is not necessary to acquire the entire range of phases from $0$ to $2\pi$, but this is small consolation).
-Clearly, a more efficient data acquisition method is in order.
+Clearly, a more efficient data acquisition method is needed.
 \section{Stochastic Estimation}
-Stochastic estimation was first proposed by Adrian \citep{Adrian1977} in 1977, as an outgrowth from the conditional statistical analyses popular at the time. 
+Stochastic estimation was first proposed by Adrian \citep{Adrian1977} in 1977, as a methodological formalization of the conditional statistical analyses popular at the time. 
 Large-scale coherent structures had been educed from anisotropic turbulent flows (such as boundary or shear layers) by conditional sampling techniques.
 Adrian succeeded in identifying detailed flow structures (`conditional eddies') in isotropic turbulence by computing a mean-square estimate of the flow from linear two-point correlations (higher-order, nonlinear correlations were explored in Adrian \citep{Adrian1979}). 
 The methodology was extended in Adrian \citep{Adrian1994} to estimation of velocity fields using spatial correlations coupled with a reduced set of measurements.
@@ -49,20 +49,30 @@ A feedforward network structure was used in the current work, a schematic of whi
 The ANN was comprised of an input layer, to which near-field pressure traces were supplied, a single hidden layer containing 32 neurons, and an output layer which produced estimates of the time-varying POD coefficients. 
 The hidden and output layers were fully connected, and the modified logistic function (hyperbolic tangent) was used as the activation function.
 The pressure traces were centered around the acquisition of a PIV image group, and was downsampled to 200 kHz in order to approximate the frequency response of the microphones.
-The record time supplied for each training block was $\pm 5.12$ microsecond; this was determined by estimating the time delay for a large-scale structure to convect through the experimental domain (the convective velocity of the large-scale structures was conservatively estimated as $U_c \simeq 0.5 U_j$).
+The record time supplied for each training block was $\pm 2.56$ milliseconds; this was determined by estimating the time delay for a large-scale structure to convect through the experimental domain (the convective velocity of the large-scale structures was conservatively estimated as $U_c \simeq 0.5 U_j$).
+A visual representation of this process has been supplied in \fig{fig:ch4_pressure_mapping}, where sample pressure traces from the near-field microphone array, centered around an instantaneous velocity snapshot, are shown.
+For ease of understanding, the fluctuating component of the velocity field is shown here; in practice the neural network was used to predict the time-dependent POD expansion coefficients which were then used to reconstruct the velocity fluctuations.
 \begin{figure}
 	\centering
-	\includegraphics[width = 2.5in]{Figures/neural_net_v2.png}
+	\includegraphics[width = 2in]{Figures/neural_net_v2.png}
 	\caption{Schematic of a feedforward ANN with a single hidden layer. The activation function is applied only to the hidden and output layers. The number of neurons depicted in each layer is meant to represent the \textit{relative} number used by the actual ANN.}
 	\label{fig:ch4_neural_net}
 \end{figure} 
 
+\begin{figure}
+	\centering
+	\includegraphics[width = \linewidth]{Figures/pressure_mapping.png}
+	\caption{Schematic showing sample pressure traces from the irrotational near-field which are supplied to the neural network in order to train it to predict the fluctuating component of the velocity instantaneous velocity.}
+	\label{fig:ch4_pressure_mapping}
+\end{figure}
+
 POD modes and time-varying coefficients were computed from the velocity fields using the method of snapshots \citep{Sirovich1987}; the kernel was defined as the two-component turbulent kinetic energy.
 The instantaneous velocity fields were not preprocessed prior to the decomposition (that is, missing or spurious vectors were not replaced or interpolated).
 As experimental noise in the velocity fields will be completely uncorrelated to the near-field measurements, it will be filtered out by the stochastic estimation and hence preprocessing is unnecessary.
-Unlike many past researchers, the coefficients for every POD mode were estimated, rather than just the most energetic modes, for two reasons.
+In this work, the coefficients for every POD mode were estimated, rather than just the most energetic modes, for two reasons.
 First, it is not guaranteed that an individual POD mode corresponds to a physically distinct turbulent flow structure or event - an event may be broken up into multiple POD modes of varying energy levels.
-Secondly, the most energetic POD mode(s) is not necessarily the most relevant mode(s) for the acoustic generation process (see Jordan \etal \citep{Jordan2007} for a modification to the standard POD kernel in order to mitigate this issue). 
+Secondly, the most energetic POD mode is not necessarily the most relevant mode for the acoustic generation process (see Jordan \etal \citep{Jordan2007} for a modification to the standard POD kernel in order to mitigate this issue).
+The second issue is in fact not unique to the field of aeroacoustics but vexes turbulence research in general, where highly relevant dynamical processes may contain little energy \citep{Noack2008}; this has lead researchers to propose alternative methods for extracting dynamical features of turbulent flows \citep{Schmid2010}.
 
 Even though the network is estimating even the least-energetic modes, the current method is far more computationally efficient than directly estimating the velocity fields themselves.
 By encoding spatial correlations in the POD expansion coefficients, estimation of the $N$ snapshots of $M \times K$ spatial locations has been reduced from a minimization problem of $N$ vectors of $2MK$ to one of $N$ vectors of $N$.
@@ -80,27 +90,27 @@ Details will not be presented here however, as the results were found to not dif
 
 \subsection{Reduced-Order Representation of the Flow-Field}
 Ultimately, due to limitations both in the methodology as well as in the ability of the microphones located outside the flow to sense fine-scale turbulent fluctuations, the estimated velocity field is going to represent a reduced-order model of the jet.
-This can be easily observed in \fig{fig:ch4_SEPOD_filtering}, where the measured axial velocity field at an arbitrary instance in time has been plotted against the velocity field produced by the SE-POD estimation from the near-field pressure at the same instance in time.
-For comparison purposes, a reduced-order reconstruction of the measured velocity field from the first 100 POD modes (but without estimating from the near-field pressure using SE) has also been included.
+This can be easily observed in \fig{fig:ch4_SEPOD_filtering}, where the measured axial fluctuating velocity field at an arbitrary instance in time has been plotted against the fluctuating velocity field produced by the SE-POD estimation from the near-field pressure at the same instance in time.
+For comparison purposes, a reduced-order reconstruction of the measured velocity fluctuations from the first 100 POD modes (but without estimating from the near-field pressure using SE) has also been included.
 Note that here the output of the model produced by SE-POD is being compared against a known output that the system is meant to match; this is not an evaluation of the \textit{predictive} power of the model but of the \textit{representative} power.
 \begin{figure}
 	\centering
 	\begin{subfigure}{0.75\textwidth}
 		\centering
-		\includegraphics[width=0.95\linewidth]{Figures/ch4_Ux_true.png}
+		\includegraphics[width=0.95\linewidth]{Figures/ch4_Ux_true_v2.png}
 		\caption{Measured}
 	\end{subfigure}\\
 	\begin{subfigure}{0.75\textwidth}
 		\centering
-		\includegraphics[width=0.95\linewidth]{Figures/ch4_Ux_estimated.png}
+		\includegraphics[width=0.95\linewidth]{Figures/ch4_Ux_estimated_v2.png}
 		\caption{Estimated}
 	\end{subfigure}
 	\begin{subfigure}{0.75\textwidth}
 		\centering
-		\includegraphics[width=0.95\linewidth]{Figures/ch4_Ux_POD100.png}
+		\includegraphics[width=0.95\linewidth]{Figures/ch4_Ux_POD100_v2.png}
 		\caption{First 100 POD modes}
 	\end{subfigure}
-	\caption{Comparison of a raw instantaneous axial velocity field $St_{DF} =0.05$ (a) against the same velocity field estimated from the near-field pressure (b) and finally a reduced-order reconstruction of the raw velocity using the first 100 POD modes ; units are in m/s.}
+	\caption{Comparison of a raw instantaneous axial velocity fluctuations $St_{DF} =0.05$ (a) against the same velocity fluctuations estimated from the near-field pressure (b) and finally a reduced-order reconstruction of the raw velocity using the first 100 POD modes; units are in m/s.}
 	\label{fig:ch4_SEPOD_filtering}
 \end{figure}
 
@@ -111,7 +121,7 @@ This was entirely expected however, as the reference signal is much more strongl
 The pressure field simply does not have the resolution to approximate the velocity field, particularly further downstream where the microphones are further from the jet centerline due to the spreading of the shear layer.
 The estimated velocity fields are specifically referred to in the present work as \textit{reduced}-order rather than \textit{low}-order however.
 Comparison of the estimated velocity against a reconstruction of the measured field using the most energetic 100 POD modes (of a total of 1500 POD modes corresponding to the 1500 uncorrelated velocity fields) indicates that the SE-POD algorithm retains similar (if not greater) energy levels.
-An example of this is the small-scale structure observed at $z/D \simeq 8$, just outside the high-velocity region of the jet (orange, in the figure in the measured velocity.
+An example of this is the small-scale structure observed at $z/D \simeq 4$, just outside the high-velocity region of the jet (orange-red in the figure).
 This distinct structure is still visible (though smeared and slightly reduced in amplitude) in the estimated velocity, though it is basically nonexistent in the 100-mode reconstruction which contains $\sim 50$\% of the fluctuating energy (see \fig{fig:ch4_modal_energy}).
 While it is unlikely that this particular structure is notably important to the acoustic emission of the jet, low modal energy modulations of the large-scale structures may be.
 Hence, it is desirable to retain as much of the information as possible when estimating the flow.
@@ -207,7 +217,7 @@ Therefore, an axial shift in the time-averaged acoustic source (or a source loca
 Hileman \etal \citep{Hileman2005} investigated the evolution and interactions of large-scale structures and ultimately how these relate to the noise generation process in a supersonic, ideally-expanded jet by combining time-resolved flow visualizations with a three-dimensional microphone array.
 Their results showed that the dominant noise was being generated near the end of the potential core, in the region where the shear layers merged.
 Large-amplitude, highly-intermittent acoustic events were found to be associated with a fluctuation in the length of the potential core, which the authors ultimately speculated was related to the passage and finally the rapid disintegration of large-scale coherent structures just downstream of the end of the potential core.
-The results of \sect{sect:nearfield} also indicated that the jet core region was responsible for the dominant acoustic generation in a subsonic jet, at least to low angles with respect to the jet axis.
+The results of \sect{sect:nearfield} also indicated that the region upstream of the end of the potential core was responsible for the dominant acoustic generation in a subsonic jet, at least to low angles with respect to the jet axis.
 The dynamics of the large-scale structures in this region, namely the structure disintegration, are therefore of particular concern to the current work.
 
 Vortex identification was performed by computing the swirling strength at each instance in the estimated velocity field; details and justification for this method can be found in Adrian \etal \citep{Adrian2000}.
