@@ -2,7 +2,7 @@
 \label{sect:velocity}
 Analysis of the evolution, interaction, and disintegration of the large-scale structures, and ultimately the noise generated thereby, is greatly simplified by the acquisition of time-resolved flow-field measurements.
 Furthermore, as will be explained in \sect{sect:source}, computation of the aeroacoustic source field from a simplified acoustic analogy will require time-resolved flow-field data.
-Unfortunately, directly acquiring time-resolved velocity fields for the jet currently under study is simply not possible due to the combination of a large domain of interest ($0 \leq x/D \lesssim 12, 0 \leq r/D \lesssim 3$) and high characteristic frequencies on the order of several kHz.
+Unfortunately, directly acquiring time-resolved velocity fields for the jet currently under study is simply not possible due to the combination of a large domain of interest ($0 \leq x/D \lesssim 12, 0 \leq r/D \lesssim 3$) and high characteristic frequencies on the order of tens of kHz.
 Full-field, high-fidelity measurement techniques capable of this required repetition rate simply do not exist at present.
 An indirect method is therefore required in order to estimate the evolution of the large-scale structures, in a reduced-order sense.
 
@@ -90,7 +90,7 @@ Details will not be presented here however, as the results were found to not dif
 
 \subsection{Reduced-Order Representation of the Flow-Field}
 Ultimately, due to limitations both in the methodology as well as in the ability of the microphones located outside the flow to sense fine-scale turbulent fluctuations, the estimated velocity field is going to represent a reduced-order model of the jet.
-This can be easily observed in \fig{fig:ch4_SEPOD_filtering}, where the measured axial fluctuating velocity field at an arbitrary instance in time has been plotted against the fluctuating velocity field produced by the SE-POD estimation from the near-field pressure at the same instance in time.
+This can be easily observed in \fig{fig:ch4_SEPOD_filtering}, where the measured axial fluctuating velocity field at an arbitrary instance in time has been plotted against the fluctuating velocity field produced by the SE-POD estimation (using all 1500 modes) from the near-field pressure at the same instance in time.
 For comparison purposes, a reduced-order reconstruction of the measured velocity fluctuations from the first 100 POD modes (but without estimating from the near-field pressure using SE) has also been included.
 Note that here the output of the model produced by SE-POD is being compared against a known output that the system is meant to match; this is not an evaluation of the \textit{predictive} power of the model but of the \textit{representative} power.
 \begin{figure}
@@ -114,13 +114,13 @@ Note that here the output of the model produced by SE-POD is being compared agai
 	\label{fig:ch4_SEPOD_filtering}
 \end{figure}
 
-As one would hope, the large-scale turbulent fluctuations are correctly identified by the SE-POD algorithm, and a mapping from the near-field pressure to this structures is appropriately generated.
+As one would hope, the large-scale turbulent fluctuations are correctly identified by the SE-POD algorithm, and a mapping from the near-field pressure to these structures is appropriately generated.
 The accuracy in the feature reproduction degrades considerably however as the scale of the turbulent eddy is reduced.
 Some small-scale behavior is retained though most is filtered out, particularly the downstream region.
 This was entirely expected however, as the reference signal is much more strongly damped with wavenumber than the conditional field being estimated (decay rates of $-20/3$ for the pressure field versus $-5/3$ in log-space for the velocity field).
 The pressure field simply does not have the resolution to approximate the velocity field, particularly further downstream where the microphones are further from the jet centerline due to the spreading of the shear layer.
 The estimated velocity fields are specifically referred to in the present work as \textit{reduced}-order rather than \textit{low}-order however.
-Comparison of the estimated velocity against a reconstruction of the measured field using the most energetic 100 POD modes (of a total of 1500 POD modes corresponding to the 1500 uncorrelated velocity fields) indicates that the SE-POD algorithm retains similar (if not greater) energy levels.
+Comparison of the estimated velocity against a reconstruction of the measured field using the most energetic 100 POD modes (of a total of 1500 POD modes corresponding to the 1500 uncorrelated velocity fields) indicates that the SE-POD algorithm retains similar energy levels.
 An example of this is the small-scale structure observed at $x/D \simeq 4$, just outside the high-velocity region of the jet (orange-red in the figure).
 This distinct structure is still visible (though smeared and slightly reduced in amplitude) in the estimated velocity, though it is basically nonexistent in the 100-mode reconstruction which contains $\sim 50$\% of the fluctuating energy (see \fig{fig:ch4_modal_energy}).
 While it is unlikely that this particular structure is notably important to the acoustic emission of the jet, low modal energy modulations of the large-scale structures may be.
@@ -138,7 +138,7 @@ Because of this, analysis methods based on ensemble-averages of the velocity fie
 
 For the impulsively-excited ($St_{DF} = 0.05$) jet, the dominant orthogonal modes are concentrated downstream of the end of the potential core, and it is not until mode 8 that a clear symmetric pattern about the jet centerline emerges. 
 (However, it should be noted that modes 4 and 5 are very nearly mirrors of each other, and as such could produce symmetric features if coupled.)
-Clearly, the excited axisymmetric structures represent only a small portion of the turbulent kinetic energy of the jet, and as such low-order representations of the flow will fail to accurately capture their dynamics.
+Clearly, the excited axisymmetric structures represent only a small portion of the turbulent kinetic energy of the jet, and as such, low-order representations of the flow will fail to accurately capture the dynamics of these excited structures.
 As the excitation frequency is increased, the LAFPA-induced structures become high-energy periodic oscillations in the jet shear layer and core, and the POD modes are modified accordingly (\fig{fig:ch4_St025_PODmodes}).
 Similar behaviors were found for the other periodic excitation frequencies explored in this work ($St_{DF} = 0.15, 0.35$), so for brevity only the $St_{DF} = 0.25$ will be explicitly analyzed in this section.
 
@@ -221,7 +221,7 @@ The results of \sect{sect:nearfield} also indicated that the region upstream of 
 The dynamics of the large-scale structures in this region, namely the structure disintegration, are therefore of particular concern to the current work.
 
 Vortex identification was performed by computing the swirling strength at each instance in the estimated velocity field; details and justification for this method can be found in Adrian \etal \citep{Adrian2000}.
-The evolution of the impulsively excited ($St_{DF} = 0.05$) vortex ring has be tracked in \fig{fig:ch4_impulse_structure_disintegration}.
+The evolution of the impulsively excited ($St_{DF} = 0.05$) vortex ring has been tracked in \fig{fig:ch4_impulse_structure_disintegration}.
 For ease of visualization, a two-dimensional, five-point boxcar filter was applied to the estimated velocity fields prior to computing the swirling strength, and the results have been phase-averaged based on the recorded LAFPA trigger signal over roughly 30 excitation periods.
 Lastly, a solid red line has been overlain to approximately match the convective velocity of the structures.
 Only a select number of phases are shown here, as a significant amount of dead time between excitations occurs due to the mismatch in the spatial and temporal characteristic frequencies of the large-scale structures.
@@ -233,7 +233,7 @@ Only a select number of phases are shown here, as a significant amount of dead t
 \end{figure}
 
 As already known from prior experiments at the GDTL \citep{Kearney-Fischer2009}, the excitation produces a strong roll-up of vortical (toroidal) fluid in the near-nozzle region; in the present case the large-scale structure generated by the excitation is clearly discernible over the background turbulence (and experimental/computational noise) by $x/D \simeq 1$.
-If the contours of the swirling strength field are to be believed, the rapid growth of the vortex slows by $x/D \simeq 1.5$ and it advects downstream relatively unchanged until  $x/D \simeq 4$ (other vortex identification methods, such as Q-criterion or $\lambda_2$-criterion, were also investigated and a general agreement was found, though swirling strength produced the visually-simplest fields).
+The rapid growth of the vortex slows by $x/D \simeq 1.5$ and it advects downstream relatively unchanged until  $x/D \simeq 4$ (other vortex identification methods, such as Q-criterion or $\lambda_2$-criterion, were also investigated and a general agreement was found, though swirling strength produced the visually-simplest fields).
 It is at this point that the vortex undergoes a rapid disintegration, yielding smaller scale, less coherent structures (though by no means would these structures be classified as fine-scale turbulence) as it passes through the end of the potential core.
 These results are in general agreement with those of Hileman \etal \citep{Hileman2005}, who found that the large-amplitude acoustic bursts of energy were associated with the passage of high-order structures through the end of the potential core.
 \begin{figure}
@@ -269,12 +269,12 @@ Here it was found that the control achieved the majority of the sound reduction 
 The results of Kibens \citep{Kibens1980} also identified vortex merging as a prominent noise source in a (low) subsonic jet.
 With this in mind, the evolution of the vortices in the periodically excited jets was analyzed.
 
-\fig{fig:ch4_period_structure_disintegration} illustrates a complete excitation period for the $St_{DF} = 0.25$ excited jet; as before the velocity fields were smoothed prior to computation of the swirling strength, and the results have been phase-averaged.
+\fig{fig:ch4_period_structure_disintegration} illustrates a complete excitation period for the $St_{DF} = 0.25$ excited jet; as before the velocity fields were smoothed prior to computation of the swirling strength, and the results have been phase-averaged over roughly 150 phases.
 Previous analysis of the near-field had used two-point correlations between subsequent microphones in order to estimate the convective velocity of the large-scale structures; based on the time-lag for the maximum correlation value, the convective velocity was estimated as $U_c \simeq 0.7 U_j$.
 However, the analysis of Speth \citep{Speth2015} in a simulated Mach 0.9 unheated jet found that this method over-predicted the convective velocity; for example, near the end of the potential core two-point correlations in the irrotational near-field produced an estimate of $U_c \simeq 0.67 U_j$ whereas correlations in the \textit{flow}-field produced an estimate of $U_c \simeq 0.64 U_j$.
 Essentially, the energy of the acoustic field in the irrotational near-field though small, is non-trivial, and as a result the much higher propagation velocity for the acoustic energy skews the convective velocity estimate to slightly higher values.
 By using only the hydrodynamic component of the near-field (produced by the decomposition of \sect{sect:ac_decomp}), the convective velocity was estimated as $U_c \simeq 0.54 U_j$ near the nozzle exit and $U_c \simeq 0.65 U_j$ near the end of the potential core (which, incidentally, are nearly identical to the values reported in Speth \citep{Speth2015}).
-Based on these values, the vortex spacing is expected to range from $\lambda \simeq 2.3D$ at the nozzle exit to $\simeq 2.6D$ near the end of the potential core.
+Based on these values, the vortex spacing is expected to be $\simeq 2.6D$ near the end of the potential core.
 \begin{figure}
 	\centering
 	\includegraphics[width=5in]{Figures/ch4_St025_lambda.png}
@@ -282,23 +282,24 @@ Based on these values, the vortex spacing is expected to range from $\lambda \si
 	\label{fig:ch4_period_structure_disintegration}
 \end{figure}
 
-As expected, the excitation produces a periodic roll-up of large-scale structures which, in the downstream region of the potential core, roughly match with the vortex spacing for this frequency (see frame 1 in \fig{fig:ch4_period_structure_disintegration}).
-However, in the upstream region ($x/D < 2$) the vortex spacing halves - the LAFPA excitation is in fact results in the creation multiple structures per actuation pulse.
+As expected, the excitation produces a periodic roll-up of large-scale structures which, in the downstream region near the end of the potential core, roughly match with the vortex spacing for this frequency (see frame 1 in \fig{fig:ch4_period_structure_disintegration}).
+However, in the upstream region ($x/D < 2$) the vortex spacing halves - the LAFPA excitation is in fact producing structures with a frequency associated with the most unstable shear layer frequency, which is significantly higher than the jet column mode frequency.
 While this is the first time that this behavior has been observed at the GDTL, it is not terribly surprising if the specifics of LAFPA actuation are considered with respect to the well-known shear layer instability characteristics.
 Unlike many other actuators used previously for flow control, the perturbation generated by the LAFPAs is non-sinusoidal and comprised of many higher harmonics than just the fundamental excitation frequency.
-These higher harmonics couple to the flow and excite the shear layer instability, which is most unstable at frequencies much higher than the fundamental excitation frequencies used in this work.
-Therefore, the structures initially formed by the excitation are going to be associated with harmonics of the fundamental excitation frequency.
+These higher harmonics couple to the flow and excite the shear layer instability, which is most unstable at frequencies much higher than the excitation frequencies used in this work.
+Therefore, the structures initially formed by the excitation are going to be associated with harmonics of the excitation frequency.
 Hence, it is only after merging (or successive mergings) that the passage frequency of the large-scale structures is going to match the fundamental excitation frequency.
 
-In frame 2, the harmonic structures at $x/D = 1$ are beginning to merge.
-The trailing structure is inducted inside the preceding structure, and by $x/D \simeq 3$ the merging process is complete; the appearance of structures now matches the excitation frequency.
-The physical interpretation of POD mode 10 in \fig{fig:ch4_St025_PODmodes} is now obvious: the orthogonal decomposition is identifying the harmonic structures and their coherent merging in the upstream region of the jet.
+In frame 2, the two structures at $x/D = 1$ are beginning to merge.
+The trailing structure is inducted inside the preceding structure, and by $x/D \simeq 3$ the merging process is complete.
+The physical interpretation of POD mode 10 in \fig{fig:ch4_St025_PODmodes} is now obvious: the orthogonal decomposition is identifying the higher frequency structures, as well as the merged structures, in the upstream region of the jet.
 As the resultant structure convects downstream, the beginning of the breakdown of the vortex is witnessed near $x/D \simeq 4$, similar to the results of the impulsively excited vortex ring and an acceleration of the centerline velocity to slightly supersonic speeds is also observed (\fig{fig:ch4_centerlinemach_temporal}).
 Here however, a secondary interaction between structures appears to be occurring, most visibly in frames 5--7. 
-As the vortex at $x/D \simeq 4.5$ is breaking down, the trailing vortex does as well, in fact much more abruptly than the leading vortex.
+Depending on how exactly the coherent vortices are visualized, it appears that a second merging process is commencing here, however the vortices disintegrate before the trailing vortices can be inducted into the first. 
+As the vortex at $x/D \simeq 4.5$ is breaking down, the trailing vortex breaks down as well, in fact much more abruptly than the leading vortex; the appearance of structures now matches the excitation frequency.
 As the cycle is repeated (beginning again at frame 1), these two vortices (or more accurately, the less coherent, higher-order remnants of them) are no longer individually distinguishable.
 
-On the other hand, the far-field response of the jet to periodic excitation at $St_{DF}=0.35$ could not be reproduced accurately using a linear superposition of the impulse response.
+Recall that the far-field response of the jet to periodic excitation at $St_{DF}=0.35$ could not be reproduced accurately using a linear superposition of the impulse response.
 The vortex dynamics that this excitation frequency produces may thus serve as an insightful contrast for understanding the noise generation phenomena.
 A complete excitation cycle for $St_{DF}=0.35$ has been visualized in \fig{fig:ch4_St035_structure_disintegration}.
 In this case, two merging processes are now clearly evident.
